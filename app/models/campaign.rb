@@ -1,9 +1,7 @@
 class Campaign < ActiveRecord::Base
-attr_accessible 
+attr_accessible :topic, :image_url, :video_url, :stance, :funding_deadline, :funding_goal, :pitch, :description
 
-has_many	:users, as: :userable
-belongs_to	:topic
-
-:topic
+has_many	:users, through: :campaign_users
+belongs_to :topic
 
 end
