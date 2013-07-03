@@ -11,7 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130703205632) do
+ActiveRecord::Schema.define(:version => 20130703210402) do
+
+  create_table "campaign_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "campaign_id"
+    t.string   "user_type"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "campaign_users", ["campaign_id", "user_type", "user_id"], :name => "index_campaign_users_on_campaign_id_and_user_type_and_user_id", :unique => true
+
+  create_table "campaigns", :force => true do |t|
+    t.integer  "topic_id"
+    t.string   "image_url"
+    t.string   "video_url"
+    t.boolean  "stance"
+    t.datetime "funding_deadline"
+    t.integer  "funding_goal"
+    t.text     "pitch"
+    t.text     "description"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "topics", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
