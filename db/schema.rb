@@ -37,8 +37,10 @@ ActiveRecord::Schema.define(:version => 20130703214633) do
   end
 
   create_table "topics", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

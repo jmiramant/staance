@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'pg'
 gem 'figaro'
+gem 'thin'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -19,6 +20,8 @@ group :test, :development do
 	gem 'database_cleaner'
 	gem 'debugger'
   gem 'sextant'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 gem 'jquery-rails'
