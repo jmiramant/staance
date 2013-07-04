@@ -1,6 +1,7 @@
 class CampaignsController < ApplicationController
   def index
     @campaigns = Campaign.all
+    @topics = Topic.all
   end
 
   def new
