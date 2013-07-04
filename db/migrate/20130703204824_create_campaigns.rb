@@ -5,7 +5,7 @@ class CreateCampaigns < ActiveRecord::Migration
       t.string      :title, :image_url, :short_blurb, :location, :video_url, :cause_url
     	t.datetime	  :funding_deadline
     	t.integer		  :funding_goal
-    	t.text			  :pitch
+    	t.text			  :pitch  
     end
   end
 end

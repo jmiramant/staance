@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(:version => 20130704054940) do
     t.datetime "funding_deadline"
     t.integer  "funding_goal"
     t.text     "pitch"
-    t.boolean  "stance"
   end
 
   create_table "taggings", :force => true do |t|

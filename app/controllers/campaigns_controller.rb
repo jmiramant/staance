@@ -12,9 +12,14 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    campaign = Campaign.create(params[:campaign])
-    CampaignUser.create(campaign_id: campaign.id, user_id: current_user.id, :user_type => "Creator")
-    redirect_to campaign
+    @campaign = Campaign.create(params[:campaign])
+    if @campaign.valid?
+      CampaignUser.create(campaign_id: @campaign.id, user_id: current_user.id, :user_type => "Creator")
+      redirect_to @campaign
+    else
+      @errors = @campaign.errors.full_messages
+      render :new
+    end
   end
 
   def show
