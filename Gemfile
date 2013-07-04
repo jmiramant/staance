@@ -17,6 +17,7 @@ end
 group :test, :development do
 	gem 'rspec-rails'
 	gem 'capybara'
+  gem 'selenium-webdriver'
 	gem 'shoulda'
 	gem 'database_cleaner'
 	gem 'debugger'

@@ -6,7 +6,7 @@
   .blurb
     = @campaign.short_blurb
   .goal
-    = @campaign.funding_goal
+    = to_currency(@campaign.funding_goal)
   .deadline
     = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
   .pitch
