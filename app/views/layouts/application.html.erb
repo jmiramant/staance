@@ -22,6 +22,7 @@
       <%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %>
     <% end %>
   </nav>
+  <%= render 'shared/errors', errors: @errors %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 <%= yield %>

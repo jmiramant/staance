@@ -19,6 +19,7 @@ module AuthenticationsHelper
     user.email = omni['extra']['raw_info'].email if omni['extra']['raw_info'].email
     user.apply_omniauth(omni)
     if user.save
+      support(user.id)
       flash[:notice] = "Logged in!"
       sign_in_and_redirect user
     else

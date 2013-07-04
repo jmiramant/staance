@@ -1,5 +1,4 @@
 # encoding: utf-8
-
 # Set the default text field size when input is a string. Default is nil.
 # Formtastic::FormBuilder.default_text_field_size = 50
 
@@ -30,7 +29,7 @@
 
 # Set the way inline errors will be displayed.
 # Defaults to :sentence, valid options are :sentence, :list, :first and :none
-# Formtastic::FormBuilder.inline_errors = :sentence
+  Formtastic::FormBuilder.inline_errors = :none
 # Formtastic uses the following classes as default for hints, inline_errors and error list
 
 # If you override the class here, please ensure to override it in your stylesheets as well
