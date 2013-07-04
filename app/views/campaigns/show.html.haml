@@ -2,16 +2,16 @@
   .title
     = @campaign.title
   .image
-    %img{:src => "http://images4.fanpop.com/image/photos/16100000/-cats-16140154-1920-1080.jpg"}
+    %img{:src => @campaign.image_url}
   .blurb
     = @campaign.short_blurb
   .goal
     = @campaign.funding_goal
   .deadline
-    = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")  if @campaign.funding_deadline
+    = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
   .pitch
     = @campaign.pitch
-    
+
   .support
     - if user_signed_in?
       - if !session[:support].include?(@campaign.id)
