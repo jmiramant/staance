@@ -246,6 +246,7 @@ DEPENDENCIES
   haml
   jquery-rails
   neat
+  nokogiri
   omniauth
   omniauth-facebook
   omniauth-twitter
