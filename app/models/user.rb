@@ -26,4 +26,10 @@ class User < ActiveRecord::Base
       super
     end
   end
+
+  def supported_campaigns
+    @support = []
+    self.campaign_users.each {|support| @support << support.campaign_id }
+    @support
+  end
 end

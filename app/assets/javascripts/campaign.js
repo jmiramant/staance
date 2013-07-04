@@ -2,7 +2,6 @@ var SupportLink = {
 	init: function() {
 		$('#support').on('ajax:success', this.appendNotice);
 		$('#support').on('ajax:errors', this.appendAlert);
-		$('#support').on('ajax:complete', this.appendAlert);
 	},
 	appendNotice: function(){
 		console.log('goood');

@@ -1,5 +1,4 @@
 class CampaignsController < ApplicationController
-  
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
@@ -23,6 +22,7 @@ class CampaignsController < ApplicationController
   end
 
   def show
+    @support = current_user.supported_campaigns if current_user
     @campaign = Campaign.find_by_id(params[:id])
   end
 
