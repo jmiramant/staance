@@ -8,5 +8,4 @@ class Campaign < ActiveRecord::Base
   belongs_to :topic
 
   acts_as_taggable
-
 end

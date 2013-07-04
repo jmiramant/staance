@@ -1,7 +1,6 @@
 class CampaignsController < ApplicationController
-
   def index
-    @topics = Topic.all
+    @campaigns = Campaign.all
   end
 
   def new
@@ -14,13 +13,16 @@ class CampaignsController < ApplicationController
     redirect_to root_path
   end
 
-  def destroy
+  def show
+    @campaign = Campaign.find(params[:id])
   end
 
-  def show
+  def edit
   end
 
   def update
   end
 
+  def destroy
+  end
 end

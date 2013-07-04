@@ -2,17 +2,11 @@ class CreateCampaigns < ActiveRecord::Migration
   def change
     create_table :campaigns do |t|
     	t.references	:topic
-      t.string    :title
-      t.string    :image_url
-      t.string    :short_blurb
-      t.string    :location
-    	t.datetime	:funding_deadline
-    	t.integer		:funding_goal
-    	t.text			:pitch
-      t.string    :video_url
-      t.string    :cause_url
-      t.boolean   :stance
-      t.timestamps
+      t.string      :title, :image_url, :short_blurb, :location, :video_url, :cause_url
+    	t.datetime	  :funding_deadline
+    	t.integer		  :funding_goal
+    	t.text			  :pitch 
+      t.boolean     :stance
     end
   end
 end
