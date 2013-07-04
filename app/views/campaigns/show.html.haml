@@ -8,7 +8,7 @@
   .goal
     = @campaign.funding_goal
   .deadline
-    = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
+    = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")  if @campaign.funding_deadline
   .pitch
     = @campaign.pitch
     
