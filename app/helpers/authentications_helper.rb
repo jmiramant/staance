@@ -1,7 +1,6 @@
 module AuthenticationsHelper
   def sign_in_user(authentication)
     flash[:notice] = "Logged in!"
-    support(authentication.user_id)
     sign_in_and_redirect User.find(authentication.user_id)
   end
 
@@ -19,7 +18,6 @@ module AuthenticationsHelper
     user.email = omni['extra']['raw_info'].email if omni['extra']['raw_info'].email
     user.apply_omniauth(omni)
     if user.save
-      support(user.id)
       flash[:notice] = "Logged in!"
       sign_in_and_redirect user
     else
@@ -27,10 +25,4 @@ module AuthenticationsHelper
       redirect_to new_user_registration_path
     end
   end
-
-  def support(user_id)
-    session[:support] = []
-    User.find(user_id).campaign_users.each {|support| session[:support] << support.campaign_id }
-  end
-
 end
