@@ -35,6 +35,7 @@ gem 'devise'
 gem 'twitter'
 gem 'fb_graph'
 gem 'debugger'
+gem 'acts-as-taggable-on'
 
 #image storage
 gem 'aws-s3', :require => 'aws/s3'
