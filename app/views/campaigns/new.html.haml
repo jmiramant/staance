@@ -1,4 +1,13 @@
 = semantic_form_for @campaign do |f|
-  = f.inputs
+  = f.input :topic
+  = f.input :title
+  = f.input :video_url 
+  = f.input :image_url
+  = f.input :short_blurb, as: :text
+  = f.input :pitch, as: :text
+  = f.input :location 
+  = f.input :cause_url 
+  = f.input :funding_deadline, as: :date_picker
+  = f.input :funding_goal 
   = f.input :tag_list, label: "Tags (separated by commas, bro)"
   = f.actions :submit, :cancel

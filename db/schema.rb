@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704054940) do
+ActiveRecord::Schema.define(:version => 20130704211602) do
 
   create_table "authentications", :force => true do |t|
     t.integer "user_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130704054940) do
     t.integer "user_id"
     t.integer "campaign_id"
     t.string  "user_type"
+    t.float   "donation_amount"
   end
 
   add_index "campaign_users", ["campaign_id", "user_type", "user_id"], :name => "index_campaign_users_on_campaign_id_and_user_type_and_user_id", :unique => true
@@ -37,9 +38,10 @@ ActiveRecord::Schema.define(:version => 20130704054940) do
     t.string   "location"
     t.string   "video_url"
     t.string   "cause_url"
-    t.datetime "funding_deadline"
-    t.integer  "funding_goal"
-    t.text     "pitch"
+    t.boolean  "stance"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.float    "donation_total",   :default => 0.0
   end
 
   create_table "taggings", :force => true do |t|

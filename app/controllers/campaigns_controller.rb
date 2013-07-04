@@ -33,4 +33,15 @@ class CampaignsController < ApplicationController
   def destroy
   end
 
+  def donate
+    campaign = Campaign.find(params[:campaign_id])
+    campaign_user = CampaignUser.find_or_create_by_campaign_id_and_user_id_and_user_type(campaign.id, current_user.id, 'Donator')
+    campaign.donation_total -= campaign_user.donation_amount if campaign_user.donation_amount
+    campaign_user.donation_amount = params[:donation].to_f
+    campaign_user.save
+    campaign.donation_total += params[:donation].to_f
+    campaign.save
+    redirect_to Campaign.find(params[:campaign_id])
+  end
+
 end

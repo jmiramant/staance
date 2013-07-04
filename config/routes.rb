@@ -7,4 +7,6 @@ PoliticalKickstarter::Application.routes.draw do
   # get 'tags/:tag', to: 'campaigns#index', as: :tag  ==>  uncomment to enable search by tags
 
   root :to => "campaigns#index"
+
+  match '/donate' => "campaigns#donate", action: 'post'
 end

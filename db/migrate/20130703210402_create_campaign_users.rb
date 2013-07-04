@@ -6,6 +6,5 @@ class CreateCampaignUsers < ActiveRecord::Migration
     end
 
     add_index :campaign_users, [:campaign_id, :user_type, :user_id], unique: true
-    
   end
 end
