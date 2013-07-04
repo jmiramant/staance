@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :campaign_users, :dependent => :destroy
   has_many :authentications, :dependent => :destroy
   has_many :campaigns, through: :campaign_users
-  
+
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   def apply_omniauth(omni)
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   end
 
   def password_required?
-    #(authentications.empty? || !password.blank?) && super  ORIGINAL LINE - DON'T UNDERSTAND WHY !password.blank? required
+    # (authentications.empty? || !password.blank?) && super ==> keeping in fear of not knowing what it's doing...
     authentications.empty? && super
   end
 
