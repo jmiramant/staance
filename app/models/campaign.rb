@@ -1,5 +1,5 @@
 class Campaign < ActiveRecord::Base
-  attr_accessible :topic_id, :image_url, :video_url, :funding_deadline 
+  attr_accessible :topic_id, :image_url, :video_url, :funding_deadline, :stance 
   attr_accessible :short_blurb, :location, :cause_url, :funding_goal, :pitch, :title
   attr_accessible :tag_list
 

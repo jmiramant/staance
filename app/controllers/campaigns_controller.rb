@@ -24,6 +24,7 @@ class CampaignsController < ApplicationController
   def show
     @support = current_user.supported_campaigns if current_user
     @campaign = Campaign.find_by_id(params[:id])
+    @ids = CampaignUser.where(campaign_id: @campaign.id, user_type: "Supporter").pluck("user_id")
   end
 
   def update

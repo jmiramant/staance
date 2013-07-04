@@ -16,3 +16,10 @@
     - if user_signed_in?
       - if !@support.include?(@campaign.id)
         = link_to "Support", campaign_users_path(@campaign.id), method: 'post', id: "support", remote: true
+
+  .supporter
+    - if @ids
+      Supporters:<br>
+      - @ids.each do |id|
+        %a{:href => "/users/#{id}"}
+          \/users/#{id}<br>
