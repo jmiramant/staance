@@ -33,13 +33,16 @@ ActiveRecord::Schema.define(:version => 20130703224721) do
 
   create_table "campaigns", :force => true do |t|
     t.integer  "topic_id"
+    t.string   "title"
     t.string   "image_url"
-    t.string   "video_url"
-    t.boolean  "stance"
+    t.string   "short_blurb"
+    t.string   "location"
     t.datetime "funding_deadline"
     t.integer  "funding_goal"
     t.text     "pitch"
-    t.text     "description"
+    t.string   "video_url"
+    t.string   "cause_url"
+    t.boolean  "stance"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
