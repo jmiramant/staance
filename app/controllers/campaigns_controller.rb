@@ -8,6 +8,12 @@ def new
 end
 
 def create
+  campaign = Campaign.new(args)
+  CampaignUser.new
+  campaign.usersrai.user_id = user.id
+  campaign.user_type = "Creator"
+  campaign.topic = params[:topic]
+  campaign.save
 end
 
 def destroy
