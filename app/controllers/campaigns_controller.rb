@@ -10,14 +10,15 @@ class CampaignsController < ApplicationController
 
   def create
     campaign = Campaign.create(params[:campaign])
-    CampaignUser.create(campaign_id: campaign.id, user_id: current_user.id, user_type: "Creator")
-    redirect_to "index"
-  end
-
-  def destroy
+    CampaignUser.create(campaign_id: campaign.id, user_id: current_user.id, :user_type => "Creator")
+    redirect_to campaign
   end
 
   def show
+    @campaign = Campaign.find_by_id(params[:id])
+  end
+
+  def destroy
   end
 
   def update

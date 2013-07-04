@@ -4,5 +4,5 @@ PoliticalKickstarter::Application.routes.draw do
   root :to => "campaigns#index"
   resources :campaigns
   resources :users, only: [:index, :show]
-
+  resources :campaign_users, only: :create
 end
