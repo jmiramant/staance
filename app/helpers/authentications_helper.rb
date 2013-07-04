@@ -1,6 +1,7 @@
 module AuthenticationsHelper
   def sign_in_user(authentication)
     flash[:notice] = "Logged in!"
+    support(authentication.user_id)
     sign_in_and_redirect User.find(authentication.user_id)
   end
 
@@ -24,6 +25,11 @@ module AuthenticationsHelper
       session[:omniauth] = omni.except('extra')
       redirect_to new_user_registration_path
     end
+  end
+
+  def support(user_id)
+    session[:support] = []
+    User.find(user_id).campaign_users.each {|support| session[:support] << support.campaign_id }
   end
 
 end
