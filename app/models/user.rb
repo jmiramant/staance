@@ -1,22 +1,12 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable, :omniauthable,
-         :recoverable, :rememberable, :trackable, :validatable
-  has_many :campaign_users
+         :recoverable, :rememberable, :trackable, :validatable, :omniauth_providers => [:twitter, :facebook]
+  has_many :campaign_users 
+  has_many :authentications
   has_many :campaigns, through: :campaign_users
   
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
-
-  def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-    end
-  end
 
   def self.new_with_session(params, session)
     if session["devise.user_attributes"]
@@ -30,7 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def password_required?
-    super && provider.blank?
+    (authentications.empty? || !password.blank?) && super
   end
 
   def update_with_password(params, *options)
@@ -39,5 +29,11 @@ class User < ActiveRecord::Base
     else
       super
     end
+  end
+
+  def apply_omniauth(omni)
+    authentications.build(provider: omni['provider'], uid: omni['uid'],
+                          token: omni['credentials'].token,
+                          token_secret: omni['credentials'].secret)
   end
 end

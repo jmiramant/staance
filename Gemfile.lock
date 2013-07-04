@@ -243,6 +243,7 @@ DEPENDENCIES
   haml
   jquery-rails
   neat
+  omniauth
   omniauth-facebook
   omniauth-twitter
   pg

@@ -28,11 +28,13 @@ gem 'jquery-rails'
 gem 'formtastic'
 
 #all auth gems
-gem 'devise'
+gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'devise'
 gem 'twitter'
 gem 'fb_graph'
+gem 'debugger'
 
 #image storage
 gem 'aws-s3', :require => 'aws/s3'
