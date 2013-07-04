@@ -11,8 +11,9 @@
     = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
   .pitch
     = @campaign.pitch
-
+    
   .support
     - if user_signed_in?
       - if !session[:support].include?(@campaign.id)
         = link_to "Support", campaign_users_path(@campaign.id), method: 'post', id: "support", remote: true
+

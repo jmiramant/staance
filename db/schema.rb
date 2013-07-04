@@ -22,11 +22,9 @@ ActiveRecord::Schema.define(:version => 20130704054940) do
   end
 
   create_table "campaign_users", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "campaign_id"
-    t.string   "user_type"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer "user_id"
+    t.integer "campaign_id"
+    t.string  "user_type"
   end
 
   add_index "campaign_users", ["campaign_id", "user_type", "user_id"], :name => "index_campaign_users_on_campaign_id_and_user_type_and_user_id", :unique => true
@@ -37,14 +35,12 @@ ActiveRecord::Schema.define(:version => 20130704054940) do
     t.string   "image_url"
     t.string   "short_blurb"
     t.string   "location"
+    t.string   "video_url"
+    t.string   "cause_url"
     t.datetime "funding_deadline"
     t.integer  "funding_goal"
     t.text     "pitch"
-    t.string   "video_url"
-    t.string   "cause_url"
     t.boolean  "stance"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
   end
 
   create_table "taggings", :force => true do |t|
@@ -65,10 +61,8 @@ ActiveRecord::Schema.define(:version => 20130704054940) do
   end
 
   create_table "topics", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string "title"
+    t.text   "description"
   end
 
   create_table "users", :force => true do |t|
