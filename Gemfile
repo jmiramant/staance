@@ -25,6 +25,7 @@ group :test, :development do
 end
 
 gem 'jquery-rails'
+gem 'formtastic'
 
 #all auth gems
 gem 'devise'

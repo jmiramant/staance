@@ -12,5 +12,5 @@ TOPICS = ["Community", "Diversity", "Economy", "Environment",
 "LGBTQQ", "Military", "Parenting", "Politics", "Science & Technology",
 "Spanish", "Women", "Employment"]
 
-TOPICS.each { |topic| Topic.new(title: topic) }
+TOPICS.each { |topic| Topic.create(title: topic) }
 
