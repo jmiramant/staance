@@ -11,7 +11,7 @@ class CampaignsController < ApplicationController
   def create
     campaign = Campaign.create(params[:campaign])
     CampaignUser.create(campaign_id: campaign.id, user_id: current_user.id, user_type: "Creator")
-    redirect_to "index"
+    redirect_to root_path
   end
 
   def destroy

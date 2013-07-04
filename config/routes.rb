@@ -5,4 +5,5 @@ PoliticalKickstarter::Application.routes.draw do
   resources :campaigns
   resources :users, only: [:index, :show]
 
+  get 'tags/:tag', to: 'campaigns#index', as: :tag
 end
