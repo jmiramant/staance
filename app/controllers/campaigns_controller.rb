@@ -1,4 +1,7 @@
 class CampaignsController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   def index
     @campaigns = Campaign.all
     @topics = Topic.all
@@ -18,12 +21,10 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find_by_id(params[:id])
   end
 
-  def destroy
-  end
-
   def update
   end
 
   def destroy
   end
+
 end
