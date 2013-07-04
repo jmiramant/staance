@@ -1,10 +1,8 @@
-/ #tag_cloud
-/   - tag_cloud Campaign.tag_counts, %w[s m l] do |tag, css_class|
-/     = link_to tag.name, tag_path(tag.name), class: css_class
-/ %br  ==> when ready, uncomment for tag cloud
-All Campaigns:
-%br
-%campaigns_container
-  - @campaigns.each do |campaign|
-    = campaign.title
-    %br
+.topics_container
+  - @topics.each do |topic|
+    %h3= topic.title
+    %ul
+      - campaign_by_topic(topic).each do |campaign|
+        - if campaign
+          %li
+            %a{:href => "/campaign/#{campaign.id}"}= campaign.title
