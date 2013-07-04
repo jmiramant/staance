@@ -4,5 +4,4 @@ class Topic < ActiveRecord::Base
 	has_many :campaigns
   validates :title, uniqueness: true
 
-  # attr_accessible :title, :body
 end

@@ -16,7 +16,7 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <% if f.object.encrytped_password? %>
+  <% if f.object.encrypted_password? %>
     <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password %></div>
   <% end %>
