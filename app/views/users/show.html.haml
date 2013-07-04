@@ -1,2 +1,10 @@
-User Email: 
-= @user.email
+.user
+  .email
+    User Email: 
+    = @user.email
+
+  .supports
+    %h4 Supports
+    - @campaigns.each do |campaign|
+      %a{:href => "/campaigns/#{campaign.id}"}
+        \#{campaign.title}<br>
