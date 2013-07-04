@@ -5,3 +5,4 @@ Campaign Title:
 - if user_signed_in?
   - if !session[:support].include?(@campaign.id)
     = link_to "Support", campaign_users_path(@campaign.id), method: 'post', id: "support", remote: true
+
