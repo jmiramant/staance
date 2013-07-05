@@ -32,4 +32,12 @@ class User < ActiveRecord::Base
     self.campaign_users.each {|support| @support << support.campaign_id }
     @support
   end
+
+  def authenticated_networks
+    authenticated_networks = []
+    self.authentications.each do |auth|
+      authenticated_networks << auth[:provider]
+    end
+    authenticated_networks
+  end
 end

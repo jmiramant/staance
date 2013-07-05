@@ -1,5 +1,16 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+<div class="authenticated-networks">
+<% unless current_user.authenticated_networks.include?("facebook") %>
+  <%= link_to "Connect Your Facebook Account", user_omniauth_authorize_path(:facebook) %>
+<% end %>
+</br>
+<% unless current_user.authenticated_networks.include?("twitter") %>
+  <%= link_to "Connect Your Twitter Account", user_omniauth_authorize_path(:twitter) %>
+<% end %>
+</div>
+</br>
+
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
