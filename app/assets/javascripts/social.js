@@ -2,9 +2,14 @@ $(document).ready(function(){
 	var desc = $('.blurb').text();
 	var image = $('.image img').attr('src');
 	var title = $('.title').text();
-	var url = window.location.href
+	var url = (window.location.href);
+
 	$('.fb-like').attr("data-href", window.location.href);
-	$('.fb-send').attr("data-href", window.location.href);
+  $('.fb-send').attr("data-href", window.location.href);
+  $('#twitter').on('click',function(){
+    $('#twitter').attr('href').remove();
+    $('#twitter').attr.("href", "https://twitter.com/intent/tweet?button_hashtag=grassroots&text=Let&rsquo;s%20make%20a%20a%20difference%20...");
+  });
 
 	  window.fbAsyncInit = function() {
     FB.init({

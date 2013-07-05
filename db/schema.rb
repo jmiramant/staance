@@ -38,8 +38,6 @@ ActiveRecord::Schema.define(:version => 20130704223437) do
     t.string   "location"
     t.string   "video_url"
     t.string   "cause_url"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
     t.datetime "funding_deadline"
     t.integer  "funding_goal"
     t.text     "pitch"

@@ -1,20 +1,41 @@
-<div id="fb-root">
-</div>
+<div id="fb-root"></div>
+<script type="text/javascript">
+  var fbAppId = '622874237732350';
+  var objectToLike = 'https://developers.facebook.com/docs/opengraph/getting-started/#submit';
 
-<script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : 622874237732350,
+      appId      : fbAppId,
       channelUrl : '//WWW.LOCALHOST:3000/',
       status     : true,
+      cookie     : true,
       xfbml      : true
-      });
+    });
   };
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
      js = d.createElement(s); js.id = id;
-		 js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=622874237732350";
+     js.src = "//connect.facebook.net/en_US/all.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+  function postLike() {
+    FB.api(
+       'https://graph.facebook.com/me/og.likes',
+       'post',
+       { object: objectToLike },
+       function(response) {
+         if (!response) {
+           alert('Error occurred.');
+         } else if (response.error) {
+           document.getElementById('result').innerHTML = 'Error: ' + response.error.message;
+         } else {
+           document.getElementById('result').innerHTML =
+             '<a href=\"https://www.facebook.com/me/activity/' + response.id + '\">' +
+             'Story created.  ID is ' + response.id + '</a>';
+         }
+       }
+    );
+  }
 </script>
