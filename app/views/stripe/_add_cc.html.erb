@@ -1,0 +1,10 @@
+<form class="stripe_payment" action="/process_card" method="POST" style="display: none;">
+  <script
+    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+    data-key=<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>
+    data-amount=<%= donation %>
+    data-name="Grassroots"
+    data-description= "Donating <%= to_currency(donation/100) %>"
+    data-image="/128x128.jpg">
+  </script>
+</form>

@@ -9,11 +9,7 @@ class StripeController < ApplicationController
     donation = params[:donation].to_f
     update_donation_total(campaign, donation)
     session[:campaign_id] = campaign.id
-    redirect_to add_cc_path
-  end
-
-  def add_cc
-    render :add_cc
+    render json: render_to_string(partial: 'add_cc', locals: { donation: donation * 100 }).to_json
   end
 
   def process_card

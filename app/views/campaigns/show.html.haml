@@ -1,6 +1,6 @@
 .campaign
   .donate
-    = form_tag("/donate", method: "post") do
+    = form_tag("/donate", method: "post", remote: true, class: "donate_payment") do
       = text_field_tag(:donation)
       = hidden_field_tag(:campaign_id, @campaign.id)
       = submit_tag("Donate!")
