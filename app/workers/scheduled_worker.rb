@@ -1,16 +1,22 @@
 class ScheduledWorker
   include Sidekiq::Worker
+  sidekiq_options retry: false
 
-  def perform(date, campaign_id)
+
+  def perform(campaign_id)
     campaign = Campaign.find(campaign_id)
     if campaign.status == 'Funded'
       send_donations(campaign)
+      p 'im funded'
     else
       campaign.status = "Unsuccessful"
+      campaign.save
+      p "not successful"
     end    
   end
 
   def send_donations(campaign)
+    p "sending donations"
     donations = collect_donations(campaign)
     donations.each do |donation|
       charge = Stripe::Charge.create(
@@ -28,6 +34,6 @@ class ScheduledWorker
     campaign_users.each do |cuser|
       donations << [cuser.find(cuser.user_id), cuser.donation_amount]
     end
-    donations
+    p donations
   end
 end
