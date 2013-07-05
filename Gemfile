@@ -4,13 +4,13 @@ gem 'nokogiri'
 gem 'pg'
 gem 'figaro'
 gem 'thin'
+gem 'haml'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'bourbon'
 	gem 'neat'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'haml'
   gem 'uglifier', '>= 1.0.3'
 end
 

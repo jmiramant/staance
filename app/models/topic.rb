@@ -5,9 +5,11 @@ class Topic < ActiveRecord::Base
   
   validates :title, uniqueness: true
 
+
   TOPICS = ["Community", "Diversity", "Economy", "Environment",
             "Guns & Crime", "Health", "Immigration", "International",
             "LGBTQQ", "Military", "Parenting", "Politics", "Science & Technology",
             "Spanish", "Women", "Employment"]
 
 end
+
