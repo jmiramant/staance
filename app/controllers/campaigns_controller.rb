@@ -1,5 +1,6 @@
 class CampaignsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
+  skip_before_filter :verify_authenticity_token, only: :process_card
 
   def index
     @campaigns = Campaign.all
@@ -41,7 +42,20 @@ class CampaignsController < ApplicationController
     campaign_user.save
     campaign.donation_total += params[:donation].to_f
     campaign.save
-    redirect_to Campaign.find(params[:campaign_id])
+    redirect_to add_cc_path
+  end
+
+  def add_cc
+    render :add_cc
+  end
+
+  def process_card
+    token = params[:stripeToken]
+    customer = Stripe::Customer.create(card: token, description: current_user.email)
+    user = User.find(current_user.id)
+    user.stripe_id = customer.id
+    user.save 
+    redirect_to root_path
   end
 
 end

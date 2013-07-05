@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704211602) do
+ActiveRecord::Schema.define(:version => 20130704223437) do
 
   create_table "authentications", :force => true do |t|
     t.integer "user_id"
@@ -38,9 +38,11 @@ ActiveRecord::Schema.define(:version => 20130704211602) do
     t.string   "location"
     t.string   "video_url"
     t.string   "cause_url"
-    t.boolean  "stance"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.datetime "funding_deadline"
+    t.integer  "funding_goal"
+    t.text     "pitch"
     t.float    "donation_total",   :default => 0.0
   end
 
@@ -80,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20130704211602) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "stripe_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

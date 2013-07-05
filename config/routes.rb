@@ -9,4 +9,6 @@ PoliticalKickstarter::Application.routes.draw do
   root :to => "campaigns#index"
 
   match '/donate' => "campaigns#donate", action: 'post'
+  match '/add_cc' => "campaigns#add_cc", action: 'get'
+  match '/process_card' => "campaigns#process_card", action: 'post'
 end
