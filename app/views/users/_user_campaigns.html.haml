@@ -1,7 +1,7 @@
 .supports
   .title 
     Created
-    - created_campaigns = CampaignUser.where(user_id: current_user.id, user_type: "Creator")
+    - created_campaigns = CampaignUser.where(user_id: current_user.id, user_type: CREATOR)
     - created_campaigns.map! {|camp| camp = Campaign.where(id: camp.campaign_id) }.flatten!
     - created_campaigns.each do |camp|
       .camp

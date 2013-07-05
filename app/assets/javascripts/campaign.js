@@ -13,6 +13,29 @@ var SupportLink = {
 	}
 };
 
+var UpdateOpposingCampaign = {
+	init: function() {
+	  $('#topic_input').on('change', function(){
+	  	topic = $('#topic_input :selected').text();
+	  	createDropDown(topic);
+		});
+	}
+}
+
+function createDropDown(topic){
+    console.log(topic);
+    if (topic === ""){
+    	$('#opposing_campaigns').html("");
+    }
+    else {
+	    $.post('/filter_topic/'+topic, function(data){
+	      $('#opposing_campaigns').html(data)
+	    });
+	  }
+	}
+
 $(document).ready(function(){
 		SupportLink.init();
+
+		UpdateOpposingCampaign.init()
 });
