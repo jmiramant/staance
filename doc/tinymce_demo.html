@@ -1,0 +1,27 @@
+<!-- NOTE:  Download tinymce from http://www.tinymce.com/download/download.php -->
+<!-- then place the tinymce folder in the same directory as this file -->
+
+<html>
+<head><!-- CDN hosted by Cachefly -->
+<script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+<script type="text/javascript">
+tinymce.init({
+    selector: "textarea",
+    plugins: [
+        "advlist autolink lists link image charmap print preview anchor",
+        "searchreplace visualblocks code fullscreen",
+        "insertdatetime media table contextmenu paste"
+    ],
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+});
+</script>
+
+
+</head>
+<body>
+<form method="post" action="somepage">
+    <textarea name="content" rows="20"></textarea>
+<input type="button" onclick="formSubmit()" value="Submit form">
+</form>
+</body>
+</html>
