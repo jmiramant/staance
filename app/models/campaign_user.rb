@@ -7,10 +7,5 @@ class CampaignUser < ActiveRecord::Base
 
   belongs_to	:user
   belongs_to	:campaign
-
-  # user_types
-    CREATOR = "Creator"
-    SUPPORTER = "Supporter"
-    DONOR = "Donor"
     
 end

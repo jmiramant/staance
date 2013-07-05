@@ -8,4 +8,14 @@ namespace :db do
     Rake::Task['db:migrate'].execute
     Rake::Task['db:seed'].execute
   end
+
+  desc "clear (destroy_all) databases"
+  task :clear => :environment do
+  	User.destroy_all
+  	Campaign.destroy_all
+  	CampaignUser.destroy_all
+  	Topic.destroy_all
+  	Authentication.destroy_all
+  	puts "Databases cleared"
+  end
 end
