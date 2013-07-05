@@ -1,10 +1,10 @@
-.user
-  .email
-    User Email: 
-    = @user.email
+#profile
+  #user_info
+    = render 'user_information'
+  #user_campaigns
+    = render 'user_campaigns'    
+  #user_donated
+    = render 'user_donated_campaigns'
+  #user_supported
+    = render 'user_supported_campaigns'
 
-  .supports
-    %h4 Supports
-    - @campaigns.each do |campaign|
-      %a{:href => "/campaigns/#{campaign.id}"}
-        \#{campaign.title}<br>

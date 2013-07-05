@@ -1,0 +1,8 @@
+.supports
+  .title 
+    Donated
+    - donated_campaigns = CampaignUser.where(user_id: current_user.id, user_type: "Donator")
+    - donated_campaigns.map! {|camp| camp = Campaign.where(id: camp.campaign_id) }.flatten!
+    - donated_campaigns.each do |camp|
+      .camp
+        = link_to camp.title, camp

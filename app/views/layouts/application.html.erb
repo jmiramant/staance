@@ -15,7 +15,7 @@
     <% if user_signed_in? %>
       Logged in as <strong><%= current_user.email %></strong>
       <%= link_to 'Create Campaign', new_campaign_path %>
-      <%= link_to 'Edit profile', edit_user_registration_path %>
+      <%= link_to 'Account', user_path(current_user) %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "Sign up", new_user_registration_path %>
