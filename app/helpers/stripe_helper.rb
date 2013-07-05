@@ -13,6 +13,12 @@ module StripeHelper
   end
 
   def update_funding_status(campaign)
+    p "checking status"
+    p campaign.status
+    p campaign.donation_total
+    p campaign.funding_goal
     campaign.status = "Funded" if campaign.donation_total >= campaign.funding_goal
+    campaign.save
+    p campaign.status
   end
 end

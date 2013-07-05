@@ -1,12 +1,15 @@
 .campaign
-  - if @campaign.funding_deadline > Date.today
+  - if @campaign.status == "Unsuccessful"
+    = render 'unsuccessful_campaign'
+  - elsif @campaign.status == "Funded"
+    = render 'successful_campaign'
+  - elsif @campaign.funding_deadline > Date.today
     .donate
       = form_tag("/donate", method: "post", remote: true, class: "donate_payment") do
         = text_field_tag(:donation)
         = hidden_field_tag(:campaign_id, @campaign.id)
         = submit_tag("Donate!")
-  - if @campaign.status == "Unsuccessful"
-    = render 'unsuccessful_campaign'
+  
   .title
     = @campaign.title
   .blurb
