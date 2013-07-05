@@ -9,10 +9,7 @@
 
 # ruby encoding: utf-8
 
-TOPICS = ["Community", "Diversity", "Economy", "Environment",
-"Guns & Crime", "Health", "Immigration", "International",
-"LGBTQQ", "Military", "Parenting", "Politics", "Science & Technology",
-"Spanish", "Women", "Employment"]
+# TOPICS defined in app/models/topic.rb
 
 TOPICS.each { |topic| Topic.find_or_create_by_title(topic) }
 
