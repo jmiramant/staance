@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
   <div id='alert'><%= @alert if @alert %><div>
 </head>
+
 <body>
+  <%= render 'shared/fbsdk' %>
   <nav>
     <%= link_to 'Home', root_path %>
     <% if user_signed_in? %>
@@ -29,3 +31,5 @@
 
 </body>
 </html>
+
+
