@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704223437) do
+ActiveRecord::Schema.define(:version => 20130705033536) do
 
   create_table "authentications", :force => true do |t|
     t.integer "user_id"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20130704223437) do
     t.integer  "funding_goal"
     t.text     "pitch"
     t.float    "donation_total",   :default => 0.0
+    t.string   "status",           :default => "Active"
   end
 
   create_table "taggings", :force => true do |t|

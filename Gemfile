@@ -39,6 +39,7 @@ gem 'omniauth-facebook'
 gem 'devise'
 gem 'twitter'
 gem 'fb_graph'
+gem 'sidekiq'
 
 #image storage
 gem 'aws-s3', :require => 'aws/s3'
