@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PoliticalKickstarter</title>
+  <title>Staance</title>
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -10,20 +10,7 @@
 
 <body>
   <%= render 'shared/fbsdk' %>
-  <nav>
-    <%= link_to 'Home', root_path %>
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>
-      <%= link_to 'Create Campaign', new_campaign_path %>
-      <%= link_to 'Account', user_path(current_user) %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %>
-      <%= link_to "Sign in", new_user_session_path %>
-      <%= link_to "Twitter", user_omniauth_authorize_path(:twitter) %>
-      <%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %>
-    <% end %>
-  </nav>
+  <%= render 'layouts/nav' %>
   <%= render 'shared/errors', errors: @errors %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
