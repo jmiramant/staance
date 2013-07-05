@@ -5,5 +5,6 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @campaigns = Campaign.where(topic_id: params[:id])
   end
 end
