@@ -9,4 +9,4 @@ CREATOR = "Creator"
  TOPICS = ["Community", "Diversity", "Economy", "Environment",
             "Guns & Crime", "Health", "Immigration", "International",
             "LGBTQQ", "Military", "Parenting", "Politics", "Science & Technology",
-            "Spanish", "Women", "Employment"]
+            "Spanish", "Women", "Employment"].freeze

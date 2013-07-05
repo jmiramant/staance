@@ -10,7 +10,7 @@ describe Campaign do
   it "creates a basic campaign instance" do
     campaign = FactoryGirl.create(:campaign)
     campaign.topic = @topic
-    CampaignUser.create(campaign_id: campaign.id, user_id: @user.id, user_type: "Creator")
+    CampaignUser.create(campaign_id: campaign.id, user_id: @user.id, user_type: CREATOR)
     campaign.save
     expect(Campaign.first.users).to eq campaign.users
   end

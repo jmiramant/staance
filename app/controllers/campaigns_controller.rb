@@ -15,7 +15,7 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.create(params[:campaign])
     if @campaign.valid?
-      campaign_user = CampaignUser.create(campaign_id: @campaign.id, user_id: current_user.id, :user_type => "Creator")
+      campaign_user = CampaignUser.create(campaign_id: @campaign.id, user_id: current_user.id, :user_type => CREATOR)
       ScheduledWorker.perform_at(@campaign.funding_deadline, @campaign.id)
       redirect_to @campaign
     else
@@ -28,7 +28,7 @@ class CampaignsController < ApplicationController
     session.delete(:campaign_id) if session[:campaign_id]
     @support = current_user.supported_campaigns if current_user
     @campaign = Campaign.find_by_id(params[:id])
-    @ids = CampaignUser.where(campaign_id: @campaign.id, user_type: "Supporter").pluck("user_id")
+    @ids = CampaignUser.where(campaign_id: @campaign.id, user_type: SUPPORTER).pluck("user_id")
   end
 
   def update
