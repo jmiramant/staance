@@ -22,6 +22,7 @@ campaign1.funding_goal = 10000
 campaign1.pitch = "Give me money so that I can make the world a better place for kittens and puppies!"
 campaign1.image_url = "http://www.warrenphotographic.co.uk/photography/bigs/26624-Yellow-Goldidor-Retriever-pup-with-blue-tabby-kitten-white-background.jpg"
 campaign1.topic = Topic.first
+campaign1.donation_total = 1000000
 campaign1.save
 CampaignUser.create(campaign_id: campaign1.id, user_id: lloyd.id, user_type: CREATOR)
 CampaignUser.create(campaign_id: campaign1.id, user_id: josh.id, user_type: DONOR, donation_amount: 1000000)
