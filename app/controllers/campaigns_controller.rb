@@ -36,4 +36,10 @@ class CampaignsController < ApplicationController
 
   def destroy
   end
+
+  def filter_topic
+    topic = Topic.find_by_title(params[:topic])
+    p campaigns = Campaign.where(topic_id: topic.id)
+    render json: render_to_string(partial: 'filtered_opp_campaigns', locals: { camp: campaigns }).to_json
+  end
 end

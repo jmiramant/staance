@@ -12,6 +12,12 @@
   
   .title
     = @campaign.title
+  .opposing_campaign
+  - if @campaign.opposing_campaign_id
+    The Opposition
+    .opposition_details
+      - camp =  Campaign.find(@campaign.opposing_campaign_id) 
+      = link_to camp.title, camp
   .blurb
     = @campaign.short_blurb
   .goal
