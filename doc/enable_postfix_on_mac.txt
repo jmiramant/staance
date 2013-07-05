@@ -1,0 +1,21 @@
+To enable sending of email from rails development environment on a mac:
+
+sudo vi /etc/postfix/main.cf
+ 
+search for and comment out the following line:
+ 
+    # (APPLE) Credentials for using URLAUTH with IMAP servers.
+    #imap_submit_cred_file = /etc/postfix/submit.cred
+
+add the following lines to your rails config/environments/development.rb file
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+
+BE SURE TO SET perform_deliveries TO FALSE when you're done testing to avoid
+upsetting upstream mail providers!
+
+Also, uncomment the line in /etc/postfix/main.cf on your DBC Mac when you're 
+done for the day.
