@@ -11,10 +11,6 @@
         = text_field_tag(:donation)
         = hidden_field_tag(:campaign_id, @campaign.id)
         = submit_tag("Donate!")
-  .title
-    = @campaign.title
-  .blurb
-    = @campaign.short_blurb
   .goal
     = to_currency(@campaign.funding_goal)
   .donation_total
