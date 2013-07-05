@@ -42,7 +42,7 @@ common: &default_settings
   #       - Ajax Service
   #       - All Services
   #
-  app_name: My Application
+  app_name: Staance
 
   # When "true", the agent collects performance data about your
   # application and reports this data to the New Relic service at
@@ -52,7 +52,7 @@ common: &default_settings
 
   # Developer mode should be off in every environment but
   # development as it has very high overhead in memory.
-  developer_mode: false
+  developer_mode: true
 
   # The newrelic agent generates its own log file to keep its logging
   # information separate from that of your application. Specify its
@@ -120,7 +120,7 @@ common: &default_settings
     # Transaction tracer is enabled by default. Set this to false to
     # turn it off. This feature is only available at the Professional
     # and above product levels.
-    enabled: true
+    enabled: false
 
     # Threshold in seconds for when to collect a transaction
     # trace. When the response time of a controller action exceeds
@@ -158,7 +158,7 @@ common: &default_settings
     # Error collector is enabled by default. Set this to false to turn
     # it off. This feature is only available at the Professional and above
     # product levels.
-    enabled: true
+    enabled: false
 
     # Rails Only - tells error collector whether or not to capture a
     # source snippet around the place of the error when errors are View
@@ -192,7 +192,7 @@ development:
   # 'enabled').
   # NOTE: for initial evaluation purposes, you may want to temporarily
   # turn the agent on in development mode.
-  monitor_mode: false
+  monitor_mode: true
 
   # Rails Only - when running in Developer Mode, the New Relic Agent will
   # present performance information on the last 100 transactions you have

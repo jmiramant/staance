@@ -7,6 +7,7 @@ namespace :db do
     Rake::Task['db:create'].execute
     Rake::Task['db:migrate'].execute
     Rake::Task['db:seed'].execute
+    puts "Databases dropped and rebuilt"
   end
 
   desc "clear (destroy_all) databases"
