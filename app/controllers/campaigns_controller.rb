@@ -1,6 +1,5 @@
 class CampaignsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
-  skip_before_filter :verify_authenticity_token, only: :process_card
 
   def index
     @campaigns = Campaign.all
@@ -23,6 +22,7 @@ class CampaignsController < ApplicationController
   end
 
   def show
+    session.delete(:campaign_id) if session[:campaign_id]
     @support = current_user.supported_campaigns if current_user
     @campaign = Campaign.find_by_id(params[:id])
     @ids = CampaignUser.where(campaign_id: @campaign.id, user_type: "Supporter").pluck("user_id")
@@ -33,29 +33,4 @@ class CampaignsController < ApplicationController
 
   def destroy
   end
-
-  def donate
-    campaign = Campaign.find(params[:campaign_id])
-    campaign_user = CampaignUser.find_or_create_by_campaign_id_and_user_id_and_user_type(campaign.id, current_user.id, 'Donator')
-    campaign.donation_total -= campaign_user.donation_amount if campaign_user.donation_amount
-    campaign_user.donation_amount = params[:donation].to_f
-    campaign_user.save
-    campaign.donation_total += params[:donation].to_f
-    campaign.save
-    redirect_to add_cc_path
-  end
-
-  def add_cc
-    render :add_cc
-  end
-
-  def process_card
-    token = params[:stripeToken]
-    customer = Stripe::Customer.create(card: token, description: current_user.email)
-    user = User.find(current_user.id)
-    user.stripe_id = customer.id
-    user.save 
-    redirect_to root_path
-  end
-
 end

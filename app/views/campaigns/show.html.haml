@@ -10,9 +10,8 @@
     = @campaign.short_blurb
   .goal
     = to_currency(@campaign.funding_goal)
-    = @campaign.funding_goal
   .donation_total
-    = @campaign.donation_total
+    = to_currency(@campaign.donation_total)
   .deadline
     = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
   .pitch
