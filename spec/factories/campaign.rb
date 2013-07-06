@@ -2,8 +2,7 @@
 
 FactoryGirl.define do
   factory :campaign do
-    topic_id  1
-    title     Faker::Lorem.sentence.titleize
+    title     "Campaign Title"
     image_url Faker::Internet.url
     video_url Faker::Internet.url
     cause_url Faker::Internet.url
