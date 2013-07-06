@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   include TaggingHelper
+  include HomeHelper
 
 	def index
     @user = User.new
