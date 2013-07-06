@@ -3,7 +3,7 @@ class CampaignsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
-    @campaigns = Campaign.all
+    @campaigns = Campaign.where(status: ACTIVE)
     @topics = Topic.all
   end
 
@@ -27,7 +27,9 @@ class CampaignsController < ApplicationController
     session.delete(:campaign_id) if session[:campaign_id]
     @support = current_user.supported_campaigns if current_user
     @campaign = Campaign.find_by_id(params[:id])
-    @ids = CampaignUser.where(campaign_id: @campaign.id, user_type: "Supporter").pluck("user_id")
+    ids = CampaignUser.where(campaign_id: @campaign.id, user_type: SUPPORTER).pluck("user_id")
+    @supporters = []
+    @supporters = ids.map { |id| User.find(id)}
     # @video = UrlToMediaTag.convert(@campaign.video_url, width: 540, height: 320)
   end
 
@@ -46,8 +48,8 @@ class CampaignsController < ApplicationController
 
   def destroy
     campaign = Campaign.find(params[:id])
-    campaign.update_attribute(status, SUSPENDED)
-    redirect_to :index
+    campaign.update_attribute(:status, SUSPENDED)
+    redirect_to campaigns_path
 
   end
 
