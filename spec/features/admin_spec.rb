@@ -12,4 +12,11 @@ describe "Admin Access" do
     expect(page).to have_content("CREATE A CAMPAIGN")
   end
 
+  it "admin can reach admin page" do
+    user = create(:user)
+    user.admin = true
+    login(user)
+    visit rails_admin_path
+    expect(page).to have_content("Site administration")
+  end
 end
