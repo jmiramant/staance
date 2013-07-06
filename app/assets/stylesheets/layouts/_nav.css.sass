@@ -5,18 +5,26 @@ nav
 
   .nav-links
     @include outer-container
+    
+    a
+      float: right
+      font-size: 17px
+      height: 53px
+      padding: 16px 20px 0px 20px
+      color: $background-white
+      
+      &:hover
+        text-decoration: underline
 
     .logo
       float: left
       font-size: 25px
       font-weight: 700
-      margin: 10px 0 0 15px
-    
-    a
-      float: right
-      font-size: 17px
-      margin: 15px 40px 0 0
-      color: $background-white    
-      
-      &:hover
-        text-decoration: underline
+      margin-top: 10px
+      padding: 0
+      height: auto
+
+    .create-campaign
+      float: left
+      margin-left: 30px
+      color: $staance-yellow

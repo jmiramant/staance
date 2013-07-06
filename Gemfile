@@ -34,7 +34,7 @@ gem 'acts-as-taggable-on'
 gem 'debugger'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'url_to_media_tag'
-
+gem 'font-awesome-rails'
 
 #all auth gems
 gem 'omniauth'
