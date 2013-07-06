@@ -2,8 +2,8 @@
   .nav-links
     = link_to 'STAANCE', root_path, class: 'logo'
     - if user_signed_in?
-      = link_to 'PROFILE', user_path(current_user)
       = link_to 'LOGOUT', destroy_user_session_path, method: :delete
+      = link_to 'PROFILE', user_path(current_user)
     - else
-      = link_to "LOGIN", new_user_session_path
       = link_to "SIGN UP", new_user_registration_path
+      = link_to "LOGIN", new_user_session_path
