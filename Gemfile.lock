@@ -253,6 +253,7 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    url_to_media_tag (0.1.4)
     warden (1.2.1)
       rack (>= 1.0)
     websocket (1.0.7)
@@ -297,3 +298,4 @@ DEPENDENCIES
   thin
   twitter
   uglifier (>= 1.0.3)
+  url_to_media_tag

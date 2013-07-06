@@ -1,6 +1,5 @@
 
 class CampaignsController < ApplicationController
-
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
@@ -28,7 +27,8 @@ class CampaignsController < ApplicationController
     session.delete(:campaign_id) if session[:campaign_id]
     @support = current_user.supported_campaigns if current_user
     @campaign = Campaign.find_by_id(params[:id])
-    @ids = CampaignUser.where(campaign_id: @campaign.id, user_type: SUPPORTER).pluck("user_id")
+    @ids = CampaignUser.where(campaign_id: @campaign.id, user_type: "Supporter").pluck("user_id")
+    @video = UrlToMediaTag.convert(@campaign.video_url, width: 540, height: 320)
   end
 
   def update
@@ -43,3 +43,4 @@ class CampaignsController < ApplicationController
     render json: render_to_string(partial: 'filtered_opp_campaigns', locals: { camp: campaigns }).to_json
   end
 end
+
