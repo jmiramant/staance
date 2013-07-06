@@ -28,7 +28,7 @@ class CampaignsController < ApplicationController
     @support = current_user.supported_campaigns if current_user
     @campaign = Campaign.find_by_id(params[:id])
     @ids = CampaignUser.where(campaign_id: @campaign.id, user_type: "Supporter").pluck("user_id")
-    @video = UrlToMediaTag.convert(@campaign.video_url, width: 540, height: 320)
+    # @video = UrlToMediaTag.convert(@campaign.video_url, width: 540, height: 320)
   end
 
   def edit
@@ -36,6 +36,7 @@ class CampaignsController < ApplicationController
   end
 
   def update
+    @campaign = Campaign.find(params[:id])
     if @campaign.update_attributes(params[:campaign])
       redirect_to @campaign
     else
