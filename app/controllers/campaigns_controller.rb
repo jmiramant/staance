@@ -40,11 +40,15 @@ class CampaignsController < ApplicationController
     if @campaign.update_attributes(params[:campaign])
       redirect_to @campaign
     else
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy
+    campaign = Campaign.find(params[:id])
+    campaign.update_attribute(status, SUSPENDED)
+    redirect_to :index
+
   end
 
   def filter_topic
