@@ -50,7 +50,6 @@ class CampaignsController < ApplicationController
     campaign = Campaign.find(params[:id])
     campaign.update_attribute(:status, SUSPENDED)
     redirect_to campaigns_path
-
   end
 
   def filter_topic

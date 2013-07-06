@@ -5,11 +5,11 @@ var SupportLink = {
 	},
 	appendNotice: function(){
 		console.log('goood');
-		$('.notice').append("You are supporting this campaign");
+		$('.supporter').append("Thanks for supporting this campaign!");
 		$('#support').fadeOut();
 	},
 	appendAlert: function(){
-		$('.alert').append("I'm sorry, there was an error logging your support");
+		$('.supporter').append("I'm sorry, there was an error logging your support");
 	}
 };
 
