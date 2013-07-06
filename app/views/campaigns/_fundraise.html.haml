@@ -6,24 +6,26 @@
   - elsif @campaign.funding_deadline > Date.today
     = @campaign.funding_deadline
 .fundraise
-  %ul
-    %li.goal.stats
-      Supporters
-    %li.donation_total.stats
-      = to_currency(@campaign.donation_total)
-      of
-      = to_currency(@campaign.funding_goal)
-    %li.deadline.stats
-      = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
+  .total
+    = to_currency(@campaign.donation_total)
   #bar
     - if @campaign.donation_total < @campaign.funding_goal
       #progress_bg.small
         #progress{:style => "width: #{(@campaign.donation_total/@campaign.funding_goal)*100}%;"}
+        .donation_total
+          Raised of
+          = to_currency(@campaign.funding_goal)
     - else
       #progress_bg
         #progress
         #progress_text
           = @campaign.donation_total
+          of
+          = to_currency(@campaign.funding_goal) 
+    .deadline.stats
+      %i.icon-time
+        icon-time
+      = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
   .donate
     .contribute
       = form_tag("/donate", method: "post", remote: true, class: "donate_payment") do
