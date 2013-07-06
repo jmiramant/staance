@@ -40,7 +40,7 @@ class CampaignsController < ApplicationController
   def update
     @campaign = Campaign.find(params[:id])
     if @campaign.update_attributes(params[:campaign])
-      render :show, :alert => "Campaign Suspended"
+      render :show, :alert => "Campaign Updated"
     else
       render :edit, :alert => "Update Failed"
     end
@@ -49,7 +49,7 @@ class CampaignsController < ApplicationController
   def destroy
     campaign = Campaign.find(params[:id])
     campaign.update_attribute(:status, SUSPENDED)
-    redirect_to campaigns_path
+    redirect_to campaigns_path, alert: "Campaign Deleted"
   end
 
   def filter_topic

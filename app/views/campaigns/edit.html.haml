@@ -1,6 +1,6 @@
 %h2 Edit Campaign
 
-= button_to 'Delete', campaign_path(@campaign), confirm: 'Are you sure?', method: "delete", remote: true
+= button_to 'Delete', campaign_path(@campaign), confirm: 'Are you sure?', method: "delete"
 
 = semantic_form_for @campaign do |f|
   #topic_input
