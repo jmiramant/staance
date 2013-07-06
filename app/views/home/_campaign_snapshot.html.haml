@@ -1,5 +1,5 @@
-.campaign-snapshot
-  %img{src: 'assets/click_to_play.jpg'}
+.campaign-snapshot{class: klass, style: style}
+  %img{src: image}
   .campaign-details
     .text
       %a.name{href: "#"} Campaign Name Goes Here
@@ -8,9 +8,10 @@
         %a{href: "#"} Eadon Jacobs
     .stats-1
       .raised $1,382
-      .percent 48%
+      - percent = rand(1..100)
+      .percent #{percent}%
     .bar
-      %span{style: 'width: 48%'}
+      %span{style: "width: #{percent}%"}
     .stats-2
       .time-left
         %span 5

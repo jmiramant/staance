@@ -1,7 +1,8 @@
 .campaign-grid
-  = render 'home/campaign_snapshot'
-  = render 'home/campaign_snapshot'
-  = render 'home/campaign_snapshot'
-  = render 'home/campaign_snapshot'
-  = render 'home/campaign_snapshot'
-  = render 'home/campaign_snapshot'
+  - 6.times do
+    = render 'home/campaign_snapshot', {image: 'assets/click_to_play2.jpg', klass: 'debated', style: 'display: inline-block;'}
+  - 6.times do
+    = render 'home/campaign_snapshot', {image: 'assets/click_to_play3.jpg', klass: 'most-funded', style: 'display: none;'}
+  - 6.times do
+    = render 'home/campaign_snapshot', {image: 'assets/click_to_play.jpg', klass: 'successes', style: 'display: none;'}
+  
