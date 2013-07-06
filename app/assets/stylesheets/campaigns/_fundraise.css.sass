@@ -1,34 +1,35 @@
 .fundraise
   @include span-columns(5)
   background-color: $staance-blue
-  height: 350px
+  height: 405px
   width: 438px
   margin-top: 30px
   float: right
   box-shadow: $shadow
+  border-radius: 5px
   .total
     font-size: 45px
     color: #fff
     text-shadow: 1px 1px #545454
     text-align: center
     padding-top: 21px
+    font-weight: 700
   .donation_total
     color: #fff
     font-weight: 300
     margin: 12px
-  ul
-    list-style: none
-    li
-      text-align: center
-      padding-bottom: 30px 
-    .stats    
-      color: #3f3f3f
-      font-size: 18px
-      color: #fff
-      font-weight: 300
-      display: inline-block
-      width: 117px
-
+    margin: -18px 0 0 72px
+    font-size: 21px
+  .deadline
+    color: white
+    text-align: center
+    margin: 31px 49px 17px 49px
+    padding: 11px 0
+    font-size: 24px
+    border-top: 1px solid
+    border-bottom: 1px solid
+    .countdown_value
+      font-size: 17px
   #progress_bg, #progress
     height: 40px
     -moz-box-shadow: 0 1px 1px rgba(0,0,0,.41)
@@ -38,7 +39,7 @@
     -moz-border-radius: 30px
     border-radius: 4px
   #progress_bg 
-    margin: 28px auto
+    margin: 18px auto 28px auto
     width: 80%
     background: #dbdbdb
     #progress
@@ -49,6 +50,20 @@
       display: inline-block
   .donate
     width: 100%
+    margin-top: 29px
     .contribute
       width: 285px
       margin: 0 auto
+      #donation
+        height: 38px
+        color: #545454
+        padding-left: 26px
+        font-size: 15px
+        border: none
+        width: 113px
+        border-radius: 3px
+      .button
+        width: 150px
+        margin-left: 19px
+    .countdown
+      display: none
