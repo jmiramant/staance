@@ -1,2 +1,10 @@
 .campaign_header
-  Camp Head
+  .image
+    <img src=#{@campaign.image_url}>
+  .copy
+    .title
+      = @campaign.title
+    .blurb
+      = @campaign.short_blurb
+    .location
+      = @campaign.location
