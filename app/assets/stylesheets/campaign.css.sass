@@ -1,5 +1,9 @@
 .campaign
   @include outer-container
   @import "campaigns/header"
-  @import "campaigns/pitch"
-  @import "campaigns/fundraise"
+  .story
+    @include outer-container
+    background-color: $background-light-grey
+    @import "campaigns/video"
+    @import "campaigns/pitch"
+    @import "campaigns/fundraise"

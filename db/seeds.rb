@@ -24,6 +24,7 @@ josh = User.create(email: "josh@miramant.me", password: "password", name: "Josh 
 campaign1 = Campaign.new(title: "Campaign Number 1", short_blurb: "Blurb for Campaign Number 1")
 campaign1.location = "San Francisco"
 campaign1.cause_url = "http://www.yahoo.com"
+campaign1.video_url = "http://vimeo.com/13081864"
 campaign1.funding_deadline = Time.now
 campaign1.funding_goal = 10000
 campaign1.pitch = "Give me money so that I can make the world a better place for kittens and puppies!"
