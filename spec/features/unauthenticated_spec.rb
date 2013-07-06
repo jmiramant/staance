@@ -13,8 +13,10 @@ describe "Unauthenticated User" do
     expect(page).to have_content("All Campaigns")
   end
 
-  it "can create an account" do
-    visit new_user_registration_path
+  it "can create an account", js: true do
+    visit root_path
+
+    click_link("SIGN UP")
 
     fill_in "user[email]", with: "test@test.me"
     fill_in "user[password]", with: "abcabcabc"
