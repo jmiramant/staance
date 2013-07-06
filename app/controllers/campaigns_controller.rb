@@ -31,7 +31,16 @@ class CampaignsController < ApplicationController
     @video = UrlToMediaTag.convert(@campaign.video_url, width: 540, height: 320)
   end
 
+  def edit
+    @campaign = Campaign.find(params[:id])
+  end
+
   def update
+    if @campaign.update_attributes(params[:campaign])
+      redirect_to @campaign
+    else
+      render 'edit'
+    end
   end
 
   def destroy
