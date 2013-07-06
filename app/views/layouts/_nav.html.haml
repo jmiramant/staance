@@ -1,7 +1,7 @@
 %nav
   .nav-links
     = link_to 'STAANCE', root_path, class: 'logo'
-    = link_to 'CREATE A CAMPAIGN', new_campaign_path, class: 'create-campaign'
+    = link_to 'CREATE CAMPAIGN', new_campaign_path, class: 'create-campaign'
     - if user_signed_in?
       = link_to 'LOGOUT', destroy_user_session_path, method: :delete
       = link_to 'PROFILE', user_path(current_user)

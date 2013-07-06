@@ -1,6 +1,6 @@
 .featured-campaigns
   @include outer-container
-  margin-top: 30px
+  margin-top: 50px
 
   .featured-video-box
     position: relative
@@ -11,27 +11,35 @@
 
     .arrow
       position: absolute
-      top: 125px
+      top: 160px
       color: $staance-dark-gray
 
+      &:hover
+        color: $staance-blue
+
       &.left
-        left: 150px
+        left: 75px
 
       &.right
-        right: 150px
+        right: 75px
+
+    img
+      border-radius: 10px
+      width: 700px
+      height: 400px
 
     .featured-video
       position: relative
-      border-radius: 10px
       margin: 0 30px
 
       .features-details
         position: absolute
         background-color: black
-        opacity: 0.7
+        border-radius: 0 0 10px 10px
+        opacity: 0.8
         width: 100%
-        height: 70px
-        padding: 0 10px
+        height: 90px
+        padding: 5px 15px
         bottom: 0
         color: white
 
@@ -43,7 +51,7 @@
           font-size: 28px
 
         .campaign-stats
-          margin-top: 5px
+          margin-top: 15px
           font-style: italic
           font-weight: 300
 
@@ -55,7 +63,7 @@
       .button
         background-color: $staance-blue
         float: right
-        margin-top: 15px
+        margin: 20px 10px 0 0 
 
     .slider-icons
       margin-top: 25px

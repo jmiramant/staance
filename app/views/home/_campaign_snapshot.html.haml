@@ -1,11 +1,20 @@
 .campaign-snapshot
-  %img{src: 'assets/click_to_play.jpg', class: 'c2p-video'}
-  .features-details
-    .campaign-name-stats
-      .campaign-name Campaign Name Goes Here
-      .campaign-stats
-        %span $1,382
-        raised
+  %img{src: 'assets/click_to_play.jpg'}
+  .campaign-details
+    .text
+      %a.name{href: "#"} Campaign Name Goes Here
+      .creator
+        by
+        %a{href: "#"} Eadon Jacobs
+    .stats-1
+      .raised $1,382
+      .percent 48%
+    .bar
+      %span{style: 'width: 48%'}
+    .stats-2
+      .time-left
         %span 5
         days left
-    %a.button{href: "#"} View Campaign
+      .supporters
+        %span 84
+        supporters    
