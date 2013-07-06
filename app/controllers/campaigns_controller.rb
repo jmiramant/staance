@@ -38,9 +38,9 @@ class CampaignsController < ApplicationController
   def update
     @campaign = Campaign.find(params[:id])
     if @campaign.update_attributes(params[:campaign])
-      redirect_to @campaign
+      render :show, :alert => "Campaign Suspended"
     else
-      render :edit
+      render :edit, :alert => "Update Failed"
     end
   end
 

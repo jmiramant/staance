@@ -1,4 +1,7 @@
 %h2 Edit Campaign
+
+= button_to 'Delete', campaign_path(@campaign), confirm: 'Are you sure?', method: "delete", remote: true
+
 = semantic_form_for @campaign do |f|
   #topic_input
     = f.input :topic
@@ -15,4 +18,4 @@
   = f.input :funding_deadline, as: :date_picker
   = f.input :funding_goal
   = f.actions :submit, :cancel
-  = link_to 'delete', :confirm => 'Are you sure?', :method => :delete
+
