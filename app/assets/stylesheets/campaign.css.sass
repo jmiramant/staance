@@ -3,9 +3,11 @@
   @import "campaigns/header"
 .story
   background-color: $background-light-grey
-  .nested_story
+  .part_one
     @include outer-container
     @import "campaigns/video"
-    @import "campaigns/pitch"
     @import "campaigns/fundraise"
     @import "campaigns/nested_story"
+  .part_two
+    @include outer-container
+    @import "campaigns/pitch"

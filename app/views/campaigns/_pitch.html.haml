@@ -1,6 +1,6 @@
 .pitch
   .copy
-    = @campaign.pitch
+    = @campaign.pitch.html_safe
   .support
     - if user_signed_in?
       - if !@support.include?(@campaign.id)

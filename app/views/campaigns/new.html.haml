@@ -9,7 +9,7 @@
   = f.input :video_url 
   = f.input :image_url
   = f.input :short_blurb, as: :text
-  = f.input :pitch, as: :text
+  = f.text_area :pitch, :class => 'ckeditor'
   = f.input :location 
   = f.input :cause_url 
   = f.input :funding_deadline, as: :date_picker
