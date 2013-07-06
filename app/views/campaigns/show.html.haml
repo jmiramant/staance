@@ -1,34 +1,5 @@
-=render 'campaigns/header'
-
 .campaign
-  - if @campaign.status == "Unsuccessful"
-    = render 'unsuccessful_campaign'
-  - elsif @campaign.status == "Funded"
-    = render 'successful_campaign'
-  - elsif @campaign.funding_deadline > Date.today
-    .donate
-      = form_tag("/donate", method: "post", remote: true, class: "donate_payment") do
-        = text_field_tag(:donation)
-        = hidden_field_tag(:campaign_id, @campaign.id)
-        = submit_tag("Donate!")
-  .goal
-    = to_currency(@campaign.funding_goal)
-  .donation_total
-    = to_currency(@campaign.donation_total)
-  .deadline
-    = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
-  .pitch
-    = @campaign.pitch
+  =render 'campaigns/header'
+  =render 'campaigns/pitch'
+  =render 'campaigns/fundraise'
 
-  .support
-    - if user_signed_in?
-      - if !@support.include?(@campaign.id)
-        = link_to "Support", campaign_users_path(@campaign.id), method: 'post', id: "support", remote: true
-
-  .supporter
-    - if @ids
-      Supporters:<br>
-      - @ids.each do |id|
-        %a{:href => "/users/#{id}"}
-          \/users/#{id}<br>
-=render 'shared/campaign/social'
