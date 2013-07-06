@@ -49,7 +49,7 @@ class CampaignsController < ApplicationController
   def destroy
     campaign = Campaign.find(params[:id])
     campaign.update_attribute(:status, SUSPENDED)
-    redirect_to campaigns_path, alert: "Campaign Deleted"
+    redirect_to campaigns_path, alert: "Campaign Deleted" 
   end
 
   def filter_topic
