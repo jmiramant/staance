@@ -5,7 +5,9 @@
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <div id='alert'><%= @alert if @alert %><div>
+  <% if @alert  %>
+  <div id='alert'><%= @alert %><div>
+    <% end %>
 </head>
 
 <body>
@@ -25,8 +27,10 @@
     <% end %>
   </nav>
   <%= render 'shared/errors', errors: @errors %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% if notice || alert %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  <% end %>
 <%= yield %>
 
 </body>

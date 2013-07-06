@@ -1,12 +1,29 @@
-.donate
+.fundraise
   %ul
     %li.goal.stats
       = to_currency(@campaign.funding_goal)
+      Supporters
     %li.donation_total.stats
       = to_currency(@campaign.donation_total)
+      of
+      = to_currency(@campaign.funding_goal)
     %li.deadline.stats
-    = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
-  = form_tag("/donate", method: "post", remote: true, class: "donate_payment") do
-    = text_field_tag(:donation)
-    = hidden_field_tag(:campaign_id, @campaign.id)
-    = submit_tag("Donate!")
+      = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
+  #bar
+    - if @campaign.donation_total.to_f < @campaign.funding_goal.to_f
+      #progress_bg.small
+        #progress{:style => "width: #{@campaign.donation_total.to_i}%;"}
+    - else
+      #progress_bg
+        #progress
+        #progress_text
+          = @campaign.donation_total.percent
+  .donate
+    .contribute
+      = form_tag("/donate", method: "post", remote: true, class: "donate_payment") do
+        = text_field_tag(:donation)
+        = hidden_field_tag(:campaign_id, @campaign.id)
+        = submit_tag("Donate!", class: 'button')
+
+
+
