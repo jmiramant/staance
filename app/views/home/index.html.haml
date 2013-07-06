@@ -1,3 +1,17 @@
-=render 'most_trending'
-=render 'most_funded'
-=render 'most_successful'
+/ =render 'most_trending'
+/ =render 'most_funded'
+/ =render 'most_successful'
+
+.staance-box
+  .staance-motto
+    Crowd funding for the political causes that matter... to you.
+
+= render 'home/featured_campaigns'
+  
+.select-bar
+  = link_to 'HOTLY DEBATED', '#'
+  = link_to 'MOST FUNDED', '#'
+  = link_to 'SUCCESS STORIES', '#'
+  = link_to 'TOPICS', '#'
+
+/ = render 'home/campaign_grid'

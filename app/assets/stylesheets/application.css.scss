@@ -3,9 +3,12 @@
 */
 @import 'bourbon';
 @import 'neat';
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700italic);
 @import 'global';
 @import 'campaign';
 @import 'wrapper';
 @import 'twitter';
 @import 'registrations';
+@import 'users';
+@import 'home';

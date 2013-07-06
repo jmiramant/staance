@@ -32,6 +32,7 @@ gem 'formtastic'
 gem 'acts-as-taggable-on'
 gem 'debugger'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'font-awesome-rails'
 
 #all auth gems
 gem 'omniauth'
