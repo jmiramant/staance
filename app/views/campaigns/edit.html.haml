@@ -15,3 +15,4 @@
   = f.input :funding_deadline, as: :date_picker
   = f.input :funding_goal
   = f.actions :submit, :cancel
+  = link_to 'delete', :confirm => 'Are you sure?', :method => :delete
