@@ -6,6 +6,7 @@ gem 'figaro'
 gem 'thin'
 gem 'haml'
 gem 'newrelic_rpm'
+gem 'url_to_media_tag'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
