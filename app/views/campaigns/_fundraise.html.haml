@@ -1,0 +1,12 @@
+.donate
+  %ul
+    %li.goal.stats
+      = to_currency(@campaign.funding_goal)
+    %li.donation_total.stats
+      = to_currency(@campaign.donation_total)
+    %li.deadline.stats
+    = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
+  = form_tag("/donate", method: "post", remote: true, class: "donate_payment") do
+    = text_field_tag(:donation)
+    = hidden_field_tag(:campaign_id, @campaign.id)
+    = submit_tag("Donate!")
