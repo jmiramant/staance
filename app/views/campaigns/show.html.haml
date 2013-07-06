@@ -1,7 +1,7 @@
 .campaign
   - if @campaign.status == "Unsuccessful"
     = render 'unsuccessful_campaign'
-  - elsif @campaign.status == "Funded"
+  - elsif @campaign.status == "Funded" && @campaign.funding_deadline <= Date.today
     = render 'successful_campaign'
   - elsif @campaign.funding_deadline > Date.today
     .donate

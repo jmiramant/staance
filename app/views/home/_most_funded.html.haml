@@ -1,0 +1,11 @@
+#most_trending
+  Most Funded Campaigns
+  - @most_funded_campaigns.each do |camp|
+    .campaign
+      .title
+        %br= camp.title 
+        %br= camp.status
+      .pitch
+        %br= camp.pitch  
+      .funding_goal
+        %br= camp.funding_goal

@@ -22,10 +22,12 @@ ActiveRecord::Schema.define(:version => 20130705231102) do
   end
 
   create_table "campaign_users", :force => true do |t|
-    t.integer "user_id"
-    t.integer "campaign_id"
-    t.string  "user_type"
-    t.float   "donation_amount"
+    t.integer  "user_id"
+    t.integer  "campaign_id"
+    t.string   "user_type"
+    t.float    "donation_amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "campaign_users", ["campaign_id", "user_type", "user_id"], :name => "index_campaign_users_on_campaign_id_and_user_type_and_user_id", :unique => true
