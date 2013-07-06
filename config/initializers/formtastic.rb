@@ -1,16 +1,16 @@
 # encoding: utf-8
 # Set the default text field size when input is a string. Default is nil.
-# Formtastic::FormBuilder.default_text_field_size = 50
+Formtastic::FormBuilder.default_text_field_size = 50
 
 # Set the default text area height when input is a text. Default is 20.
-# Formtastic::FormBuilder.default_text_area_height = 5
+Formtastic::FormBuilder.default_text_area_height = 10
 
 # Set the default text area width when input is a text. Default is nil.
-# Formtastic::FormBuilder.default_text_area_width = 50
+Formtastic::FormBuilder.default_text_area_width = 50
 
 # Should all fields be considered "required" by default?
 # Defaults to true.
-# Formtastic::FormBuilder.all_fields_required_by_default = true
+Formtastic::FormBuilder.all_fields_required_by_default = false
 
 # Should select fields have a blank option/prompt by default?
 # Defaults to true.
@@ -29,7 +29,7 @@
 
 # Set the way inline errors will be displayed.
 # Defaults to :sentence, valid options are :sentence, :list, :first and :none
-  Formtastic::FormBuilder.inline_errors = :none
+  Formtastic::FormBuilder.inline_errors = :sentence
 # Formtastic uses the following classes as default for hints, inline_errors and error list
 
 # If you override the class here, please ensure to override it in your stylesheets as well
@@ -67,9 +67,9 @@
 
 # You can opt-in to Formtastic's use of the HTML5 `required` attribute on `<input>`, `<select>` 
 # and `<textarea>` tags by setting this to false (defaults to true).
-# Formtastic::FormBuilder.use_required_attribute = true
+Formtastic::FormBuilder.use_required_attribute = false
 
 # You can opt-in to new HTML5 browser validations (for things like email and url inputs) by setting
 # this to false. Doing so will add a `novalidate` attribute to the `<form>` tag.
 # See http://diveintohtml5.org/forms.html#validation for more info.
-# Formtastic::FormBuilder.perform_browser_validations = true
+Formtastic::FormBuilder.perform_browser_validations = false

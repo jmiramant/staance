@@ -12,6 +12,8 @@
   
   .title
     = @campaign.title
+  .image
+    %img{:src => @campaign.image_url}
   .opposing_campaign
   - if @campaign.opposing_campaign_id
     The Opposition
