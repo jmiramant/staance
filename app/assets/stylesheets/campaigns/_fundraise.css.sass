@@ -1,14 +1,43 @@
-.donate
+.fundraise
   @include span-columns(5)
+  background-color: $staance-blue
+  height: 350px
   ul
-    text-align: center
     list-style: none
-    .stats
-      margin: 0 auto
+    li
+      text-align: center
+      padding-bottom: 30px 
+    .stats    
       color: #3f3f3f
-      font-size: 24px
-      display: block
+      font-size: 18px
+      color: #fff
+      font-weight: 300
       display: inline-block
-      padding-right: 26px
-      padding-left: 26px
-      text-align: left
+      width: 30%
+    .donation_total
+      border-left: 2px solid #fff
+      border-right: 2px solid #fff
+
+
+  #progress_bg, #progress
+    height: 40px
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.41)
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.41) /* drop shadow */
+    box-shadow: 0 1px 1px rgba(0,0,0,.41)
+    -webkit-border-radius: 30px
+    -moz-border-radius: 30px
+    border-radius: 4px
+  #progress_bg 
+    margin: 50px auto
+    width: 90%
+    background: #dbdbdb
+    #progress
+      background-color: $staance-yellow
+      min-width: 2%
+      max-width: 100%
+      display: inline-block
+  .donate
+    width: 100%
+    .contribute
+      width: 285px
+      margin: 0 auto
