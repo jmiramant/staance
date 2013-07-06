@@ -1,7 +1,6 @@
 .fundraise
   %ul
     %li.goal.stats
-      = to_currency(@campaign.funding_goal)
       Supporters
     %li.donation_total.stats
       = to_currency(@campaign.donation_total)
@@ -10,14 +9,14 @@
     %li.deadline.stats
       = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
   #bar
-    - if @campaign.donation_total.to_f < @campaign.funding_goal.to_f
+    - if @campaign.donation_total < @campaign.funding_goal
       #progress_bg.small
-        #progress{:style => "width: #{@campaign.donation_total.to_i}%;"}
+        #progress{:style => "width: #{@campaign.donation_total.to_i/100}%;"}
     - else
       #progress_bg
         #progress
         #progress_text
-          = @campaign.donation_total.percent
+          = @campaign.donation_total
   .donate
     .contribute
       = form_tag("/donate", method: "post", remote: true, class: "donate_payment") do
