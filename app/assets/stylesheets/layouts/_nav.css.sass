@@ -4,17 +4,20 @@ nav
   line-height: 40px
   background-color: $staance-dark-gray
 
-  .logo
-    float: left
-    font-size: 25px
-    font-weight: 700
-    margin: 5px 0 0 15px
-  
-  a
-    float: right
-    font-size: 17px
-    margin: 7px 30px 0 0
-    color: $background-white    
-  
-  a:hover
-    text-decoration: underline
+  .nav-links
+    @include outer-container
+
+    .logo
+      float: left
+      font-size: 25px
+      font-weight: 700
+      margin: 5px 0 0 15px
+    
+    a
+      float: right
+      font-size: 17px
+      margin: 7px 30px 0 0
+      color: $background-white    
+      
+      &:hover
+        text-decoration: underline
