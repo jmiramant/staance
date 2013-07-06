@@ -9,7 +9,7 @@ describe "Admin Access" do
     user = create(:user)
     login(user)
     visit rails_admin_path
-    expect(page).to have_content("CREATE A CAMPAIGN")
+    expect(page).to have_content("CREATE CAMPAIGN")
   end
 
   it "admin can reach admin page" do
