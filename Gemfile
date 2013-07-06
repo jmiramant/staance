@@ -45,6 +45,7 @@ gem 'twitter'
 gem 'fb_graph'
 gem 'sidekiq'
 gem 'ckeditor_rails'
+gem 'rails_admin'
 
 #image storage
 gem 'aws-s3', :require => 'aws/s3'

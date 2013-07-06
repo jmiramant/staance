@@ -1,4 +1,7 @@
 PoliticalKickstarter::Application.routes.draw do
+
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   devise_for :users, controllers: {:omniauth_callbacks => 'authentications', :registrations => 'registrations'}
   resources :users, only: [:index, :show]
   resources :campaigns
@@ -12,4 +15,5 @@ PoliticalKickstarter::Application.routes.draw do
   # get 'tags/:tag', to: 'campaigns#index', as: :tag  ==>  uncomment to enable search by tags
 
   root :to => "home#index"
+  
 end

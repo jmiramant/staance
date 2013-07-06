@@ -40,4 +40,8 @@ class User < ActiveRecord::Base
     end
     authenticated_networks
   end
+
+  def is_admin?
+    self.admin == true
+  end
 end
