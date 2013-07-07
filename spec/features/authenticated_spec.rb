@@ -12,7 +12,7 @@ describe "Authenticated User" do
 
   it "can reach new campaign page" do
     visit new_campaign_path
-    expect(page).to have_content("Create Campaign")
+    expect(page).to have_content("Title")
   end
 
   it "can log out" do
