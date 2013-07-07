@@ -19,3 +19,16 @@ upsetting upstream mail providers!
 
 Also, uncomment the line in /etc/postfix/main.cf on your DBC Mac when you're 
 done for the day.
+
+
+Once you've reconfigured the two files above, run the following from the command line:
+
+ sudo postfix start
+
+this will start the postfix server.
+
+After testing, run
+	
+	sudo postfix stop
+
+to disable mail sending.
