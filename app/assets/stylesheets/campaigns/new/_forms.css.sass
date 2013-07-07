@@ -4,14 +4,15 @@ input
 #form_one
   margin: 15px auto
   @include outer-container()
+  animation: fadein 2s
   h2
     background-color: $background-light-grey
-    -webkit-border-radius: 20px 20px 0 0
-    -moz-border-radius: 20px 20px 0 0
-    border-radius: 20px 20px 0 0
+    -webkit-border-radius: 11px
+    -moz-border-radius: 11px
+    border-radius: 11px
     color: #fff
     font-size: 25px
-    box-shadow: 0px 0px 19px #a6a6a6
+    box-shadow: 0px 0px 17px #545454
     padding: 20px 26px
   label:after
     content: "\A\A"
@@ -20,10 +21,10 @@ input
     width: 500px
   .form_head
     width: 105%
-    height: 155px
-    background-color: #0f7282
+    height: 19px
+    background-color: #fece12
     margin: -20px 0 24px -26px
-    border-radius: 20px 20px 0 0
+    border-radius: 11px 11px 0 0
   .label
     margin-bottom: 10px
   #new_campaign
@@ -31,7 +32,7 @@ input
     text-align: center
   .form_full
     @include span-columns(12 0f 12)
-    margin-bottom: 50px
+    margin-bottom: 15px
   .form_half 
     @include span-columns(6 0f 12)
     margin-bottom: 30px
