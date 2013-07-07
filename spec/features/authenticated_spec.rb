@@ -18,7 +18,7 @@ describe "Authenticated User" do
   it "can log out" do
     visit root_path
     click_link 'LOGOUT'
-    expect(page).to have_content("Signed out successfully")
+    expect(page).to have_content("LOGIN")
   end
 
 end

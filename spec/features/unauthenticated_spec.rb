@@ -23,7 +23,7 @@ describe "Unauthenticated User" do
     fill_in "user[password_confirmation]", with: "abcabcabc"
     click_button('Sign up')
 
-    expect(page).to have_content "Welcome! You have signed up successfully."
+    expect(page).to have_content "LOGOUT"
   end
 
 
