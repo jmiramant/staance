@@ -2,4 +2,11 @@
   #head
     #form_one
       %h2
-        =render 'campaigns/new/forms'
+        =render 'campaigns/new/form_one'
+    #form_two{style: "display: none"}
+      %h2
+        =render 'campaigns/new/form_two'
+    #form_three{style: "display: none"}
+      %h2
+        %div
+          =render 'campaigns/new/form_three'

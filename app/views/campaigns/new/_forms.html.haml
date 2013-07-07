@@ -15,9 +15,20 @@
     = f.input :location 
   .form_half.right
     = f.input :short_blurb, as: :text
-  #content{:contenteditable => "true"}  
+  .form_full
+    = f.action :submit, :value => "Next"
+
+.form_head
+  #awesome_campaign{:contenteditable => "true"}  
     .form_full.edit_magic
       = render 'campaigns/new/example'
+  %id{:style => 'display: none'}
+    = @campaign.id
+
+
+
+.form_head
+= semantic_form_for @campaign do |f|
   .form_half
     = f.input :cause_url 
   .form_half.right
@@ -25,4 +36,4 @@
   .form_half
     = f.input :funding_goal
   .form_full
-    = f.actions :submit, :cancel
+    = f.action :submit

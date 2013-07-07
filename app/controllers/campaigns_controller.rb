@@ -1,4 +1,3 @@
-
 class CampaignsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
@@ -16,10 +15,9 @@ class CampaignsController < ApplicationController
     if @campaign.valid?
       campaign_user = CampaignUser.create(campaign_id: @campaign.id, user_id: current_user.id, :user_type => CREATOR)
       ScheduledWorker.perform_at(@campaign.funding_deadline, @campaign.id)
-      redirect_to @campaign
+      render json: {campaign_id: @campaign.id }.to_json
     else
-      @errors = @campaign.errors.full_messages
-      render :new
+      render :json => {:error => @campaign.errors.full_messages}.to_json, :status => :unprocessable_entity
     end
   end
 
@@ -56,6 +54,17 @@ class CampaignsController < ApplicationController
     topic = Topic.find_by_title(params[:topic])
     p campaigns = Campaign.where(topic_id: topic.id)
     render json: render_to_string(partial: 'filtered_opp_campaigns', locals: { camp: campaigns }).to_json
+  end
+
+  def editable_form
+    p params
+    @campaign = Camapaign.find_by_id(params[:id])
+    @campaign.update_attribute(pitch: params[:form])
+    if @campaign.save
+      render json: {campaign_id: @campaign.id }.to_json
+    else
+      render :json => {:error => @campaign.errors.full_messages}.to_json, :status => :unprocessable_entity
+    end
   end
 end
 

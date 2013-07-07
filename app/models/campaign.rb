@@ -3,7 +3,7 @@ class Campaign < ActiveRecord::Base
   attr_accessible :short_blurb, :location, :cause_url, :funding_goal, :pitch, :title
   attr_accessible :tag_list, :donation_total, :opposing_campaign_id, :status
 
-  validates_presence_of :title, :funding_deadline, :short_blurb, :location, :funding_goal, :pitch, :image_url
+  validates_presence_of :title, :short_blurb, :location, :image_url
 
   has_many :campaign_users
   has_many	:users, through: :campaign_users
@@ -12,3 +12,4 @@ class Campaign < ActiveRecord::Base
   acts_as_taggable
 
 end
+# :funding_deadline, :pitch, :funding_goal

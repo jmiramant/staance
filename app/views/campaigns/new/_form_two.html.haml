@@ -1,0 +1,10 @@
+.form_head
+  #awesome_campaign{:contenteditable => "true"}  
+    .form_full.edit_magic
+      = render 'campaigns/new/example'
+  #campaign_id{:style => 'display: none'}
+    = @campaign.id
+#cont_button
+  Continue
+  %i.icon-arrow-right
+

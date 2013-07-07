@@ -1,0 +1,10 @@
+.form_head
+= semantic_form_for @campaign do |f|
+  .form_half
+    = f.input :cause_url 
+  .form_half.right
+    = f.input :funding_deadline, as: :date_picker
+  .form_half
+    = f.input :funding_goal
+  .form_full
+    = f.action :submit

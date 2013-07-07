@@ -1,7 +1,9 @@
 input
   border: none
   -webkit-appearance: none
-#form_one
+#form_two h2
+  height: 3333px
+#form_one, #form_two, #form_three
   margin: 15px auto
   @include outer-container()
   animation: fadein 2s
@@ -25,6 +27,7 @@ input
     background-color: #fece12
     margin: -20px 0 24px -26px
     border-radius: 11px 11px 0 0
+    padding-top: 27px
   .label
     margin-bottom: 10px
   #new_campaign
@@ -105,3 +108,13 @@ input
       padding-right: 30px
   .no-pointer-events #campaign_topic_id:after
     content: none
+  #cont_button
+    width: 177px
+    display: inline
+    border: none
+    position: fixed
+    border-radius: 4px
+    color: white
+    background-color: #fece12
+    padding: 10px 20px
+    cursor: pointer
