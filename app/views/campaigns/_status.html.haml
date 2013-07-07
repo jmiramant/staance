@@ -1,1 +1,6 @@
 
+.status
+  - if @campaign.status == "Unsuccessful"
+    = render 'unsuccessful_campaign'
+  - elsif @campaign.status == "Funded"
+    = render 'successful_campaign'
