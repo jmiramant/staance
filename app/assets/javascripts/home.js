@@ -7,10 +7,10 @@ var Carousel = {
   },
 
   changeVideo: function(num) {
-    $('.featured-video.' + this.current).hide();
+    $('.featured-video.' + this.current).fadeOut(500);
     $('.icon-circle.' + this.current).css('color', '#545454');
     this.current = (this.current + num + 3) % 3;
-    $('.featured-video.' + this.current).fadeIn();
+    $('.featured-video.' + this.current).delay(501).fadeIn(500);
     $('.icon-circle.' + this.current).css('color', '#fece12');
   }
 };
@@ -18,10 +18,8 @@ var Carousel = {
 $(document).ready(function(){
   // featured video click & carousel
   Carousel.init();
-
-
-
-
+  var autoRotate = setInterval(function() { Carousel.changeVideo(1); }, 5000);
+  $('.arrow').on('click', function() { clearInterval(autoRotate); });
 
   // campaign grid
   $('.select-bar a').on('click', function(e) {
