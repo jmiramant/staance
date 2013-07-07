@@ -1,22 +1,24 @@
 .campaign-snapshot{class: klass, style: style}
   / %a{href: "http://www.youtube.com/watch?v=opj24KnzrWo", class: "fancy_fancy"} this is the structure for Fancybox. Josh will resolve the assest pipleine order on Sunday. 
-  %img{src: image}
+  / %img{src: image}
+  %img{src: campaign.image_url}
   .campaign-details
     .text
-      %a.name{href: "#"} Campaign Name Goes Here
+      %a.name{href: "#"} #{campaign.title}
       .creator
         by
-        %a{href: "#"} Eadon Jacobs
+        %a{href: "#"} #{campaign.users.first.email}
     .stats-1
-      .raised $1,382
-      - percent = rand(1..100)
+      .raised #{to_currency(campaign.donation_total)}
+      - percent = ((campaign.donation_total / campaign.funding_goal) * 100).to_i
       .percent #{percent}%
     .bar
       %span{style: "width: #{percent}%"}
     .stats-2
+      - time_array = campaign.separated_time_ago
       .time-left
-        %span 5
-        days left
+        %span #{time_array[0]}
+        #{time_array[1]} left
       .supporters
-        %span 84  
+        %span #{campaign.supporters.length}
         supporters

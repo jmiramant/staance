@@ -1,5 +1,4 @@
 class CampaignUser < ActiveRecord::Base
-
   attr_accessible :user_type, :campaign_id, :user_id, :donation_amount
   
   validates_presence_of :campaign_id, :user_id
@@ -7,5 +6,4 @@ class CampaignUser < ActiveRecord::Base
 
   belongs_to	:user
   belongs_to	:campaign
-    
 end

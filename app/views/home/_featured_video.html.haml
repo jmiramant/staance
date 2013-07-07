@@ -1,11 +1,12 @@
-.featured-video{style: style, class: klass}
-  %img{src: image}
+.featured-video{class: klass}
+  %img{src: campaign.image_url}
   .features-details
     .campaign-name-stats
-      .campaign-name Campaign Name Goes Here
+      .campaign-name #{campaign.title}
       .campaign-stats
-        %span $1,382
+        - time_array = campaign.separated_time_ago
+        %span #{to_currency(campaign.donation_total)}
         raised &nbsp;&nbsp;|&nbsp;
-        %span 5
-        days left
-    %a.button{href: "#"} View Campaign
+        %span #{time_array[0]}
+        #{time_array[1]} left
+    = link_to "View Campaign", campaign, class: 'button'

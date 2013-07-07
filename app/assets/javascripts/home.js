@@ -7,10 +7,10 @@ var Carousel = {
   },
 
   changeVideo: function(num) {
-    $('.featured-video.' + this.current).fadeOut(500);
+    $('.featured-video.' + this.current).hide();
     $('.icon-circle.' + this.current).css('color', '#545454');
     this.current = (this.current + num + 3) % 3;
-    $('.featured-video.' + this.current).delay(501).fadeIn(500);
+    $('.featured-video.' + this.current).fadeIn(1000);
     $('.icon-circle.' + this.current).css('color', '#fece12');
   }
 };
@@ -30,10 +30,8 @@ $(document).ready(function(){
     $('.campaign-snapshot').hide();
     $('.' + klass).fadeIn('slow');
   });
+
   jQuery(function() {
     $(".fancy_fancy").fancybox();
   });
-
-
-
 });
