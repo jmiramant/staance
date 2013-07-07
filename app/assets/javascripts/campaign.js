@@ -51,6 +51,7 @@ function createDropDown(topic){
 	}
 
 $(document).ready(function(){
+		$("#form_one").fadeIn('slow');
 		SupportLink.init();
 		UpdateOpposingCampaign.init()
 		countdown();

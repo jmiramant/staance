@@ -1,34 +1,30 @@
-.progess
-  %ul
-    %li
-      Get Started
-    %li
-      Build
-    %li
-      Publish
 #head
-  =render 'campaigns/new/welcome'
   #form_one
-    = semantic_form_for @campaign do |f|
-      #topic_input
-        = f.input :topic
-      = f.input :tag_list, placeholder: "Tags separated by commas"
-      #opposing_campaigns
-      
-      = f.input :title
-      = f.input :video_url 
-      = f.input :image_url
-      = f.input :short_blurb, as: :text
-      = f.text_area :pitch, :class => 'ckeditor'
-      = f.input :location 
-      = f.input :cause_url 
-      = f.input :funding_deadline, as: :date_picker
-      = f.input :funding_goal
-      = f.actions :submit, :cancel
-%br
-%br
-%br
-%br
-%br
-#test_form
-  =render 'campaigns/new/forms'
+    %h2
+      .form_head
+      = semantic_form_for @campaign do |f|
+        .form_full.title
+          = f.input :title
+        .form_half
+          = f.input :topic        
+        .form_half.right
+          = f.input :tag_list, placeholder: "Tags separated by commas"
+        #opposing_campaigns
+        .form_half
+          = f.input :video_url 
+        .form_half.right
+          = f.input :image_url
+        .form_half
+          = f.input :location 
+        .form_half.right
+          = f.input :short_blurb, as: :text 
+        .form_full
+          = f.text_area :pitch, :class => 'ckeditor'
+        .form_half
+          = f.input :cause_url 
+        .form_half.right
+          = f.input :funding_deadline, as: :date_picker
+        .form_half
+          = f.input :funding_goal
+        .form_full
+          = f.actions :submit, :cancel
