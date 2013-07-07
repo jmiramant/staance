@@ -17,9 +17,12 @@ module AuthenticationsHelper
     user = User.new
     user.email = omni['extra']['raw_info'].email if omni['extra']['raw_info'].email
     user.apply_omniauth(omni)
-    if user.save
+    if user.save 
       flash[:notice] = "Logged in!"
       sign_in_and_redirect user
+    elsif omni['provider'] == 'twitter' && omni['extra']['raw_info']['screen_name'] && omni['extra']['raw_info'].created_at
+      session[:omniauth] = omni.except('extra')
+      redirect_to new_user_registration_path
     else
       session[:omniauth] = omni.except('extra')
       redirect_to new_user_registration_path

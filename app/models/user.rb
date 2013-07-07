@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauth_providers => [:twitter, :facebook]
-  
+
   has_many :campaign_users, dependent: :destroy
   has_many :authentications, dependent: :destroy
   has_many :campaigns, through: :campaign_users

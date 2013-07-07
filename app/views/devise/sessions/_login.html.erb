@@ -2,7 +2,7 @@
 
   <%= render "registrations/social_links" %>
 
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <%= form_for(resource, remote: true, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     <%= f.email_field :email, :autofocus => true, placeholder: 'email' %>
 
     <%= f.password_field :password, placeholder: 'password' %>
