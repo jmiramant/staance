@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_filter :auth_user
   
   def build_resource(*args)
     super

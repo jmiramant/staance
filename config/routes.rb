@@ -2,7 +2,9 @@ PoliticalKickstarter::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users, controllers: {:omniauth_callbacks => 'authentications', :registrations => 'registrations'}
+  devise_for :users, controllers: {:omniauth_callbacks => 'authentications', 
+                                   :registrations => 'registrations',
+                                   :sessions => 'sessions'}
   resources :users, only: [:index, :show]
   resources :campaigns
   resources :topics, only: [:index, :show]
