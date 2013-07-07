@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def auth_user
-    @errors = ["You need to sign in or sign up before continuing."]
-    render "users/multiauth" unless user_signed_in?
+    flash[:alert] = ["You need to sign in or sign up before continuing."]
+    redirect_to multiauth_path unless user_signed_in?
   end
 end

@@ -1,7 +1,5 @@
-- if errors
+- if alert
   #errors
-    - errors.each do |error|
-      = error
+    - alert.each do |a|
+      = a
       %br
-- elsif alert
-  = alert

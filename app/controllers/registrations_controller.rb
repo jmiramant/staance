@@ -28,8 +28,8 @@ class RegistrationsController < Devise::RegistrationsController
       end
     else
       clean_up_passwords resource
-      @errors = resource.errors.full_messages
-      render "users/multiauth"
+      flash[:alert] = resource.errors.full_messages
+      redirect_to multiauth_path
     end
     session.delete(:omniauth) unless @user.new_record?
   end
