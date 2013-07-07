@@ -1,52 +1,11 @@
-.container
-  .flat-form
-    %ul.tabs
-      %li
-        %a.active{:href => "#tab_one"} Get Started
-      %li
-        %a{:href => "#tab_two"} Build
-      %li
-        %a{:href => "#tab_three"} Launch
-    #tab_one.form-action.show
-      %h1 Login on webapp
-      %p
-        Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-        Maecenas sed diam eget risus varius bladit sit amet non
-      %form
-        %ul
-          %li
-            %input{:placeholder => "Username", :type => "text"}/
-          %li
-            %input{:placeholder => "Password", :type => "password"}/
-          %li
-            %input.button{:type => "submit", :value => "Login"}/
-    / /#login.form-action
-    #tab_two.form-action.hide
-      %h1 Register
-      %p
-        You should totally sign up for our super awesome service.
-        It's what all the cool kids are doing nowadays.
-      %form
-        %ul
-          %li
-            %input{:placeholder => "Username", :type => "text"}/
-          %li
-            %input{:placeholder => "Password", :type => "password"}/
-          %li
-            %input.button{:type => "submit", :value => "Sign Up"}/
-    / /#register.form-action
-    #tab_three.form-action.hide
-      %h1 Reset Password
-      %p
-        To reset your password enter your email and your birthday
-        and we'll send you a link to reset your password.
-      %form
-        %ul
-          %li
-            %input{:placeholder => "Email", :type => "text"}/
-          %li
-            %input{:placeholder => "Birthday", :type => "text"}/
-          %li
-            %input.button{:type => "submit", :value => "Send"}/
-    / /#register.form-action
-%script.cssdeck{:src => "//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"}
+#login
+  %h2
+    Create Campaign
+    %form{:action => "javascript:void(0);", :method => "POST"}
+      %fieldset
+        %p
+          %label{:for => "email"} E-mail address
+        %p
+          %input#email{:onblur => "if(this.value=='')this.value='mail@address.com'", :onfocus => "if(this.value=='mail@address.com')this.value=''", :type => "email", :placeholder => "mail@address.com"}/
+        %p
+          %input{:type => "submit", :value => "Sign In"}/
