@@ -1,2 +1,7 @@
-#unsuccessful_campaign
-  Campaign funding not completed by deadline.  Campaign suspended.
+.campaign_completed_banner
+  .title 
+    Campaign Not Funded
+  .donation_total
+    Rome was not built in a day...When ready, restart a campaign here:
+    %span{id: "link"} 
+      = link_to "Create Campaign", new_campaign_path

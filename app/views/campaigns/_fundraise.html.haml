@@ -1,36 +1,36 @@
 .status
-  - if @campaign.status == "Unsuccessful"
-    = render 'unsuccessful_campaign'
-  - elsif @campaign.status == "Funded"
-    = render 'successful_campaign'
+  - if @campaign.status == UNSUCCESSFUL
+    = render 'unsuccessful_campaign', campaign: @campaign
+  - elsif @campaign.status == FUNDED && @campaign.funding_deadline < Date.today
+    = render 'successful_campaign', campaign: @campaign
   - elsif @campaign.funding_deadline > Date.today
-.fundraise
-  .total
-    = to_currency(@campaign.donation_total)
-  #bar
-    - if @campaign.donation_total < @campaign.funding_goal
-      #progress_bg.small
-        #progress{:style => "width: #{(@campaign.donation_total/@campaign.funding_goal)*100}%;"}
-      .donation_total
-        Raised of
-        = to_currency(@campaign.funding_goal)
-    - else
-      #progress_bg
-        #progress
-        #progress_text
-          = @campaign.donation_total
-          of
-          = to_currency(@campaign.funding_goal) 
-  .deadline
-    %i.icon-time
-    = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
-    .countdown_value
-  .donate
-    .contribute
-      = form_tag(donate_path, method: "post", remote: true, class: "donate_payment") do
-        = text_field_tag(:donation, nil, placeholder: 'Amount')
-        = hidden_field_tag(:campaign_id, @campaign.id)
-        = submit_tag("Donate!", class: 'button')
-    .countdown
-      = @campaign.funding_deadline.strftime("%B%e, %Y %H:%M:%S")
+    .fundraise
+      .total
+        = to_currency(@campaign.donation_total)
+      #bar
+        - if @campaign.donation_total < @campaign.funding_goal
+          #progress_bg.small
+            #progress{:style => "width: #{(@campaign.donation_total/@campaign.funding_goal)*100}%;"}
+          .donation_total
+            Raised of
+            = to_currency(@campaign.funding_goal)
+        - else
+          #progress_bg
+            #progress
+            #progress_text
+              = @campaign.donation_total
+              of
+              = to_currency(@campaign.funding_goal) 
+      .deadline
+        %i.icon-time
+        = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
+        .countdown_value
+      .donate
+        .contribute
+          = form_tag(donate_path, method: "post", remote: true, class: "donate_payment") do
+            = text_field_tag(:donation, nil, placeholder: 'Amount')
+            = hidden_field_tag(:campaign_id, @campaign.id)
+            = submit_tag("Donate!", class: 'button')
+        .countdown
+          = @campaign.funding_deadline.strftime("%B%e, %Y %H:%M:%S")
 
