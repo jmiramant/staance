@@ -11,10 +11,6 @@
   <%= render 'shared/fbsdk' %>
   <%= render 'layouts/nav' %>
   <%= render 'shared/errors', errors: @errors %>
-  <% if notice || alert %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  <% end %>
   <div class="container">
     <%= yield %>
   </div> 

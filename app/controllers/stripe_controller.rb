@@ -1,7 +1,7 @@
 class StripeController < ApplicationController
   include StripeHelper
 
-  before_filter :authenticate_user!
+  before_filter :auth_user
   skip_before_filter :verify_authenticity_token, only: :process_card
 
   def donate
