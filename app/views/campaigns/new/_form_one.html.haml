@@ -1,0 +1,20 @@
+.form_head
+= semantic_form_for @campaign, url: campaigns_path, remote: true do |f|
+  = render '/campaigns/new/errors', :target => @campaign
+  .form_full.title
+    = f.input :title
+  .form_half
+    = f.input :topic        
+  .form_half.right
+    = f.input :tag_list, placeholder: "Tags separated by commas"
+  #opposing_campaigns
+  .form_half
+    = f.input :video_url 
+  .form_half.right
+    = f.input :image_url
+  .form_half
+    = f.input :location 
+  .form_half.right
+    = f.input :short_blurb, as: :text
+  .form_full
+    = f.action :submit, label: "Continue"

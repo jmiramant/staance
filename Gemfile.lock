@@ -57,12 +57,16 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     celluloid (0.14.0)
       timers (>= 1.0.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
-    ckeditor_rails (4.1.2)
-      railties (>= 3.0)
+    ckeditor (4.0.4)
+      mime-types
+      orm_adapter
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -138,6 +142,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
+    mini_magick (3.4)
+      subexec (~> 0.2.1)
     mini_portile (0.5.0)
     multi_json (1.7.7)
     multipart-post (1.2.0)
@@ -270,6 +276,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    subexec (0.2.2)
     thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -304,7 +311,8 @@ DEPENDENCIES
   aws-s3
   bourbon
   capybara
-  ckeditor_rails
+  carrierwave
+  ckeditor
   coffee-rails (~> 3.2.1)
   database_cleaner
   debugger
@@ -318,6 +326,7 @@ DEPENDENCIES
   formtastic
   haml
   jquery-rails
+  mini_magick
   neat
   newrelic_rpm
   nokogiri
