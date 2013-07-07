@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  
-  before_filter :authenticate_user!
+  include HomeHelper
+  before_filter :auth_user, except: :multiauth
 
   def index
     @users = User.all
@@ -15,5 +15,8 @@ class UsersController < ApplicationController
         @campaigns << Campaign.find(campaign_id)
       end
     end
+  end
+
+  def multiauth
   end
 end

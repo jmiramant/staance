@@ -25,7 +25,7 @@ module AuthenticationsHelper
       redirect_to new_user_registration_path
     else
       session[:omniauth] = omni.except('extra')
-      redirect_to new_user_registration_path
+      redirect_to multiauth_path
     end
   end
 end
