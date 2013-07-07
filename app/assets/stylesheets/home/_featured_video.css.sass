@@ -23,14 +23,14 @@
       &.right
         right: 75px
 
-    img
-      border-radius: 10px
-      width: 700px
-      height: 400px
-
     .featured-video
       position: relative
-      margin: 0 30px
+      width: 65%
+      margin: 0 auto
+
+      img
+        border-radius: 10px
+        width: 100%
 
       .features-details
         position: absolute
@@ -43,33 +43,33 @@
         bottom: 0
         color: white
 
-      .campaign-name-stats
-        float: left
-        text-align: left
+        .campaign-name-stats
+          float: left
+          text-align: left
 
-        .campaign-name
-          font-size: 28px
+          .campaign-name
+            font-size: 28px
 
-        .campaign-stats
-          margin-top: 15px
-          font-style: italic
-          font-weight: 300
+          .campaign-stats
+            margin-top: 15px
+            font-style: italic
+            font-weight: 300
 
-          span
-            font-size: 20px
-            font-weight: 700
-            color: $staance-yellow
+            span
+              font-size: 20px
+              font-weight: 700
+              color: $staance-yellow
 
-      .button
-        background-color: $staance-blue
-        float: right
-        margin: 20px 10px 0 0 
+        .button
+          background-color: $staance-blue
+          float: right
+          margin: 20px 10px 0 0 
 
     .slider-icons
-      margin-top: 25px
+      margin-top: 20px
 
       i
         margin: 0 10px
 
-        &.active
+        &:nth-child(1)
           color: $staance-yellow
