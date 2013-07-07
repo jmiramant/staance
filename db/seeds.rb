@@ -12,7 +12,7 @@
 TOPICS.each { |topic| Topic.find_or_create_by_title(topic) }
 
 lloyd = User.create(email: "ltaylor@netelder.com", password: "password", name: "Lloyd Taylor")
-josh = User.create(email: "josh@miramant.me", password: "password", name: "Josh Miramant")
+josh = User.create(email: "josh@misdaramant.me", password: "password", name: "Josh Miramant")
 bob = User.create(email: "bob@gmail.com", password: "password", name: "Bob Dole")
 joe = User.create(email: "joe@google.com", password: "password", name: "Joe Schmoe")
 dan = User.create(email: "dan@google.com", password: "password", name: "Dan Mann")

@@ -44,7 +44,7 @@ gem 'devise'
 gem 'twitter'
 gem 'fb_graph'
 gem 'sidekiq'
-gem 'ckeditor'
+gem 'ckeditor_rails'
 gem 'rails_admin'
 
 #image storage
