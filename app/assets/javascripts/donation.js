@@ -6,8 +6,11 @@ function makePayment() {
 $(document).ready(function(){
 
   $('.donate_payment').on('ajax:success', function(e, data){
-    $('.donate').append(data)
+    $('.donate').append(data);
     makePayment();
   });
 
+  $('.donate_payment').on('ajax:error', function(e, data){
+    alert("Please log in to make a donation");    
+  });
 });
