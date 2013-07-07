@@ -30,7 +30,9 @@ $(document).ready(function(){
     $('.campaign-snapshot').hide();
     $('.' + klass).fadeIn('slow');
   });
-
+  jQuery(function() {
+    $(".fancy_fancy").fancybox();
+  });
 
 
 

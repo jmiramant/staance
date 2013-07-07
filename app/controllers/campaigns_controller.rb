@@ -30,7 +30,7 @@ class CampaignsController < ApplicationController
     ids = CampaignUser.where(campaign_id: @campaign.id, user_type: SUPPORTER).pluck("user_id")
     @supporters = []
     @supporters = ids.map { |id| User.find(id)}
-    # @video = UrlToMediaTag.convert(@campaign.video_url, width: 540, height: 320)
+    @video = UrlToMediaTag.convert(@campaign.video_url, width: 540, height: 320)
   end
 
   def edit

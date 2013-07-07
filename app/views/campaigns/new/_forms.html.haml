@@ -1,11 +1,28 @@
-#login
-  %h2
-    Create Campaign
-    %form{:action => "javascript:void(0);", :method => "POST"}
-      %fieldset
-        %p
-          %label{:for => "email"} E-mail address
-        %p
-          %input#email{:onblur => "if(this.value=='')this.value='mail@address.com'", :onfocus => "if(this.value=='mail@address.com')this.value=''", :type => "email", :placeholder => "mail@address.com"}/
-        %p
-          %input{:type => "submit", :value => "Sign In"}/
+.form_head
+= semantic_form_for @campaign do |f|
+  .form_full.title
+    = f.input :title
+  .form_half
+    = f.input :topic        
+  .form_half.right
+    = f.input :tag_list, placeholder: "Tags separated by commas"
+  #opposing_campaigns
+  .form_half
+    = f.input :video_url 
+  .form_half.right
+    = f.input :image_url
+  .form_half
+    = f.input :location 
+  .form_half.right
+    = f.input :short_blurb, as: :text
+  #content{:contenteditable => "true"}  
+    .form_full.edit_magic
+      = render 'campaigns/new/example'
+  .form_half
+    = f.input :cause_url 
+  .form_half.right
+    = f.input :funding_deadline, as: :date_picker
+  .form_half
+    = f.input :funding_goal
+  .form_full
+    = f.actions :submit, :cancel

@@ -35,6 +35,7 @@ gem 'debugger'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'url_to_media_tag'
 gem 'font-awesome-rails'
+gem 'fancybox-rails'
 
 #all auth gems
 gem 'omniauth'
