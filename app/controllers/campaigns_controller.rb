@@ -13,7 +13,8 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.create(params[:campaign])
     if @campaign.valid?
-      campaign_user = CampaignUser.create(campaign_id: @campaign.id, user_id: current_user.id, :user_type => CREATOR)
+      CampaignUser.create(campaign_id: @campaign.id, user_id: current_user.id, :user_type => CREATOR)
+      UserMailer.campaign_new_email(current_user, @campaign).deliver
       ScheduledWorker.perform_at(@campaign.funding_deadline, @campaign.id)
       render json: {campaign_id: @campaign.id }.to_json
     else
