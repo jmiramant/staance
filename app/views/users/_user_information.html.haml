@@ -1,8 +1,13 @@
 .user
-  .email
-    User Information: 
+  .title
+    User Information 
+    .update
+      = link_to "update information", edit_user_registration_path
+  .user_details
     .name
       = @user.name
     .email  
       = @user.email
-  = link_to "update information", edit_user_registration_path
+    .about_me
+      = @user.about_me
+

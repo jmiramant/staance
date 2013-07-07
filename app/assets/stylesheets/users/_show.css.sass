@@ -2,19 +2,85 @@
   @include outer-container
   margin: 30px auto
   #user_info
-    @include span-columns(5 of 12)
-    margin: 5px 0
-    float: left
+    @include span-columns(10 of 12)
+    background-color: $background-light-grey
+    min-height: 300px
+    margin: 5px auto
+    float: none
+    .update
+      float: right
+      font-size: 15px
   #user_campaigns
-    @include span-columns(5 of 12)
-    margin: 5px 0
-    float: right
+    @include span-columns(8 of 12)
+    background-color: $background-light-grey
+    height: 300px
+    margin: 5px auto
+    float: none
   #user_donated
-    @include span-columns(5 of 12)
-    margin: 5px 0
-    float: left
+    @include span-columns(8 of 12)
+    background-color: $background-light-grey
+    height: 300px
+    margin: 5px auto
+    float: none
+    &:last-child
+      margin-right: auto
   #user_supported
-    @include span-columns(5 of 12)
-    margin: 5px 0
-    float: right
+    @include span-columns(8 of 12)
+    background-color: $background-light-grey
+    height: 300px
+    margin: 5px auto
+    float: none
+  .user_details
+    float: none
+    margin: 0 auto
+    font-size: 20px
+    text-align: center
+    .about_me
+      @include span-columns(10 of 12)
+      float: none
+      margin: 10px auto
+      padding: 30px 0px
+      font-size: 18px
+      &:last-child
+        margin-right: auto
+  .title
+    color: #0f7282
+    font-size: 20px
+    margin: 10px
+    padding: 10px
+  .details
+    @include span-columns(5 of 6)
+    float: none
+    margin: 20px auto
+    font-size: 14px
+    &:last-child
+      margin-right: auto
+  .profile_container
+    position: relative
+    height: 300px
+    .camp
+      @include span-columns(2 of 6)
+      margin: 0px auto 10px auto
+      float: left
+      height: 110px
+      .camp_thumbnail
+        height: 70px
+        width: 90px
+        margin: 0 auto
+        img
+          height: 70px
+          width: 90px
+      .camp_details
+        padding: 2px
+        text-align: center
+      .status
+        text-align: center
+    .see_all
+      position: absolute
+      margin: 10px
+      right: 0
+      top: 0
+      width: 120px
+      height: 40px    
 
+      

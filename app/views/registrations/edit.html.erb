@@ -23,6 +23,9 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
+  <div><%= f.label "What's your story?" %> <br />
+  <%= f.text_area(:about_me, :size => "50x10")  %></div>
+
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
 
