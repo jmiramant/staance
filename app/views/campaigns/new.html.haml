@@ -1,105 +1,32 @@
-#head
-  #form_one
-    %h2
-      .form_head
-      = semantic_form_for @campaign do |f|
-        .form_full.title
-          = f.input :title
-        .form_half
-          = f.input :topic        
-        .form_half.right
-          = f.input :tag_list, placeholder: "Tags separated by commas"
-        #opposing_campaigns
-        .form_half
-          = f.input :video_url 
-        .form_half.right
-          = f.input :image_url
-        .form_half
-          = f.input :location 
-        .form_half.right
-          = f.input :short_blurb, as: :text
-        %br
-        %span.description   
+#body
+  #head
+    #form_one
+      %h2
+        .form_head
+        = semantic_form_for @campaign do |f|
+          .form_full.title
+            = f.input :title
+          .form_half
+            = f.input :topic        
+          .form_half.right
+            = f.input :tag_list, placeholder: "Tags separated by commas"
+          #opposing_campaigns
+          .form_half
+            = f.input :video_url 
+          .form_half.right
+            = f.input :image_url
+          .form_half
+            = f.input :location 
+          .form_half.right
+            = f.input :short_blurb, as: :text
           #content{:contenteditable => "true"}  
             .form_full.edit_magic
-              %h3
-                White Pebbles Shipping + OS v1.12 + Watchapps + Best Buy
-              .body
-                %h1 White Pebbles now shipping
-                .template{"data-href" => "http://i.imgur.com/Mq2c8lg.png"}
-                  %img{:src => "http://i.imgur.com/Mq2c8lg.png"}/
-                %p At long last, white Pebbles are shipping! We have begun the process for the first batch, which will reach about half of the waiting Backers. More will follow soon as we complete production of white Pebbles. The last of the grey Pebbles are also shipping, bringing us very close to completing delivery of all Kickstarter backed Pebbles!
-                %p
-                  If you backed a black, red or orange Pebble on Kickstarter and your order status is not yet at Stage 3 "Processing Shipment", please
-                  %a{:href => "http://help.getpebble.com/customer/portal/emails/new", :target => "_blank"} email us
-                  with the subject of 'KS Still Waiting' so that we can look into it and make sure your Pebble gets to you. Any information you can provide regarding your order will help us investigate more quickly.
-                %p If you are in Germany and have not yet received your Pebble, we are getting close to resolution with the German Authorities. As soon as we have more information, we will email you directly with details about what to expect next.
-                %h1 Pebble OS v1.12
-                .template{"data-href" => "http://i.imgur.com/vNuqdBw.jpg"}
-                  %img{:src => "http://i.imgur.com/vNuqdBw.jpg"}/
-                %p
-                  %i
-                    Photo credit:
-                    %a{:href => "https://twitter.com/SnCFinkle/status/351796648139173890", :target => "_blank"} https://twitter.com/SnCFinkle/status/351796648139173890
-                %p Updated firmware was released yesterday (Canada Day!) with a few new features and bugfixes:
-                %p What's new
-                %ul
-                  %li The backlight now turns on momentarily when a charger is connected.
-                  %li Goodies for watchapp developers that will be unlocked when the new version of PebbleKit is released.
-                %p What we fixed:
-                %ul
-                  %li Subject/sender cutoff in notifications with long subjects/senders.
-                  %li The motion backlight from sporadically not working.
-                  %li Factory reset to disable the QC app and perform the reset.
-                  %li Long click release after changing the action bar icon.
-                  %li Presentation of some graphics.
-                %div
-                  %br/
-                %h1 New Watchapps
-                %p
-                  Pebble watchapp developers continue to deliver amazing creations to the Pebble community. You can always find the latest app buzz on our
-                  %a{:href => "http://forums.getpebble.com/categories/watchapp-directory", :target => "_blank"} forums
-                  and on
-                  = succeed "," do
-                    %a{:href => "http://reddit.com/r/pebble", :target => "_blank"} reddit.com/r/pebble
-                  but here are a couple highlights.
-                %p
-                  %b The watchface generator
-                  keeps getting better and now offers the option to make analog watchfaces, too!
-                  %a{:href => "http://www.watchface-generator.de/", :target => "_blank"} http://www.watchface-generator.de/
-                .template{"data-href" => "http://i.imgur.com/VBOZK2c.png"}
-                  %img{:src => "http://i.imgur.com/VBOZK2c.png"}/
-                %p
-                  %b httpebble (iOS) + Watchfaces
-                  lets Pebble communicate with the internet and bring back location specific data to your wrist. The
-                  %a{:href => "http://www.mypebblefaces.com/view?fID=3815&aName=rfrcarvalho&pageTitle=91+Weather&auID=4100", :target => "_blank"} 91 Weather app
-                  is a beautiful example. Note that iOS users may want to use the 'old' 91 Weather version. Created by rfrcarvalho.
-                .template{"data-href" => "http://i.imgur.com/aMH2Lxo.jpg"}
-                  %img{:src => "http://i.imgur.com/aMH2Lxo.jpg"}/
-                %p
-                  %i
-                    Photo credit
-                    %a{:href => "https://twitter.com/_neckbeard/status/350706377301323776", :target => "_blank"} https://twitter.com/_neckbeard/status/350706377301323776
-                %h1 Best Buy
-                %p
-                  We announced today that Jet Black Pebbles will be available at Best Buy stores throughout the US later this week and can be ordered online now at
-                  %a{:href => "http://bestbuy.com/pebble", :target => "_blank"} bestbuy.com/pebble.
-                  Cherry Red Pebbles will follow in August.
-                %p Distribution has been a large task for us and partnering with Best Buy provides an outlet to help us get Pebble onto wrists more quickly while allowing our small team to focus on software and feature improvements for current and future Pebblers.
-                %p
-                  We will continue shipping pre-orders in the US and around the world in all Pebble colors. Additional details can be found on our forum post:
-                  %a{:href => "http://forums.getpebble.com/discussion/6235/it-s-pebble-time-at-best-buy/p1", :target => "_blank"} http://forums.getpebble.com/discussion/6235/it-s-pebble-time-at-best-buy/p1
-                %p This marks a big step for Pebble and we're excited to see people connect with Pebbles more quickly. We couldn't have done it without your support.
-                %p Thanks as always and Pebble-on!
-                %p Team Pebble
-              %ul.media
-        .form_half
-          = f.input :cause_url 
-        .form_half.right
-          = f.input :funding_deadline, as: :date_picker
-        .form_half
-          = f.input :funding_goal
-        .form_full
-          = f.actions :submit, :cancel
-          
-              
+              = render 'campaigns/new/example'
+          .form_half
+            = f.input :cause_url 
+          .form_half.right
+            = f.input :funding_deadline, as: :date_picker
+          .form_half
+            = f.input :funding_goal
+          .form_full
+            = f.actions :submit, :cancel
