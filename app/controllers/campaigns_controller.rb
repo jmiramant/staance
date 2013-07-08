@@ -58,13 +58,14 @@ class CampaignsController < ApplicationController
   end
 
   def editable_form
-    p params
-    @campaign = Camapaign.find_by_id(params[:id])
-    @campaign.update_attribute(pitch: params[:form])
-    if @campaign.save
-      render json: {campaign_id: @campaign.id }.to_json
-    else
-      render :json => {:error => @campaign.errors.full_messages}.to_json, :status => :unprocessable_entity
+    @campaign = Campaign.find_by_id(params[:id])
+    @campaign.update_attribute('pitch', params[:form])
+    respond_to do |format|
+      if @campaign.save
+        format.js { render partial: 'campaigns/editable_form' }
+      else
+        format.json { render json: @campaign.errors.full_messages, status: :unprocessable_entity }
+      end
     end
   end
 end

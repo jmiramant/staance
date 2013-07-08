@@ -67,6 +67,7 @@ GEM
     ckeditor (4.0.4)
       mime-types
       orm_adapter
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -141,6 +142,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.1)
     mime-types (1.23)
     mini_magick (3.4)
       subexec (~> 0.2.1)
@@ -178,6 +180,10 @@ GEM
     orm_adapter (0.4.0)
     pg (0.15.1)
     polyglot (0.3.3)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -271,6 +277,7 @@ GEM
       redis (>= 3.0)
       redis-namespace
     simple_oauth (0.2.0)
+    slop (3.4.5)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -334,6 +341,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-twitter
   pg
+  pry
   rails (= 3.2.13)
   rails_admin
   rspec-rails

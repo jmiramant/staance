@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   $('#form_one #new_campaign').on("ajax:success", function(e, data){
     successPath(data.campaign_id);
   });
@@ -8,7 +9,7 @@ $(document).ready(function(){
   $('#form_two #cont_button').on('click', function(e){
     e.preventDefault();
     var form = copyContent();
-    var id = form_string
+    var id = $('#campaign_id').html();
     formTwo(id, form);
   });
 });
@@ -36,25 +37,23 @@ $(document).ready(function(){
   };
 
   function copyContent() { 
-    document.getElementById("awesome_campaign").innerHTML;
+    return document.getElementById("awesome_campaign").innerHTML;
    };
 
   function formTwo(camp_id, form_string){
-    console.log(camp_id);
-    console.log(form_string);
-    $.post({
-      url: '/editable_form',
-      data: {id: camp_id,form: form_string}
+    $.ajax({
+      url: '/campaigns/editable_form/',
+      type: "post",
+      data: {id: camp_id, form: form_string}
     }).done(function(e){
-      console.log(e.status);
-      console.log('hello');
-
+      e
+      formThree(); 
     });
   };
 
-  function formThree(campaign){
-    $('.edit_magic').css('height', 0);    
+  function formThree(){
     $('#form_two').slideUp('slow');
     $('#form_two').fadeOut();
-    $('#from_three').fadeIn();
+    $('#body').css('height', '900px')
+    $('#form_three').fadeIn();
   };

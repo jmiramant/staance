@@ -49,6 +49,7 @@ gem 'ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails_admin'
+gem 'pry'
 
 #image storage
 gem 'aws-s3', :require => 'aws/s3'
