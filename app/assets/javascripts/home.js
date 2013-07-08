@@ -31,11 +31,6 @@ $(document).ready(function(){
     $('.' + klass).fadeIn('slow');
   });
 
-  $('.select-bar #topics').on('click', function(e) {
-    e.preventDefault();
-    $('.featured-campaigns').slideUp('slow');
-  });
-
   jQuery(function() {
     $(".fancy_fancy").fancybox();
   });

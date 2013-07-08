@@ -2,4 +2,5 @@
   = link_to 'HOTLY DEBATED', '#', class: 'categories selected', id: 'debated'
   = link_to 'MOST FUNDED', '#', id: 'most-funded', class: 'categories'
   = link_to 'SUCCESS STORIES', '#', id: 'successes', class: 'categories'
-  = link_to 'TOPICS', topics_path, id: 'topics'
+  = link_to 'TOPICS', topics_path, id: 'topics', remote: true
+  = render 'home/topic_dropdown'

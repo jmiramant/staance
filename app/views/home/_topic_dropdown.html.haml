@@ -1,0 +1,3 @@
+#topic_list
+  - Topic.all.each do |topic|
+    = link_to topic.title, home_filter_path(topic: topic.title), method: 'post', remote: true, class: 'topic_list_title', id: topic.description

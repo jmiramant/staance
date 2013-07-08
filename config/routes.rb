@@ -18,6 +18,7 @@ PoliticalKickstarter::Application.routes.draw do
   match '/' => "home#index", action: 'get'
   match '/filter_topic/:topic' => "campaigns#filter_topic", action: 'post'
   match '/multiauth' => "users#multiauth", action: 'get'
+  match '/home/filter' => "home#filter", action: 'post'
   # get 'tags/:tag', to: 'campaigns#index', as: :tag  ==>  uncomment to enable search by tags
   root :to => "home#index"
 end

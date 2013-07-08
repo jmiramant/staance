@@ -3,6 +3,11 @@
     .staance-motto
       Crowd funding for the political causes that matter... to you.
 
+#topic_title_box
+  #topic_title
+  #topic_description
+
 = render 'home/featured_campaigns'
 = render 'home/select_bar'
-= render 'home/campaign_grid'
+.campaign-grid
+  = render 'home/campaign_grid', { trending: @trending, most_funded: @most_funded, most_successful: @most_successful }
