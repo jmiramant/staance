@@ -4,7 +4,7 @@
   %img{src: campaign.image_url}
   .campaign-details
     .text
-      %a.name{href: "#"} #{campaign.title}
+      = link_to campaign.title, campaign_path(campaign)
       .creator
         by
         - camp_user = CampaignUser.where(campaign_id: campaign.id).where(user_type: 'Creator')
