@@ -9,7 +9,7 @@ class CustomFailure < Devise::FailureApp
 
   def redirect
     store_location!
-    flash[:alert] = ["Invalid email or password."]
+    flash[:alert] = "Invalid email or password."
     redirect_to multiauth_path
   end
 end

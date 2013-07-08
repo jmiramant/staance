@@ -18,5 +18,6 @@ class UsersController < ApplicationController
   end
 
   def multiauth
+    redirect_to current_user if user_signed_in?
   end
 end

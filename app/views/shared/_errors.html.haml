@@ -1,4 +1,7 @@
 - if alert
   #errors
-    - alert.each do |a|
-      .error #{a}
+    - if alert.class == Array
+      - alert.each do |a|
+        .error #{a}
+    - else
+      .error #{alert}
