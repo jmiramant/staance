@@ -1,14 +1,19 @@
-$(document).ready(function(){
-  $('#form_one form').on("ajax:success", function(e, data){
+$(document).ready(function() {
+  $('#form_one form').on("ajax:success", function(e, data) {
     successPath(data);
     sizeBox();
   });
+<<<<<<< HEAD
  
   $('#form_one form').on("ajax:error", function(e, data){
+=======
+
+  $('#form_one form').on("ajax:error", function(e, data) {
+>>>>>>> cleaned up new_campaign.js
     errorHandling(e, data);
   });
 
-  $('#form_two #cont_button').on('click', function(e){
+  $('#form_two #cont_button').on('click', function(e) {
     $('body').scrollTop(0);
     e.preventDefault();
     var form = copyContent();
@@ -16,11 +21,11 @@ $(document).ready(function(){
     formTwo(id, form);
   });
 
-  $('#head').on("ajax:success", '#form_three form', function(){
+  $('#head').on("ajax:success", '#form_three form', function() {
     finalizeCreate();
   });
 
-  $('#head').on("ajax:error", '#form_three form', function(e, data){
+  $('#head').on("ajax:error", '#form_three form', function(e, data) {
     errorHandling(e, data);
   });
 
@@ -36,15 +41,14 @@ $(document).ready(function(){
 function errorHandling(e, data) {
   var errors = $.parseJSON(data.responseText).error;
   var px = 30 * errors.length;
-  $('.form_head').animate({height: '+='+px+'px'},500);
-  for (e in errors)
-    {
+  $('.form_head').animate({ height: '+='+px+'px' }, 500);
+  for (e in errors) {
     $('.form_head').append('<div style=" font-size: 21px; text-align: center; color: #545454;">'+errors[e]+'<div>');
-    }
-    setTimeout(function(){
-      $('.form_head').html('');
-      $('.form_head').animate({height: '-='+px+'px'},500);
-    },3000);
+  }
+  setTimeout(function() {
+    $('.form_head').html('');
+    $('.form_head').animate({ height: '-='+px+'px' }, 500);
+  }, 3000);
 }
 function successPath(data) {
   $('#campaign_id').html(data.campaign_id);
@@ -58,16 +62,17 @@ function copyContent() {
   return document.getElementById("editable").innerHTML;
 }
 
-function sizeBox(){
+function sizeBox() {
   var px = String((parseInt($('#form_two .form_full').height())+100));
   $('#form_two h2').css('height', px +'px');
 }
-function formTwo(camp_id, form_string){
+
+function formTwo(camp_id, form_string) {
   $.ajax({
     url: '/campaigns/editable_form/',
     type: "post",
-    data: {id: camp_id, form: form_string}
-  }).done(function(returnedPartial){
+    data: { id: camp_id, form: form_string }
+  }).done(function(returnedPartial) {
     returnedPartial
     formThree();
   });
@@ -80,7 +85,6 @@ function formThree() {
 }
 
 function finalizeCreate(id) {
-  console.log('trying to redirect');
   var camp_id = String(parseInt($('#form_three form').attr('id').replace(/[^\d,]+/g, '')));
   window.location.replace('/campaigns/'+ camp_id);
 }
