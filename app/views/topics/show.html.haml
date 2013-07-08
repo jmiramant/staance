@@ -1,2 +1,7 @@
 Topic Title: 
 = @topic.title
+%ul
+  - if @campaigns
+    - @campaigns.each do |campaign|
+      %li
+        %a{:href => "/campaigns/#{campaign.id}"}= campaign.title
