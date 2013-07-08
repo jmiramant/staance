@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20130707164421) do
     t.integer  "funding_goal"
     t.text     "pitch"
     t.float    "donation_total",       :default => 0.0
-    t.string   "status",               :default => "Active"
+    t.string   "status",               :default => "Pending"
     t.integer  "opposing_campaign_id"
   end
 
