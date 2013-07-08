@@ -1,21 +1,11 @@
-%h2 Edit Campaign
-
-= button_to 'Delete', campaign_path(@campaign), confirm: 'Are you sure?', method: "delete"
-
-= semantic_form_for @campaign do |f|
-  #topic_input
-    = f.input :topic
-  = f.input :tag_list, placeholder: "Tags separated by commas"
-  #opposing_campaigns
-  
-  = f.input :title
-  = f.input :video_url 
-  = f.input :image_url
-  = f.input :short_blurb, as: :text
-  = f.text_area :pitch, :class => 'ckeditor'
-  = f.input :location 
-  = f.input :cause_url 
-  = f.input :funding_deadline, as: :date_picker
-  = f.input :funding_goal
-  = f.actions :submit, :cancel
-
+#body
+  #head
+    #form_one
+      %h2
+        =render 'campaigns/new/form_one', url: campaign_path
+    #form_two{style: "display: none"}
+      %h2
+        =render 'campaigns/new/form_two'
+    #form_three{style: "display: none"}
+      %h2
+        %div

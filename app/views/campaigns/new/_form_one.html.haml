@@ -1,5 +1,5 @@
 .form_head
-= semantic_form_for @campaign, url: campaigns_path, remote: true do |f|
+= semantic_form_for @campaign, url: url, remote: true do |f|
   = render '/campaigns/new/errors', :target => @campaign
   .form_full.title
     = f.input :title

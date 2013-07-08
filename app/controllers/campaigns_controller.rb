@@ -37,9 +37,10 @@ class CampaignsController < ApplicationController
 
   def update
     if @campaign.update_attributes(params[:campaign])
-      render :show, :alert => "Campaign Updated"
+      session[:campaign_build] = @campaign.id
+      render json: { campaign_id: @campaign.id, campaign_pitch: @campaign.pitch }.to_json
     else
-      render :edit, :alert => "Update Failed"
+      render json: {error: @campaign.errors.full_messages}.to_json, :status => :unprocessable_entity
     end
   end
 
@@ -72,9 +73,9 @@ class CampaignsController < ApplicationController
     @campaign.update_attribute(:status, ACTIVE)
     if @campaign.save
       ScheduledWorker.perform_at(@campaign.funding_deadline, @campaign.id)
-      UserMailer.campaign_new_email(current_user, @campaign).deliver
+      # UserMailer.campaign_new_email(current_user, @campaign).deliver
       session.delete(:campaign_build)
-     render nothing: true
+      render nothing: true
     else
       render json: {:error => @campaign.errors.full_messages}.to_json, :status => :unprocessable_entity
     end
@@ -84,8 +85,10 @@ class CampaignsController < ApplicationController
     def check_same_user
       @campaign = Campaign.find(params[:id])
       campaign_user = CampaignUser.where('campaign_id = ? and user_type = ?', @campaign.id, "Creator").first
-      creator = User.find(campaign_user.user_id)  
-      flash[:alert] = "You can only edit campaigns that you created."
-      redirect_to @campaign if creator != current_user
+      creator = User.find(campaign_user.user_id)
+      unless creator == current_user
+        flash[:alert] = "You can only edit campaigns that you created."
+        redirect_to @campaign
+      end
     end
 end
