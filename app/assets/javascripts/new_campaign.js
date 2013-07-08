@@ -13,11 +13,9 @@ $(document).ready(function(){
     formTwo(id, form);
   });
   $('#head').on("ajax:success", '#form_three form', function(){
-    console.log('yipee');
     finalizeCreate();
   });
   $('#head').on("ajax:error", '#form_three form', function(e, data){
-    console.log('not so yipee');
     errorHandling(e, data);
   });
 
@@ -56,8 +54,8 @@ $(document).ready(function(){
       url: '/campaigns/editable_form/',
       type: "post",
       data: {id: camp_id, form: form_string}
-    }).done(function(e){
-      e
+    }).done(function(returnedPartial){
+      returnedPartial
       formThree(); 
     });
   };
@@ -69,7 +67,6 @@ $(document).ready(function(){
   };
 
   function finalizeCreate(id){
-    console.log('dsadadsadsda');
-    var id = String(parseInt($('#form_three form').attr('id').replace(/[^\d,]+/g, ''))-1);
+    var id = String(parseInt($('#form_three form').attr('id').replace(/[^\d,]+/g, '')));
     window.location.replace('http://localhost:3000/campaigns/'+ id);
   };
