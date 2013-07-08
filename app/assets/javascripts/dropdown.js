@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#topics, #topic_list').on('mouseenter', function(e, data){
+  $('#topics, #topic_list').on('mouseenter', function() {
     $('#topic_list').show();
   }).mouseleave(function() {
     $('#topic_list').hide();
@@ -11,7 +11,7 @@ $(document).ready(function() {
     $('#topic_list').hide();
     $('.featured-campaigns').slideUp('slow');
     $('#topic_title').text(topic).show();
-    if ( description ) { $('#topic_description').text(description).show(); }
+    if (description) { $('#topic_description').text(description).show(); }
     $('.campaign-grid').html(data);
   });
 });
