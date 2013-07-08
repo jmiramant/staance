@@ -1,8 +1,9 @@
 $(document).ready(function(){
   $('#form_one form').on("ajax:success", function(e, data){
     successPath(data);
+    sizeBox();
   });
-
+ 
   $('#form_one form').on("ajax:error", function(e, data){
     errorHandling(e, data);
   });
@@ -26,6 +27,10 @@ $(document).ready(function(){
   $('#editable').focus(function() {
     $(this).attr('contenteditable', 'true');
   });
+
+  $("div#editable").keyup(function(){
+    sizeBox()
+  });
 });
 
 function errorHandling(e, data) {
@@ -41,7 +46,6 @@ function errorHandling(e, data) {
       $('.form_head').animate({height: '-='+px+'px'},500);
     },3000);
 }
-
 function successPath(data) {
   $('#campaign_id').html(data.campaign_id);
   $('#editable').html(data.campaign_pitch);
@@ -54,6 +58,10 @@ function copyContent() {
   return document.getElementById("editable").innerHTML;
 }
 
+function sizeBox(){
+  var px = String((parseInt($('#form_two .form_full').height())+100));
+  $('#form_two h2').css('height', px +'px');
+}
 function formTwo(camp_id, form_string){
   $.ajax({
     url: '/campaigns/editable_form/',

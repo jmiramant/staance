@@ -4,17 +4,17 @@
   .form_full.title
     = f.input :title
   .form_half
-    = f.input :topic        
+    = f.input :topic
   .form_half.right
     = f.input :tag_list, placeholder: "Tags separated by commas"
   #opposing_campaigns
   .form_half
-    = f.input :video_url 
+    = f.input :video_url
   .form_half.right
     = f.input :image_url
   .form_half
-    = f.input :location 
+    = f.input :location
   .form_half.right
-    = f.input :short_blurb, as: :text
+    = f.input :short_blurb, as: :text, :value => "fads"
   .form_full
     = f.action :submit, label: "Continue"
