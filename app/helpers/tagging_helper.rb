@@ -8,7 +8,7 @@ module TaggingHelper
   end
 
   def most_funded_filter
-    funded_campaigns = Campaign.where("status != ?", PENDING).order("donation_total DESC").limit(6)
+    Campaign.where("status != ?", PENDING).order("donation_total DESC").limit(6)
   end
 
   def most_successful_filter
