@@ -16,15 +16,19 @@ class Campaign < ActiveRecord::Base
 
   def separated_time_ago
     seconds = self.funding_deadline - Time.zone.now
-    if seconds / 86400 > 1
-      result = { 'day' => (seconds / 86400).to_i }
-    elsif seconds % 3600
-      result = { 'hour' => (seconds / 3600).to_i }
+    if seconds > 0
+      if seconds / 86400 > 1
+        result = { 'day' => (seconds / 86400).to_i }
+      elsif seconds % 3600
+        result = { 'hour' => (seconds / 3600).to_i }
+      else
+        result = { 'minute' => (seconds / 60).to_i }
+      end
+      pluralized = pluralize(result.values.first, result.keys.first) 
+      return pluralized.split(' ')
     else
-      result = { 'minute' => (seconds / 60).to_i }
+      return ["Campaign funded", ""]
     end
-    pluralized = pluralize(result.values.first, result.keys.first)
-    pluralized.split(' ')
   end
 
   def supporters

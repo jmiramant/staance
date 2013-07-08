@@ -80,7 +80,8 @@ campaign3.pitch = "But a brighter future is possible. Over the next three years,
 campaign3.image_url = "http://www.greenpeace.org/usa/ReSizes/OriginalWatermarked/Global/usa/planet3/photos-gwe/GP01SVG_layout.jpg"
 campaign3.topic = Topic.find(4)
 campaign3.donation_total = 900000
-campaign3.save
+p campaign3.status = "Funded"
+p campaign3.save
 CampaignUser.create(campaign_id: campaign3.id, user_id: shiv.id, user_type: CREATOR)
 CampaignUser.create(campaign_id: campaign3.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)
 CampaignUser.create(campaign_id: campaign3.id, user_id: dan.id, user_type: DONOR, donation_amount: 2000)
@@ -106,6 +107,7 @@ campaign4.pitch = "The ability " # to understand what someone is feeling, thatâ€
 campaign4.image_url = "http://www.chatelaine.com/wp-content/uploads/2012/12/Stop-Bullying-Girls-with-words-written-all-over-bodies-Jan-12-p112.jpg"
 campaign4.topic = Topic.find(2)
 campaign4.donation_total = 5000
+campaign4.status = "Unsuccessful"
 campaign4.save
 CampaignUser.create(campaign_id: campaign4.id, user_id: shiv.id, user_type: CREATOR)
 CampaignUser.create(campaign_id: campaign4.id, user_id: eadon.id, user_type: DONOR, donation_amount: 900)
@@ -161,3 +163,82 @@ CampaignUser.create(campaign_id: campaign6.id, user_id: chris.id, user_type: SUP
 CampaignUser.create(campaign_id: campaign6.id, user_id: andrew.id, user_type: DONOR, donation_amount: 450)
 CampaignUser.create(campaign_id: campaign6.id, user_id: janelle.id, user_type: DONOR, donation_amount: 1900)
 CampaignUser.create(campaign_id: campaign6.id, user_id: kristin.id, user_type: DONOR, donation_amount: 2010)
+
+campaign7 = Campaign.new(title: "Stop the Hoax of Global Warming", short_blurb: "The Environmentalist Lie.")
+campaign7.location = "New York"
+campaign7.cause_url = "http://barbarasanteephd.com/category/letters-to-the-editor/goofball-idea/"
+campaign7.video_url = "http://www.youtube.com/watch?v=64G5FfG2Xpg"
+campaign7.funding_deadline = 1.week.ago
+campaign7.funding_goal = 350000
+campaign7.pitch = "Pitch"
+campaign7.image_url = "http://barbarasantee.files.wordpress.com/2013/01/hoax.jpg"
+campaign7.topic = Topic.find(4)
+campaign7.donation_total = 550000
+campaign7.status = "Funded"
+campaign7.save
+CampaignUser.create(campaign_id: campaign7.id, user_id: shiv.id, user_type: CREATOR)
+CampaignUser.create(campaign_id: campaign7.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign7.id, user_id: dan.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign7.id, user_id: chris.id, user_type: DONOR, donation_amount: 20)
+CampaignUser.create(campaign_id: campaign7.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign7.id, user_id: eadon.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign7.id, user_id: dan.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign7.id, user_id: chris.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign7.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign7.id, user_id: janelle.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign7.id, user_id: kristin.id, user_type: DONOR, donation_amount: 75000)
+CampaignUser.create(campaign_id: campaign7.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign7.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
+
+campaign8 = Campaign.new(title: "Save the Water. Save The Planet", short_blurb: "Save our most precious resource")
+campaign8.location = "Arizona"
+campaign8.cause_url = "http://savethewater.org/"
+campaign8.video_url = "http://www.youtube.com/watch?v=IZNTnxhoU1k"
+campaign8.funding_deadline = 2.weeks.ago
+campaign8.funding_goal = 100000
+campaign8.pitch = "Pitch"
+campaign8.image_url = "http://primoplumbingcorp.com/images/save_water_save_life_by_grfixds.jpg"
+campaign8.topic = Topic.find(4)
+campaign8.donation_total = 75000
+campaign8.status = "Unsuccessful"
+campaign8.save
+CampaignUser.create(campaign_id: campaign8.id, user_id: shiv.id, user_type: CREATOR)
+CampaignUser.create(campaign_id: campaign8.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign8.id, user_id: dan.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign8.id, user_id: chris.id, user_type: DONOR, donation_amount: 20)
+CampaignUser.create(campaign_id: campaign8.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign8.id, user_id: eadon.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign8.id, user_id: dan.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign8.id, user_id: chris.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign8.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign8.id, user_id: janelle.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign8.id, user_id: kristin.id, user_type: DONOR, donation_amount: 75000)
+CampaignUser.create(campaign_id: campaign8.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign8.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
+
+campaign9 = Campaign.new(title: "Fair Wages!", short_blurb: "Fair Minimum Wage Act of 2013")
+campaign9.location = "New York"
+campaign9.cause_url = "http://www.syp.org.uk/blog/wp-content/uploads/2012/09/One-Fair-Wage_red-logo.jpg"
+campaign9.video_url = "http://www.youtube.com/watch?v=GJ6ciypGsGw"
+campaign9.funding_deadline = Time.now() + 7.days
+campaign9.funding_goal = 55000
+campaign9.pitch = "Pitch"
+campaign9.image_url = "http://www.syp.org.uk/blog/wp-content/uploads/2012/09/One-Fair-Wage_red-logo.jpg"
+campaign9.topic = Topic.find(3)
+campaign9.donation_total = 125000
+campaign9.status = "Funded"
+campaign9.save
+CampaignUser.create(campaign_id: campaign9.id, user_id: shiv.id, user_type: CREATOR)
+CampaignUser.create(campaign_id: campaign9.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign9.id, user_id: dan.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign9.id, user_id: chris.id, user_type: DONOR, donation_amount: 20)
+CampaignUser.create(campaign_id: campaign9.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign9.id, user_id: eadon.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign9.id, user_id: dan.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign9.id, user_id: chris.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign9.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign9.id, user_id: janelle.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign9.id, user_id: kristin.id, user_type: DONOR, donation_amount: 75000)
+CampaignUser.create(campaign_id: campaign9.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign9.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
+

@@ -4,11 +4,10 @@ class HomeController < ApplicationController
 
 	def index
     @user = User.new
-    @trending_campaigns = Campaign.where(id: trending_campaigns_filter)
-    @most_funded_campaigns = Campaign.where(id: most_funded_filter) if most_funded_filter
-    @most_successful_campaigns = Campaign.where(id: most_successful_filter) if most_successful_filter
-	  @test_campaigns = Campaign.limit(3)
-    @test_campaigns2 = Campaign.limit(6)
+    @trending_campaigns_companies = trending_campaigns_filter
+    @most_funded_companies = most_funded_filter
+    @most_successful_campaigns = most_successful_filter
+    @feature_campaigns = Campaign.where(id: [6, 8, 4])
   end
 end
 

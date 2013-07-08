@@ -1,8 +1,8 @@
 .campaign-grid
-  - @test_campaigns2.each do |campaign|
+  -  @trending_campaigns_companies.each do |campaign|
     = render 'home/campaign_snapshot', {campaign: campaign, klass: 'debated', style: 'display: inline-block;'}
-  - @test_campaigns2.shuffle.each do |campaign|
+  - @most_funded_companies.each do |campaign|
     = render 'home/campaign_snapshot', {campaign: campaign, klass: 'most-funded', style: 'display: none;'}
-  - @test_campaigns2.shuffle.each do |campaign|
+  - @most_successful_campaigns.each do |campaign|
     = render 'home/campaign_snapshot', {campaign: campaign, klass: 'successes', style: 'display: none;'}
   

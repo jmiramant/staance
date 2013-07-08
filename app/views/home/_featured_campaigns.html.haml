@@ -3,7 +3,7 @@
     %a.arrow.left{href: "#"}
       %i.icon-chevron-sign-left.icon-4x
     .featured-videos
-      - @test_campaigns.each_with_index do |campaign, index|
+      - @feature_campaigns.each_with_index do |campaign, index|
         = render 'home/featured_video', {campaign: campaign, klass: index}
     %a.arrow.right{href: "#"}
       %i.icon-chevron-sign-right.icon-4x
