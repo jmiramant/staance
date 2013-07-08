@@ -4,4 +4,4 @@ All Topics:
 %ul
   - @topics.each do |topic|
     %li
-      %a{:href => "/topics/#{topic.id}"}= topic.title
+      %a{:href => "/topics/#{topic.id}"} #{topic.title} [#{campaign_count_by_topic(topic)}]
