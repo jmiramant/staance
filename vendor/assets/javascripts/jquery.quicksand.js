@@ -38,9 +38,9 @@ Github site: http://github.com/razorjack/quicksand
     $.extend(options, customOptions);
 
     // Got IE and want scaling effect? Kiss my ass.
-    if ($.browser.msie || (typeof ($.fn.scale) == 'undefined')) {
-      options.useScaling = false;
-    }
+    // if ($.browser.msie || (typeof ($.fn.scale) == 'undefined')) {
+    //   options.useScaling = false;
+    // }
 
     var callbackFunction;
     if (typeof (arguments[1]) == 'function') {
@@ -71,10 +71,10 @@ Github site: http://github.com/razorjack/quicksand
       var width = $($source).innerWidth(); // need for the responsive design
 
       // Replace the collection and quit if IE6
-      if ($.browser.msie && parseInt($.browser.version, 10) < 7) {
-        $sourceParent.html('').append($collection);
-        return;
-      }
+      // if ($.browser.msie && parseInt($.browser.version, 10) < 7) {
+      //   $sourceParent.html('').append($collection);
+      //   return;
+      // }
 
       // Gets called when any animation is finished
       var postCallbackPerformed = 0; // prevents the function from being called more than one time

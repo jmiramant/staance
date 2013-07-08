@@ -25,7 +25,6 @@ var UpdateOpposingCampaign = {
 };
 
 function createDropDown(topic) {
-  console.log(topic);
   if (topic === "") {
 		$('#opposing_campaigns').html("");
   }
