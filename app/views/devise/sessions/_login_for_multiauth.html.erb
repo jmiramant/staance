@@ -1,4 +1,5 @@
-<div class='sign-in-form'>
+<div id='ma-sign-in'>
+  <div class='ma-label'>Login</div>
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     <%= f.email_field :email, :autofocus => true, placeholder: 'email' %>
 
@@ -16,5 +17,4 @@
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
     <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
   <% end -%>
-
 </div>

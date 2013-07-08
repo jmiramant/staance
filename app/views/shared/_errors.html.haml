@@ -1,7 +1,8 @@
 - if alert
-  #errors
-    - if alert.class == Array
-      - alert.each do |a|
-        .error #{a}
-    - else
-      .error #{alert}
+  #errors-container
+    #errors-box
+      - if alert.class == Array
+        - alert.each do |a|
+          .error #{a}
+      - else
+        .error #{alert}
