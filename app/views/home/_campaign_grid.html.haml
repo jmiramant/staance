@@ -1,7 +1,7 @@
 .source
   - trending.each do |campaign|
     = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
-.debated
+.trending
   - trending.each do |campaign|
     = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
 .most-funded
