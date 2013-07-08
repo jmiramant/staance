@@ -83,7 +83,8 @@ class CampaignsController < ApplicationController
   protected
     def check_same_user
       @campaign = Campaign.find(params[:id])
-      creator = CampaignUser.where('user_id = ? and campaign_id = ? and user_type = ?', current_user.id, @campaign.id, "Creator")
+      campaign_user = CampaignUser.where('campaign_id = ? and user_type = ?', @campaign.id, "Creator").first
+      creator = User.find(campaign_user.user_id)  
       flash[:alert] = "You can only edit campaigns that you created."
       redirect_to @campaign if creator != current_user
     end
