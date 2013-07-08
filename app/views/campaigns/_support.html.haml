@@ -1,3 +1,7 @@
-.support
-  - if user_signed_in?
-    = link_to "Support", campaign_users_path(@campaign.id), class: 'link_button', method: 'post', id: "support", remote: true
+- if user_signed_in?
+  - unless @user_supported.empty?
+    .supported_banner
+      Supported
+  -else
+    .support_button  
+      = link_to "Support", campaign_support_path(id: @campaign.id), method: 'post', id: "support_link", remote: true

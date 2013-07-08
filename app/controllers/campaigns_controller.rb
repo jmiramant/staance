@@ -26,6 +26,7 @@ class CampaignsController < ApplicationController
     session.delete(:campaign_id) if session[:campaign_id]
     @support = current_user.supported_campaigns if current_user
     @campaign = Campaign.find_by_id(params[:id])
+    @user_supported = CampaignUser.where(user_id: current_user.id, campaign_id: @campaign.id, user_type: SUPPORTER)
     support_ids = CampaignUser.where(campaign_id: @campaign.id, user_type: SUPPORTER).pluck("user_id")
     donor_ids = CampaignUser.where(campaign_id: @campaign.id, user_type: DONOR).pluck("user_id")
 
@@ -81,6 +82,13 @@ class CampaignsController < ApplicationController
     else
       render json: {:error => @campaign.errors.full_messages}.to_json, :status => :unprocessable_entity
     end
+  end
+
+  def support
+    camp = Campaign.find_by_id(params[:id])
+    CampaignUser.create(campaign_id: camp.id, user_id: current_user.id, :user_type => SUPPORTER)
+    count = camp.campaign_users.where(user_type: SUPPORTER).count
+    render json: count.to_s.to_json
   end
 
   protected

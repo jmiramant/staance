@@ -22,18 +22,52 @@
     color:  $staance-dark-gray
     min-height: 50px
   .social_show_page
-    width: 50%
+    float: none
+    #facebook-like
+      float: left
+      margin: 10px
+    #tweet-btn-widget
+      margin: 10px
+      float: left
+  .support_button
+    margin-left: 5px
     float: left
-  .support_button_show_page
-    width: 50%
-    float: right
-    margin-top: 10px
-    margin-bottom: 20px
+    padding: 15px 0
+    text-align: center
+    font-size: 15px
+    border: none
+    #support_link
+      background-color: $staance-blue
+      padding: 10px 60px
+      border-radius: 2px
+      margin-left: 5px
+      color: #fff
+      &:hover
+        background-color: #128699
+      &.supported
+        color: #fff
+        background-color: $staance-yellow
+        border-radius: 2px
+        margin-left: 5px
+        padding: 10px 52px
+  .supported_banner
+    color: #fff
+    background-color: $staance-yellow
+    border-radius: 2px
+    margin: 10px 0px 5px 10px
+    padding: 10px 52px
+    float: left
+    text-align: center
+    font-size: 15px
+    border: none
+  .supporter_count
+    padding-left: 10px
+  .donor_count
+    padding-left: 10px
 
 // SOCIAL BUTTONS
 
 #tweet-btn-widget
-  margin: 10px 0
   a
     overflow: none
     height: 55px

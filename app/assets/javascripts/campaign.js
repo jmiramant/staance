@@ -1,12 +1,12 @@
 var SupportLink = {
 	init: function() {
-		$('#support').on('ajax:success', this.appendNotice);
-		$('#support').on('ajax:errors', this.appendAlert);
+		$('#support_link').on('ajax:success', this.supportAdd);
+		$('#support_link').on('ajax:errors', this.appendAlert);
 	},
-	appendNotice: function(){
-		console.log('goood');
-		$('.supporter').append("Thanks for supporting this campaign!");
-		$('#support').fadeOut();
+	supportAdd: function(e, data, xhr){
+		$('#support_link').text('Supported');
+		$('#support_link').addClass('supported');
+		$('.supporter_count').text('Supporters('+ data + ")");
 	},
 	appendAlert: function(){
 		$('.supporter').append("I'm sorry, there was an error logging your support");

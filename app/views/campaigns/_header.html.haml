@@ -19,11 +19,10 @@
   .user_interaction_summary
     .social_show_page
       = render 'shared/campaign/social'
-    .support_button_show_page
       = render 'campaigns/support'
-    .supporters_show_page
+    .supporter_count
       = "Supporters(" + @supporters.count.to_s + ")" if @supporters
-    .donators_show_page
+    .donor_count
       = "Donors(" + @donors.count.to_s+")" if @donors
-    
+      
       
