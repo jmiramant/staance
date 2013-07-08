@@ -1,7 +1,9 @@
-Topic Title: 
-= @topic.title
-%ul
-  - if @campaigns
+%h2 Topic Title: #{@topic.title}
+- if @campaigns
+  %ul
     - @campaigns.each do |campaign|
       %li
         %a{:href => "/campaigns/#{campaign.id}"}= campaign.title
+- else
+  No current campaigns
+  

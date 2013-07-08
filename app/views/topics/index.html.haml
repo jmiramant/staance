@@ -1,6 +1,7 @@
 All Topics:
 %br
 %topics_container
+%ul
   - @topics.each do |topic|
-    = topic.title
-    %br
+    %li
+      %a{:href => "/topics/#{topic.id}"}= topic.title
