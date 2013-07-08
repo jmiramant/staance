@@ -36,9 +36,13 @@ class RegistrationsController < Devise::RegistrationsController
     session.delete(:omniauth) unless @user.new_record?
   end
 
-  private
+  protected
 
     def twitter_auth
       redirect_to multiauth_path unless session[:omniauth]
+    end
+
+    def after_update_path_for(user)
+      user_path(user)
     end
 end 
