@@ -1,16 +1,16 @@
 <div>
 	<!-- <div class="fb-like" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true" data-font="verdana"></div> -->
 <!-- <div class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows="1" data-scope="publish_actions"></div> -->
-<div id="twitter"><input type="button" value="Like-Campaign" onclick="postLike();"></div>
+<div id="facebook-like"><input id="fb-button" type="button" onclick="postLike();"></input></div>
 <div id="tweet-btn-widget">
-    <div class="tweet-btn-o"><a href="#" class="btn" target="_blank" id="tweet-btn"><i></i><span class="label">Tweet</span></a></div>
+    <div class="tweet-btn-o"><a href="#" class="btn" target="_blank" id="tweet-btn"><span class="twitter_label"><%= image_tag("facebook-twitter.png") %></span></a></div>
     <div class="tweet-cnt-o"><i></i><u></u><a href="#" id="tweet-cnt" target="_blank">0</a></div>
   </div>
 </div>
 <%= render 'shared/campaign/twitter' %>
 <script>
 	$().ready(function() {
-    var via = 'grassroots';
+    var via = 'staance';
     var url = document.URL
     var txt = "I'm supporting <%= @campaign.title %>. Join Me: "+ url +" Voice Opposition: opposeUrl";
     var a=window.location.href,b="http://urls.api.twitter.com/1/urls/count.json?url="+encodeURIComponent(a),c="http://twitter.com/intent/tweet?related=&text="+encodeURIComponent(txt)+"&url="+a+"&via="+via;

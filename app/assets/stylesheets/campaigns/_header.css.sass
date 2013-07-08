@@ -11,19 +11,52 @@
     .title
       font-size: 28px
     .blurb
+      float: none
       margin: 10px auto 20px auto
       text-align: center
       background-color: $background-light-grey
       min-height: 80px
-      padding: 10px
+      padding: 25px
   .user_interaction_summary
     @include span-columns(3 of 12)
     color:  $staance-dark-gray
     min-height: 50px
+  .social_show_page
+    width: 50%
+    float: left
   .support_button_show_page
-    width: 100%
-    margin-top: 20px
+    width: 50%
+    float: right
+    margin-top: 10px
     margin-bottom: 20px
 
+// SOCIAL BUTTONS
 
+#tweet-btn-widget
+  margin: 10px 0
+  a
+    overflow: none
+    height: 55px
+    width: 54px
+    border: none
+.twitter_label
+  position: absolute
+  right: -64px
+.tweet-cnt-o
+  height: 55px
+  width: 40px
+  line-height: 50px
+  font-size: 13px
+  #tweet-cnt
+    width: 40px
+#facebook-like
+  height: 55px
+  width: 54px
+  #fb-button
+    border: none
+    border-radius: 5px
+    cursor: pointer
+    height: 100%
+    width: 100%
+    background-image: url('facebook-twitter.png')
 
