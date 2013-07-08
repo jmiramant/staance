@@ -28,11 +28,6 @@ $(document).ready(function(){
     $(this).addClass("selected");
     var category = $(this).attr('id');
     var $newItems = $('.' + category + ' li');
-    console.log($newItems);
     $('.source').quicksand($newItems);
-  });
-
-  jQuery(function() {
-    $(".fancy_fancy").fancybox();
   });
 });

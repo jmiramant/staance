@@ -1,5 +1,6 @@
 .featured-video{class: klass}
-  %img{src: campaign.image_url}
+  = link_to image_tag(campaign.image_url), campaign.video_url, class: 'iframe'
+  / %img{src: campaign.image_url}
   .features-details
     .campaign-name-stats
       .campaign-name #{campaign.title}
