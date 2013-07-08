@@ -1,2 +1,6 @@
-.video
-  margin-right: 0
+- if @campaign.status == "Active"
+  .video_funding
+    = @video
+-else
+  .video_completed_funding
+    = @video
