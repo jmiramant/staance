@@ -15,6 +15,6 @@ describe "Profile" do
     fill_in "user_about_me", with: "I like kittens"
     fill_in "user_current_password", with: "password"
     click_on "Update"
-    expect(page).to have_content "User Information"
+    expect(page).to have_content "I like kittens"
   end
 end
