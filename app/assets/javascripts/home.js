@@ -22,13 +22,18 @@ $(document).ready(function(){
   $('.arrow').on('click', function() { clearInterval(autoRotate); });
 
   // campaign grid
-  $('.select-bar a').on('click', function(e) {
+  $('.select-bar .categories').on('click', function(e) {
     e.preventDefault();
     var klass = $(this).attr('id');
     $('.select-bar a').removeClass("selected");
     $(this).addClass("selected");
     $('.campaign-snapshot').hide();
     $('.' + klass).fadeIn('slow');
+  });
+
+  $('.select-bar #topics').on('click', function(e) {
+    e.preventDefault();
+    $('.featured-campaigns').slideUp('slow');
   });
 
   jQuery(function() {
