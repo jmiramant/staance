@@ -35,4 +35,3 @@ class Campaign < ActiveRecord::Base
     CampaignUser.where('campaign_id = ? and user_type = ?', self.id, "Supporter")
   end
 end
-# :funding_deadline, :pitch, :funding_goal

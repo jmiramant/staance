@@ -1,5 +1,6 @@
 class CampaignsController < ApplicationController
   before_filter :auth_user, :except => [:index, :show]
+  before_filter :check_same_user, :only => [:edit, :update, :destroy]
 
   def index
     @campaigns = Campaign.where(status: ACTIVE)
@@ -32,11 +33,9 @@ class CampaignsController < ApplicationController
   end
 
   def edit
-    @campaign = Campaign.find(params[:id])
   end
 
   def update
-    @campaign = Campaign.find(params[:id])
     if @campaign.update_attributes(params[:campaign])
       render :show, :alert => "Campaign Updated"
     else
@@ -45,9 +44,8 @@ class CampaignsController < ApplicationController
   end
 
   def destroy
-    campaign = Campaign.find(params[:id])
-    campaign.update_attribute(:status, SUSPENDED)
-    redirect_to campaigns_path, alert: "Campaign Deleted" 
+    @campaign.update_attribute(:status, SUSPENDED)
+    redirect_to current_user, alert: "Campaign Deleted" 
   end
 
   def filter_topic
@@ -81,5 +79,12 @@ class CampaignsController < ApplicationController
       render json: {:error => @campaign.errors.full_messages}.to_json, :status => :unprocessable_entity
     end
   end
-end
 
+  protected
+    def check_same_user
+      @campaign = Campaign.find(params[:id])
+      creator = CampaignUser.where('user_id = ? and campaign_id = ? and user_type = ?', current_user.id, @campaign.id, "Creator")
+      flash[:alert] = "You can only edit campaigns that you created."
+      redirect_to @campaign if creator != current_user
+    end
+end
