@@ -1,7 +1,13 @@
-- trending.each do |campaign|
-  = render 'home/campaign_snapshot', {campaign: campaign, klass: 'debated', style: 'display: inline-block;'}
-- most_funded.each do |campaign|
-  = render 'home/campaign_snapshot', {campaign: campaign, klass: 'most-funded', style: 'display: none;'}
-- most_successful.each do |campaign|
-  = render 'home/campaign_snapshot', {campaign: campaign, klass: 'successes', style: 'display: none;'}
+.source
+  - trending.each do |campaign|
+    = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
+.debated
+  - trending.each do |campaign|
+    = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
+.most-funded
+  - most_funded.each do |campaign|
+    = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
+.successes
+  - most_successful.each do |campaign|
+    = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
   

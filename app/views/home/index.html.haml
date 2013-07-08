@@ -9,5 +9,5 @@
 
 = render 'home/featured_campaigns'
 = render 'home/select_bar'
-.campaign-grid
+%ul{class: 'campaign-grid'}
   = render 'home/campaign_grid', { trending: @trending, most_funded: @most_funded, most_successful: @most_successful }
