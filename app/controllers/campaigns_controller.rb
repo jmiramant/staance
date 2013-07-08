@@ -13,12 +13,11 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.create(params[:campaign])
     if @campaign.valid?
+      session[:campaign_build] = @campaign.id
       CampaignUser.create(campaign_id: @campaign.id, user_id: current_user.id, :user_type => CREATOR)
-      UserMailer.campaign_new_email(current_user, @campaign).deliver
-      ScheduledWorker.perform_at(@campaign.funding_deadline, @campaign.id)
       render json: {campaign_id: @campaign.id }.to_json
     else
-      render :json => {:error => @campaign.errors.full_messages}.to_json, :status => :unprocessable_entity
+      render json: {error: @campaign.errors.full_messages}.to_json, :status => :unprocessable_entity
     end
   end
 
@@ -58,7 +57,7 @@ class CampaignsController < ApplicationController
   end
 
   def editable_form
-    @campaign = Campaign.find_by_id(params[:id])
+    @campaign = Campaign.find_by_id(session[:campaign_build])
     @campaign.update_attribute('pitch', params[:form])
     respond_to do |format|
       if @campaign.save
@@ -66,6 +65,19 @@ class CampaignsController < ApplicationController
       else
         format.json { render json: @campaign.errors.full_messages, status: :unprocessable_entity }
       end
+    end
+  end
+  
+  def finalize_campaign
+    @campaign = Campaign.find_by_id(session[:campaign_build])
+    @campaign.update_attributes(params[:campaign])
+    if @campaign.save
+      ScheduledWorker.perform_at(@campaign.funding_deadline, @campaign.id)
+      # UserMailer.campaign_new_email(current_user, @campaign).deliver
+      # session.delete(:campaign_build)
+     render nothing: true
+    else
+      render json: {:error => @campaign.errors.full_messages}.to_json, :status => :unprocessable_entity
     end
   end
 end

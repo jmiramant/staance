@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
   $('#form_one #new_campaign').on("ajax:success", function(e, data){
     successPath(data.campaign_id);
   });
@@ -7,16 +6,24 @@ $(document).ready(function(){
     errorHandling(e, data);
   });
   $('#form_two #cont_button').on('click', function(e){
+    $('body').scrollTop(0);
     e.preventDefault();
     var form = copyContent();
     var id = $('#campaign_id').html();
     formTwo(id, form);
   });
+  $('#head').on("ajax:success", '#form_three form', function(){
+    console.log('yipee');
+    finalizeCreate();
+  });
+  $('#head').on("ajax:error", '#form_three form', function(e, data){
+    console.log('not so yipee');
+    errorHandling(e, data);
+  });
 });
-  function errorHandling(e, data, status, xhr){
+  function errorHandling(e, data){
     var errors = $.parseJSON(data.responseText).error
     var px = 30 * errors.length
-    console.log(errors);
     $('.form_head').animate({height: '+='+px+'px'},500);
     for (e in errors)
       {
@@ -52,8 +59,13 @@ $(document).ready(function(){
   };
 
   function formThree(){
-    $('#form_two').slideUp('slow');
     $('#form_two').fadeOut();
     $('#body').css('height', '900px')
     $('#form_three').fadeIn();
+  };
+
+  function finalizeCreate(id){
+    console.log('dsadadsadsda');
+    var id = String(parseInt($('#form_three form').attr('id').replace(/[^\d,]+/g, ''))-1);
+    window.location.replace('http://localhost:3000/campaigns/'+ id);
   };

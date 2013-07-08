@@ -2,6 +2,8 @@ PoliticalKickstarter::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   post '/campaigns/editable_form' => "campaigns#editable_form"
+  post '/campaigns/finalize_campaign' => "campaigns#finalize_campaign"
+  put '/campaigns/finalize_campaign' => "campaigns#finalize_campaign"
 
   devise_for :users, controllers: {:omniauth_callbacks => 'authentications', 
                                    :registrations => 'registrations',

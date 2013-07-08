@@ -1,5 +1,5 @@
 .form_head
-= semantic_form_for @campaign do |f|
+= semantic_form_for @campaign, :url => campaigns_finalize_campaign_path, remote: true do |f|
   .form_half
     = f.input :cause_url 
   .form_half.right
@@ -8,3 +8,5 @@
     = f.input :funding_goal
   .form_full
     = f.action :submit
+  / #camp_id
+  /   = @campign.id
