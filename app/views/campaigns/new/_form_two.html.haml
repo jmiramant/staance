@@ -1,6 +1,6 @@
 .form_head
-  #awesome_campaign{:contenteditable => "true"}  
-    .form_full.edit_magic
+  #editable{contenteditable: ""}  
+    .form_full#edit_magic
       = render 'campaigns/new/example'
   #campaign_id{:style => 'display: none'}
     = @campaign.id

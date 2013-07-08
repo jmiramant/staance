@@ -20,6 +20,11 @@ $(document).ready(function(){
     console.log('not so yipee');
     errorHandling(e, data);
   });
+
+  $('#editable').focus(function(){
+    $(this).attr('contenteditable', 'true');
+  });
+
 });
   function errorHandling(e, data){
     var errors = $.parseJSON(data.responseText).error
@@ -37,14 +42,13 @@ $(document).ready(function(){
 
   function successPath(id){
     $('#campaign_id').html(id);    
-    $('.edit_magic').css('height', 0);    
     $('#form_one').slideUp('slow');
     $('#form_one').fadeOut();
     $('#form_two').fadeIn();
   };
 
   function copyContent() { 
-    return document.getElementById("awesome_campaign").innerHTML;
+    return document.getElementById("editable").innerHTML;
    };
 
   function formTwo(camp_id, form_string){
