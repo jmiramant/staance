@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe "Admin Access" do
 
   include FeatureHelpers
