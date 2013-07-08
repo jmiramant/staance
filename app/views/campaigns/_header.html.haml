@@ -4,9 +4,20 @@
   .copy
     .title
       = @campaign.title
+    .location
+      = @campaign.location
     .status
       = @campaign.status
     .blurb
       = @campaign.short_blurb
-    .location
-      = @campaign.location
+
+  .user_interaction_summary
+    = render 'shared/campaign/social'
+    .support_button_show_page
+      = render 'campaigns/support'
+    .supporters_show_page
+      = "Supporters(" + @supporters.count.to_s + ")" if @supporters
+    .donators_show_page
+      = "Donors(" + @donors.count.to_s+")" if @donors
+    
+      

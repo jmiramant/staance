@@ -26,9 +26,11 @@ class CampaignsController < ApplicationController
     session.delete(:campaign_id) if session[:campaign_id]
     @support = current_user.supported_campaigns if current_user
     @campaign = Campaign.find_by_id(params[:id])
-    ids = CampaignUser.where(campaign_id: @campaign.id, user_type: SUPPORTER).pluck("user_id")
-    @supporters = []
-    @supporters = ids.map { |id| User.find(id)}
+    support_ids = CampaignUser.where(campaign_id: @campaign.id, user_type: SUPPORTER).pluck("user_id")
+    donor_ids = CampaignUser.where(campaign_id: @campaign.id, user_type: DONOR).pluck("user_id")
+
+    @supporters = support_ids.map { |id| User.find(id)}
+    @donors = donor_ids.map { |id| User.find(id) }
     @video = UrlToMediaTag.convert(@campaign.video_url, width: 540, height: 320)
   end
 
