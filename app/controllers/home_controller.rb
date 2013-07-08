@@ -11,8 +11,9 @@ class HomeController < ApplicationController
   end
 
   def filter
-    render json: render_to_string(partial: 'home/campaign_grid', locals: { trending: trending_filter(params[:topic]),
-                                                                           most_funded: most_funded_filter(params[:topic]),
-                                                                           most_successful: most_successful_filter(params[:topic]) } ).to_json
+    render json: render_to_string(partial: 'home/campaign_grid', 
+                                   locals: { trending: trending_filter(params[:topic]),
+                                             most_funded: most_funded_filter(params[:topic]),
+                                             most_successful: most_successful_filter(params[:topic]) } ).to_json
   end
 end

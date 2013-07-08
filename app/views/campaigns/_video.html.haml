@@ -1,4 +1,4 @@
-- if @campaign.status == "Active"
+- if @campaign.status == ACTIVE || @campaign.status == PENDING
   .video_funding
     = @video
 -else

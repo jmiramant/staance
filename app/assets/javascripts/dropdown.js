@@ -8,7 +8,6 @@ $(document).ready(function() {
   $('.topic_list_title').on('ajax:success', function(e, data) {
     var topic = $(this).text();
     var description = $(this).attr('id');
-    console.log(description);
     $('#topic_list').hide();
     $('.featured-campaigns').slideUp('slow');
     $('#topic_title').text(topic).show();
