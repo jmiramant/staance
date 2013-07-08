@@ -15,7 +15,7 @@ var Carousel = {
   }
 };
 
-$(document).ready(function(){
+$(document).ready(function() {
   // featured video click & carousel
   Carousel.init();
   var autoRotate = setInterval(function() { Carousel.changeVideo(1); }, 5000);
