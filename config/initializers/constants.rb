@@ -7,6 +7,7 @@ CREATOR = "Creator"
 
 #campaign status types
 
+PENDING = "Pending"
 ACTIVE = "Active"
 FUNDED = "Funded"
 SUSPENDED = "Suspended"
