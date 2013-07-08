@@ -45,6 +45,7 @@ campaign1.pitch = "What Is HoneyColony? Remember when your mom used to tell you 
 campaign1.image_url = "http://www.warrenphotographic.co.uk/photography/bigs/26624-Yellow-Goldidor-Retriever-pup-with-blue-tabby-kitten-white-background.jpg"
 campaign1.topic = Topic.first
 campaign1.donation_total = 7853
+campaign1.status = ACTIVE
 campaign1.save
 CampaignUser.create(campaign_id: campaign1.id, user_id: lloyd.id, user_type: CREATOR)
 CampaignUser.create(campaign_id: campaign1.id, user_id: josh.id, user_type: DONOR, donation_amount: 10000)
@@ -59,6 +60,7 @@ campaign2.pitch = "Faced with a national epidemic of gun violence that began in 
 campaign2.image_url = "http://secure.assets.bostatic.com/resize/3513-gun-violence-fact-20130306193000.jpg"
 campaign2.topic = Topic.find(5)
 campaign2.donation_total = 35000
+campaign2.status = ACTIVE
 campaign2.save
 CampaignUser.create(campaign_id: campaign2.id, user_id: lloyd.id, user_type: CREATOR)
 CampaignUser.create(campaign_id: campaign2.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)
@@ -132,6 +134,7 @@ campaign5.pitch = "LifeNews.com is an independent news agency devoted to reporti
 campaign5.image_url = "http://lifenews.wpengine.netdna-cdn.com/wp-content/uploads/2013/07/heroicmedia3.png"
 campaign5.topic = Topic.find(12)
 campaign5.donation_total = 350000
+campaign5.status = ACTIVE
 campaign5.save
 CampaignUser.create(campaign_id: campaign5.id, user_id: shiv.id, user_type: CREATOR)
 CampaignUser.create(campaign_id: campaign5.id, user_id: eadon.id, user_type: DONOR, donation_amount: 1000)
@@ -153,6 +156,7 @@ campaign6.pitch = "A Pro Choice Student Opinion on Abortion Abortion is a contro
 campaign6.image_url = "http://www.phreshly-squeezed.net/blog/wp-content/uploads/2011/08/where-stand-kenneth-cole-pro-choice.jpg"
 campaign6.topic = Topic.find(12)
 campaign6.donation_total = 400000
+campaign6.status = ACTIVE
 campaign6.save
 CampaignUser.create(campaign_id: campaign6.id, user_id: shiv.id, user_type: CREATOR)
 CampaignUser.create(campaign_id: campaign6.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)

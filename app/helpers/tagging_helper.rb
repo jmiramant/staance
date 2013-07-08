@@ -7,7 +7,7 @@ module TaggingHelper
       topic_id = Topic.find_by_title(topic).id
       Campaign.where(topic_id: topic_id).where(id: camp_ids).limit(9)
     else
-      Campaign.where(id: camp_ids).limit(6)
+      Campaign.where(id: camp_ids).where(status: ACTIVE).limit(6)
     end
   end
 
