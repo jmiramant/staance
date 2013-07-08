@@ -12,6 +12,7 @@ describe "Campaign Feature Tests" do
     @campaign = FactoryGirl.create(:campaign)
     @campaign.topic = topic
     @campaign.save
+    CampaignUser.create(user_id: user.id, campaign_id: @campaign.id, user_type: CREATOR )
   end
 
   it "can reach campaign page" do
@@ -22,6 +23,6 @@ describe "Campaign Feature Tests" do
   it "can click support" do
     visit campaign_path(@campaign)
     click_on "Support"
-    expect page.has_no_link?("Support")
+    expect page.has_link?("Supported")
   end
 end

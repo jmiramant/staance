@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20130707164421) do
     t.string   "video_url"
     t.string   "cause_url"
     t.datetime "funding_deadline"
-    t.integer  "funding_goal",         :default => 1
+    t.integer  "funding_goal"
     t.text     "pitch"
     t.float    "donation_total",       :default => 0.0
     t.string   "status",               :default => "Pending"
