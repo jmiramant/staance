@@ -40,10 +40,6 @@ GEM
       rails (>= 3, < 5)
     arel (3.0.2)
     attr_required (0.0.5)
-    aws-s3 (0.6.3)
-      builder
-      mime-types
-      xml-simple
     bcrypt-ruby (3.1.0)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
@@ -57,17 +53,14 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    carrierwave (0.9.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
     celluloid (0.14.1)
       timers (>= 1.0.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
-    ckeditor (4.0.4)
-      mime-types
-      orm_adapter
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.1)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -143,8 +136,6 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.23)
-    mini_magick (3.6.0)
-      subexec (~> 0.2.1)
     mini_portile (0.5.1)
     multi_json (1.7.7)
     multipart-post (1.2.0)
@@ -177,6 +168,12 @@ GEM
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
     orm_adapter (0.4.0)
+    paperclip (3.4.2)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
     pg (0.15.1)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -282,7 +279,6 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    subexec (0.2.3)
     thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -306,7 +302,6 @@ GEM
       rack (>= 1.0)
     websocket (1.0.7)
     will_paginate (3.0.4)
-    xml-simple (1.1.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -315,11 +310,8 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
-  aws-s3
   bourbon
   capybara
-  carrierwave
-  ckeditor
   coffee-rails (~> 3.2.1)
   database_cleaner
   debugger
@@ -332,13 +324,13 @@ DEPENDENCIES
   formtastic
   haml
   jquery-rails
-  mini_magick
   neat
   newrelic_rpm
   nokogiri
   omniauth
   omniauth-facebook
   omniauth-twitter
+  paperclip
   pg
   pry
   rails (= 3.2.13)

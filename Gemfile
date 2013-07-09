@@ -44,12 +44,7 @@ gem 'devise'
 gem 'twitter'
 gem 'fb_graph'
 gem 'sidekiq'
-gem 'ckeditor'
-gem 'carrierwave'
-gem 'mini_magick'
 gem 'rails_admin'
 gem 'pry'
 gem 'will_paginate', '~> 3.0'
-
-#image storage
-gem 'aws-s3', :require => 'aws/s3'
+gem 'paperclip'
