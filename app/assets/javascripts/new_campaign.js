@@ -16,8 +16,14 @@ $(document).ready(function() {
     formTwo(id, form);
   });
 
-  $('#head').on("ajax:success", '#form_three form', function() {
-    finalizeCreate();
+  $('#head').on("ajax:success", '#form_three form', function(e, data) {
+    if (data[0] == "errors") {
+      data.shift();
+      errorHandling_form3(e, data)
+    }
+    else{
+      finalizeCreate();
+    }
   });
 
   $('#head').on("ajax:error", '#form_three form', function(e, data) {
@@ -48,6 +54,29 @@ function errorHandling(e, data) {
     $('.form_head').animate({ height: '-='+px+'px' }, 500);
   }, 3000);
 }
+
+function errorHandling_form2(error) {
+  var px = 40;
+  $('.form_head').animate({ height: '+='+px+'px' }, 500);
+  $('.form_head').append('<div style=" font-size: 21px; text-align: center; color: #545454;">'+error+'<div>');
+  setTimeout(function() {
+    $('.form_head').html('');
+    $('.form_head').animate({ height: '-='+px+'px' }, 500);
+  }, 3000);
+}
+
+function errorHandling_form3(e, errors) {
+  var px = 30 * errors.length;
+  $('.form_head').animate({ height: '+='+px+'px' }, 500);
+  for (e in errors) {
+    $('.form_head').append('<div style=" font-size: 21px; text-align: center; color: #545454;">'+errors[e]+'<div>');
+  }
+  setTimeout(function() {
+    $('.form_head').html('');
+    $('.form_head').animate({ height: '-='+px+'px' }, 500);
+  }, 3000);
+}
+
 function successPath(data) {
   $('#campaign_id').html(data.campaign_id);
   $('#editable').html(data.campaign_pitch);
@@ -71,8 +100,13 @@ function formTwo(camp_id, form_string) {
     type: "post",
     data: { id: camp_id, form: form_string }
   }).done(function(returnedPartial) {
-    returnedPartial
-    formThree();
+    if (returnedPartial == "Pitch must be a minimum length of 520 characters"){
+      errorHandling_form2(returnedPartial)
+    }
+    else {
+      returnedPartial;
+      formThree();
+    }
   });
 }
 

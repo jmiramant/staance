@@ -27,12 +27,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def supported_campaigns
-    @support = []
-    self.campaign_users.each {|support| @support << support.campaign_id }
-    @support
-  end
-
   def authenticated_networks
     authenticated_networks = []
     self.authentications.each do |auth|

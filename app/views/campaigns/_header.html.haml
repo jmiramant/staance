@@ -27,8 +27,8 @@
       = render 'shared/campaign/social'
       = render 'campaigns/support'
     .supporter_count
-      = "Supporters(" + @supporters.count.to_s + ")" if @supporters
+      = "Supporters(" + @campaign_show[:supporters].count.to_s + ")" if @supporters
     .donor_count
-      = "Donors(" + @donors.count.to_s+")" if @donors
+      = "Donors(" + @campaign_show[:donors].count.to_s+")" if @donors
       
       

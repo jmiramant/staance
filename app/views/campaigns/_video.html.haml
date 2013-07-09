@@ -1,6 +1,6 @@
 - if @campaign.status == ACTIVE || @campaign.status == PENDING
   .video_funding
-    = @video
+    = @campaign_show[:video]
 -else
   .video_completed_funding
-    = @video
+    = @campaign_show[:video]
