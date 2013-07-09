@@ -73,6 +73,7 @@ class CampaignsController < ApplicationController
   end
   
   def finalize_campaign
+    params[:campaign][:funding_deadline] = DateTime.strptime(params[:campaign].delete(:funding_deadline), "%m/%d/%Y")
     errors = CreateFormValidation.form_three_validations(params[:campaign])
     if errors.count == 1
       @campaign = Campaign.find_by_id(session[:campaign_build])

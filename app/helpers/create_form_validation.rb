@@ -8,7 +8,7 @@ module CreateFormValidation
     errors << "Funding Goal must be greater than 0" unless campaign[:funding_goal].to_i > 0
 
     if !campaign[:funding_deadline].blank?
-      errors << "Funding deadline must be greater than today" unless DateTime.parse(campaign[:funding_deadline]) > Date.today
+      errors << "Funding deadline must be greater than today" unless campaign[:funding_deadline] > Date.today
     end
 
     errors

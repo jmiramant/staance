@@ -30,6 +30,7 @@ group :test, :development do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'formtastic'
 gem 'acts-as-taggable-on'
 gem 'debugger'

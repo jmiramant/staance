@@ -19,7 +19,7 @@ $(document).ready(function() {
   $('#head').on("ajax:success", '#form_three form', function(e, data) {
     if (data[0] == "errors") {
       data.shift();
-      errorHandling_form3(e, data)
+      errorHandling_form3(e, data);
     }
     else{
       finalizeCreate();
@@ -39,7 +39,6 @@ $(document).ready(function() {
   });
 
   setTimeout(function() { $('#welcome_msg').slideUp(); }, 5000);
-
 });
 
 function errorHandling(e, data) {
@@ -101,7 +100,7 @@ function formTwo(camp_id, form_string) {
     data: { id: camp_id, form: form_string }
   }).done(function(returnedPartial) {
     if (returnedPartial == "Pitch must be a minimum length of 520 characters"){
-      errorHandling_form2(returnedPartial)
+      errorHandling_form2(returnedPartial);
     }
     else {
       returnedPartial;
@@ -114,6 +113,7 @@ function formThree() {
   $('#form_two').fadeOut();
   $('#body').css('height', '900px');
   $('#form_three').fadeIn();
+  $('.datePicker').datepicker();
 }
 
 function finalizeCreate(id) {
