@@ -28,11 +28,11 @@ $(document).ready(function() {
     $(this).attr('contenteditable', 'true');
   });
 
-  $("div#editable").keyup(function(){
-    sizeBox()
+  $("div#editable").keyup(function() {
+    sizeBox();
   });
 
-  setTimeout(function(){$('#welcome_msg').slideUp()},5000);
+  setTimeout(function() { $('#welcome_msg').slideUp(); }, 5000);
 
 });
 
