@@ -8,8 +8,8 @@ module CampaignHelper
     
     campaign_show = {
       user_supported: user_supporter, 
-      supporters: support_ids.map { |id| User.find(id)},
-      donors: donor_ids.map { |id| User.find(id) },
+      supporters: support_ids.map { |id| User.find_by_id(id) },
+      donors: donor_ids.map { |id| User.find_by_id(id) },
       video: UrlToMediaTag.convert(campaign.video_url, width: 540, height: 320)
     }
   end

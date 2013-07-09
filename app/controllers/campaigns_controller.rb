@@ -81,7 +81,7 @@ class CampaignsController < ApplicationController
       @campaign.update_attribute(:status, ACTIVE)
       if @campaign.save
         ScheduledWorker.perform_at(@campaign.funding_deadline, @campaign.id)
-        # UserMailer.campaign_new_email(current_user, @campaign).deliver
+        UserMailer.campaign_new_email(current_user, @campaign).deliver
         session.delete(:campaign_build)
         render nothing: true
       else
