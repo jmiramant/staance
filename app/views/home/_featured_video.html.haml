@@ -8,5 +8,6 @@
         %span #{to_currency(campaign.donation_total)}
         raised &nbsp;&nbsp;|&nbsp;
         %span #{time_array[0]}
-        #{time_array[1]} left
+        - unless time_array[1] == ""
+          #{time_array[1]} left
     = link_to "View Campaign", campaign, class: 'button'
