@@ -2,6 +2,7 @@ All Topics:
 %br
 %topics_container
 %ul
-  - @topics.each do |topic|
-    %li
-      %a{:href => "/topics/#{topic.id}"} #{topic.title} [#{campaign_count_by_topic(topic)}]
+  - if @topics 
+    - @topics.each do |topic|
+      %li
+        %a{:href => "/topics/#{topic.id}"} #{topic.title} [#{campaign_count_by_topic(topic)}]

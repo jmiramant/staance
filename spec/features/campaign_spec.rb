@@ -45,10 +45,4 @@ describe "Campaign Feature Tests" do
     expect(page).to have_content("Congratulations!")
   end
 
-
-  it "can visit home_page" do
-    visit root_path
-    expect(page).to have_content("Crowd funding")
-  end
-
 end
