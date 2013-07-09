@@ -104,13 +104,21 @@ class CampaignsController < ApplicationController
     render json: count.to_s.to_json
   end
 
+  def unsupport
+    CampaignUser.where('user_id = ? and campaign_id = ? and user_type = ?', current_user.id, params[:id], SUPPORTER).first.destroy
+    camp = Campaign.find_by_id(params[:id])
+    count = camp.campaign_users.where(user_type: SUPPORTER).count
+    render json: count.to_s.to_json
+  end
+
   def check_support
     params[:path].match(/(\d)/)
     campaign_id = $1.to_i
-    if CampaignUser.where('user_id is ? and campaign_id is ? and user_type is ?', current_user.id, campaign_id, SUPPORTER)
-      render json: true.to_json
+    supporter = CampaignUser.where('user_id = ? and campaign_id = ? and user_type = ?', current_user.id, campaign_id, SUPPORTER)
+    if supporter.length == 0
+      render json: false
     else
-      render json: false.to_json
+      render json: true
     end
   end
 

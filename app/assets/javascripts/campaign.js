@@ -17,16 +17,26 @@ var UpdateStatus = {
 
 var SupportLink = {
 	init: function() {
-		$('#support_link').on('ajax:success', this.supportAdd);
-		$('#support_link').on('ajax:errors', this.appendAlert);
+		$('.support_button').on('ajax:success', '.unsupported', this.supportAdd);
+		$('.support_button').on('ajax:errors', '.unsupported', this.appendAlert);
+    $('.support_button').on('ajax:success', '.supported', this.supportRemove);
+    $('.support_button').on('ajax:errors', '.supported', this.appendAlert);
     this.setOnPageLoad();
 	},
 
 	supportAdd: function(e, data) {
-		$('#support_link').text('Supported');
-		$('#support_link').addClass('supported');
-		$('.supporter_count').text('Supporters('+ data + ")");
+		var $newButton = $($('.support_button').clone().html().replace('support', 'unsupport').replace('post', 'put'));
+    $newButton.text('Supported').removeClass('unsupported').addClass('supported');
+    $('.support_button').html($newButton);
+		$('.supporter_count').text('Supporters(' + data + ")");
 	},
+
+  supportRemove: function(e, data) {
+    var $newButton = $($('.support_button').clone().html().replace('unsupport', 'support').replace('put', 'post'));
+    $newButton.text('Support').removeClass('supported').addClass('unsupported');
+    $('.support_button').html($newButton);
+    $('.supporter_count').text('Supporters(' + data + ")");
+  },
 
 	appendAlert: function() {
 		$('.supporter').append("I'm sorry, there was an error logging your support");
@@ -38,7 +48,11 @@ var SupportLink = {
       type: "get",
       data: { path: window.location.pathname }
     }).done(function(data) {
-      console.log(data);
+      if (data === true) {
+        var $newButton = $($('.support_button').clone().html().replace('support', 'unsupport').replace('post', 'put'));
+        $newButton.text('Supported').removeClass('unsupported').addClass('supported');
+        $('.support_button').html($newButton);
+      }
     });
   }
 };
