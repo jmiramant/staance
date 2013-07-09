@@ -4,6 +4,9 @@ var Carousel = {
   init: function() {
     $('.arrow.left').on('click', function() { Carousel.changeVideo(-1); });
     $('.arrow.right').on('click', function() { Carousel.changeVideo(1); });
+    $('.icon-circle').on('click', function(e){ 
+        Carousel.changeVideoAbs(e.currentTarget.classList[1]);
+      });
   },
 
   changeVideo: function(num) {
@@ -12,13 +15,21 @@ var Carousel = {
     this.current = (this.current + num + 3) % 3;
     $('.featured-video.' + this.current).fadeIn(1000);
     $('.icon-circle.' + this.current).css('color', '#fece12');
+  },
+
+  changeVideoAbs: function(num) {
+    $('.featured-video.' + this.current).hide();
+    $('.icon-circle.' + this.current).css('color', '#545454');
+    this.current = num;
+    $('.featured-video.' + this.current).fadeIn(1000);
+    $('.icon-circle.' + this.current).css('color', '#fece12');
   }
 };
 
 $(document).ready(function() {
   // featured video click & carousel
   Carousel.init();
-  var autoRotate = setInterval(function() { Carousel.changeVideo(1); }, 5000);
+  var autoRotate = setInterval(function() { Carousel.changeVideo(1); }, 8000);
   $('.arrow').on('click', function() { clearInterval(autoRotate); });
 
   // campaign grid
