@@ -1,4 +1,9 @@
 $(document).ready(function() {
+  $('#head').on('click', 'a.select-opposing', function(e) {
+    e.preventDefault();
+    $('.form_half input[type=hidden]').val($(this).data('id'));
+  });
+
   $('#form_one form').on("ajax:success", function(e, data) {
     successPath(data);
     sizeBox();
@@ -16,11 +21,10 @@ $(document).ready(function() {
     formTwo(id, form);
   });
 
-<<<<<<< HEAD
   $('#head').on("ajax:success", '#form_three form', function(e, data) {
     if (data[0] == "errors") {
       data.shift();
-      errorHandling_form3(e, data);
+      errorHandling_form3(e, data)
     }
     else{
       finalizeCreate();
@@ -30,21 +34,6 @@ $(document).ready(function() {
   $('#head').on("ajax:error", '#form_three form', function(e, data) {
     errorHandling(e, data);
   });
-=======
-  // $('#head').on("ajax:success", '#form_three form', function(e, data) {
-  //   if (data[0] == "errors") {
-  //     data.shift();
-  //     errorHandling_form3(e, data)
-  //   }
-  //   else{
-  //     finalizeCreate();
-  //   }
-  // });
-
-  // $('#head').on("ajax:error", '#form_three form', function(e, data) {
-  //   errorHandling(e, data);
-  // });
->>>>>>> WIP
 
   $('#editable').focus(function() {
     $(this).attr('contenteditable', 'true');
@@ -52,11 +41,6 @@ $(document).ready(function() {
 
   $("div#editable").keyup(function() {
     sizeBox();
-  });
-
-  $(".selected_opposing_campaign").on("ajax:complete", function(){
-    console.log('hellooooooooooooooooooooooooo');
-    $('.selected_opposing_campaign').css("color", "black");
   });
 
   setTimeout(function() { $('#welcome_msg').slideUp(); }, 5000);
