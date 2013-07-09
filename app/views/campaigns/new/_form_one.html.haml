@@ -1,4 +1,6 @@
 .form_head
+  #welcome_msg
+    = render '/campaigns/new/welcome'
 = semantic_form_for @campaign, url: url, remote: true do |f|
   = render '/campaigns/new/errors', :target => @campaign
   .form_full.title

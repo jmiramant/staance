@@ -31,6 +31,9 @@ $(document).ready(function() {
   $("div#editable").keyup(function(){
     sizeBox()
   });
+
+  setTimeout(function(){$('#welcome_msg').slideUp()},5000);
+
 });
 
 function errorHandling(e, data) {
