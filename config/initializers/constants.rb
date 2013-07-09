@@ -2,7 +2,6 @@
 
 DONOR = "Donor"
 SUPPORTER = "Supporter"
-UNSUPPORTER = "Unsupporter"
 CREATOR = "Creator"
 
 
