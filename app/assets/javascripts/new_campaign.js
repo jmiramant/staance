@@ -3,13 +3,8 @@ $(document).ready(function() {
     successPath(data);
     sizeBox();
   });
-<<<<<<< HEAD
- 
-  $('#form_one form').on("ajax:error", function(e, data){
-=======
 
   $('#form_one form').on("ajax:error", function(e, data) {
->>>>>>> cleaned up new_campaign.js
     errorHandling(e, data);
   });
 
