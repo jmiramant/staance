@@ -6,9 +6,6 @@ describe "Unauthenticated User" do
     visit new_campaign_path
     expect(page).to have_content("Sign in")
 
-    visit users_path
-    expect(page).to have_content("Sign in")
-
     visit campaigns_path
     expect(page).to have_content("All Campaigns")
   end
