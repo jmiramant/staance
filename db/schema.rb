@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130707164421) do
+ActiveRecord::Schema.define(:version => 20130709085406) do
 
   create_table "authentications", :force => true do |t|
     t.integer "user_id"
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(:version => 20130707164421) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "mercury_images", :force => true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"

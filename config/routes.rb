@@ -1,4 +1,10 @@
 PoliticalKickstarter::Application.routes.draw do
+    namespace :mercury do
+      resources :images
+    end
+
+  mount Mercury::Engine => '/'
+
   mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   post '/campaigns/editable_form' => "campaigns#editable_form"
