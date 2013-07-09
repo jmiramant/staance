@@ -104,6 +104,16 @@ class CampaignsController < ApplicationController
     render json: count.to_s.to_json
   end
 
+  def check_support
+    params[:path].match(/(\d)/)
+    campaign_id = $1.to_i
+    if CampaignUser.where('user_id is ? and campaign_id is ? and user_type is ?', current_user.id, campaign_id, SUPPORTER)
+      render json: true.to_json
+    else
+      render json: false.to_json
+    end
+  end
+
   protected
     def check_same_user
       @campaign = Campaign.find(params[:id])
