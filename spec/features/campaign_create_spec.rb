@@ -25,9 +25,9 @@ describe "Create Campaign Form Tests" do
     fill_in 'campaign_cause_url', with: "some cause url"
     fill_in 'campaign_funding_deadline', with: "12/12/2013"
     fill_in 'campaign_funding_goal', with: "100000"
-    click_on "Update Campaign"
+    click_on "Create!"
     sleep(3)
-    expect(page).to have_content "Campaign Number 1"
+    expect(page).to have_content "some title"
   end
 
 

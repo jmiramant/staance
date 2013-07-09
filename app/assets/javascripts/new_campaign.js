@@ -82,5 +82,5 @@ function formThree() {
 function finalizeCreate(id) {
   console.log('trying to redirect');
   var camp_id = String(parseInt($('#form_three form').attr('id').replace(/[^\d,]+/g, '')));
-  window.location.replace('http://localhost:3000/campaigns/'+ camp_id);
+  window.location.replace('/campaigns/'+ camp_id);
 }
