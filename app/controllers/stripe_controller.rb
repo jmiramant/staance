@@ -15,9 +15,14 @@ class StripeController < ApplicationController
   def process_card
     token = params[:stripeToken]
     customer = Stripe::Customer.create(card: token, description: current_user.email)
+    p customer
     user = User.find(current_user.id)
     user.stripe_id = customer.id
     user.save 
     redirect_to Campaign.find(session[:campaign_id])
+
+    rescue Stripe::CardError => e
+      flash[:alert] = e.message
+      redirect_to :back
   end
 end
