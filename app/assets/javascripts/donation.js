@@ -1,5 +1,5 @@
 function makePayment() {
-  setTimeout(function() { $('.stripe-button-el').click(); }, 100);
+  setTimeout(function() { $('.stripe-button-el').click(); }, 200);
   setTimeout(function() { $('.stripe_payment').remove(); }, 200);
 }
 
