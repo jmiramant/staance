@@ -91,12 +91,8 @@ class CampaignsController < ApplicationController
   end
 
   def activate
-    p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-    p params
     campaign = Campaign.find(params[:id])
-    p campaign
     new_status = (campaign.status == PENDING) ? ACTIVE : PENDING
-    p new_status
     campaign.update_attribute(:status, new_status)
     render json: new_status.to_json
   end
