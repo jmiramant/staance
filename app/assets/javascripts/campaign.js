@@ -56,4 +56,5 @@ $(document).ready(function() {
 	UpdateOpposingCampaign.init();
 	countdown();
 	setInterval(function() { countdown(); }, 1000);
+  setTimeout(function(){$('#disqus_thread iframe:nth-child(2)').css('width','125%')}, 1500)
 });

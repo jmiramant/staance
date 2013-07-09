@@ -36,13 +36,13 @@ ActiveRecord::Schema.define(:version => 20130707164421) do
     t.integer  "topic_id"
     t.string   "title"
     t.string   "image_url"
-    t.string   "short_blurb"
     t.string   "location"
     t.string   "video_url"
     t.string   "cause_url"
     t.datetime "funding_deadline"
-    t.integer  "funding_goal"
+    t.integer  "funding_goal",         :default => 1
     t.text     "pitch"
+    t.text     "short_blurb"
     t.float    "donation_total",       :default => 0.0
     t.string   "status",               :default => "Pending"
     t.integer  "opposing_campaign_id"
