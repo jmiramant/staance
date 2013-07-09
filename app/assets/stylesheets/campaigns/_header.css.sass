@@ -20,7 +20,7 @@
       padding: 25px
   .user_interaction_summary
     @include span-columns(3 of 12)
-    color:  $staance-dark-gray
+    color: $staance-dark-gray
     min-height: 50px
   .social_show_page
     float: none
@@ -108,6 +108,11 @@
   a
     display: inline-block
     background-color: $staance-blue
+
+  .disabled
+    background-color: $staance-dark-gray
+    cursor: default
+    pointer-events: none
 
 #admin-title
   margin-bottom: 10px

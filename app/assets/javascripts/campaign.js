@@ -68,11 +68,19 @@ function countdown() {
   $('.countdown_value').html(dd+" Days, "+hh+" Hours, "+mm+" Minutes, "+ss+" Seconds");
 }
 
+function disableAdminButtons() {
+  var status = $.trim($('.copy .status').text());
+  if (status != 'Active' && status != 'Pending') {
+    $('#status-button, #edit-button').addClass('disabled');
+  }
+}
+
 $(document).ready(function() {
   UpdateStatus.init();
 	SupportLink.init();
 	UpdateOpposingCampaign.init();
 	countdown();
+  disableAdminButtons();
 	setInterval(function() { countdown(); }, 1000);
   setTimeout(function(){$('#disqus_thread iframe:nth-child(2)').css('width','125%')}, 1500)
 });
