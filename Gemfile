@@ -26,6 +26,7 @@ group :test, :development do
   gem 'sextant'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'simplecov'
 end
 
 gem 'jquery-rails'

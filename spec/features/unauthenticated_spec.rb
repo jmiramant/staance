@@ -8,6 +8,9 @@ describe "Unauthenticated User" do
 
     visit campaigns_path
     expect(page).to have_content("All Campaigns")
+
+    visit root_path
+    expect(page).to have_content("STAANCE")
   end
 
   it "can create an account", js: true do

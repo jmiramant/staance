@@ -25,4 +25,30 @@ describe "Campaign Feature Tests" do
     click_on "Support"
     expect page.has_link?("Supported")
   end
+
+  it "can activate campaign" do
+    visit campaign_path(@campaign)
+    click_on "Activate"
+    expect(page).to have_content("Active")
+  end
+
+  it "can pause campaign", js: true do
+    visit campaign_path(@campaign)
+    click_on "Activate"
+    click_on "Pause"
+    expect(page).to have_content("Pending")
+  end
+
+  it "can edit campaign" do
+    visit campaign_path(@campaign)
+    click_on "Edit"
+    expect(page).to have_content("Congratulations!")
+  end
+
+
+  it "can visit home_page" do
+    visit root_path
+    expect(page).to have_content("Crowd funding")
+  end
+
 end
