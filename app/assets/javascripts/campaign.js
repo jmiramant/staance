@@ -1,3 +1,20 @@
+var UpdateStatus = {
+  init: function() {
+    $('#status-button').on('ajax:success', this.changeStatus);
+  },
+
+  changeStatus: function(e, status) {
+    if (status == 'Active') {
+      $('#status-button').text('Pause');
+      $('.copy .status').text('Active');
+    }
+    else {
+      $('#status-button').text('Activate');
+      $('.copy .status').text('Pending');
+    }
+  }
+};
+
 var SupportLink = {
 	init: function() {
 		$('#support_link').on('ajax:success', this.supportAdd);
@@ -52,6 +69,7 @@ function countdown() {
 }
 
 $(document).ready(function() {
+  UpdateStatus.init();
 	SupportLink.init();
 	UpdateOpposingCampaign.init();
 	countdown();

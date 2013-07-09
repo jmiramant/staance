@@ -73,7 +73,6 @@ class CampaignsController < ApplicationController
   def finalize_campaign
     @campaign = Campaign.find_by_id(session[:campaign_build])
     @campaign.update_attributes(params[:campaign])
-    @campaign.update_attribute(:status, ACTIVE)
     if @campaign.save
       ScheduledWorker.perform_at(@campaign.funding_deadline, @campaign.id)
       # UserMailer.campaign_new_email(current_user, @campaign).deliver
@@ -82,6 +81,17 @@ class CampaignsController < ApplicationController
     else
       render json: {:error => @campaign.errors.full_messages}.to_json, :status => :unprocessable_entity
     end
+  end
+
+  def activate
+    p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    p params
+    campaign = Campaign.find(params[:id])
+    p campaign
+    new_status = (campaign.status == PENDING) ? ACTIVE : PENDING
+    p new_status
+    campaign.update_attribute(:status, new_status)
+    render json: new_status.to_json
   end
 
   def support

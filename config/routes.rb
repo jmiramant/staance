@@ -4,6 +4,7 @@ PoliticalKickstarter::Application.routes.draw do
   post '/campaigns/editable_form' => "campaigns#editable_form"
   post '/campaigns/finalize_campaign' => "campaigns#finalize_campaign"
   put '/campaigns/finalize_campaign' => "campaigns#finalize_campaign"
+  put '/campaigns/activate' => "campaigns#activate"
   match 'campaign/support' => "campaigns#support", action: 'post' 
 
   devise_for :users, controllers: {:omniauth_callbacks => 'authentications', 
