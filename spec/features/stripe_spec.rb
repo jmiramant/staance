@@ -27,7 +27,7 @@ describe "Stripe Tests" do
       fill_in "paymentCVC", with: "123"
       click_on "Pay $1000.00"
     end
-    sleep(10)
+    expect(page).to have_content("PROFILE")
   end
 end
 
