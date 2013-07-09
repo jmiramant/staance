@@ -9,7 +9,8 @@ PoliticalKickstarter::Application.routes.draw do
 
   devise_for :users, controllers: {:omniauth_callbacks => 'authentications', 
                                    :registrations => 'registrations',
-                                   :sessions => 'sessions'}
+                                   :sessions => 'sessions',
+                                   :passwords => 'passwords'}
   resources :users, only: [:show]
   resources :campaigns
   resources :topics, only: [:index]

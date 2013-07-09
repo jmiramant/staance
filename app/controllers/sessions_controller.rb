@@ -1,3 +1,5 @@
 class SessionsController < Devise::SessionsController
-  before_filter :auth_user, only: :new
+  def new
+    redirect_to multiauth_path
+  end
 end
