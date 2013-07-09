@@ -26,7 +26,7 @@ describe "Create Campaign Form Tests" do
     fill_in 'campaign_funding_deadline', with: "12/12/2013"
     fill_in 'campaign_funding_goal', with: "100000"
     click_on "Create!"
-    sleep(3)
+    sleep(5)
     expect(page).to have_content "some title"
   end
 
