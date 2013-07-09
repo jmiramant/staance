@@ -19,6 +19,7 @@ var SupportLink = {
 	init: function() {
 		$('#support_link').on('ajax:success', this.supportAdd);
 		$('#support_link').on('ajax:errors', this.appendAlert);
+    this.setOnPageLoad();
 	},
 
 	supportAdd: function(e, data) {
@@ -29,7 +30,17 @@ var SupportLink = {
 
 	appendAlert: function() {
 		$('.supporter').append("I'm sorry, there was an error logging your support");
-	}
+	},
+
+  setOnPageLoad: function() {
+    $.ajax({
+      url: '/campaigns/check_support/',
+      type: "get",
+      data: { path: window.location.pathname }
+    }).done(function(data) {
+      console.log(data);
+    });
+  }
 };
 
 var UpdateOpposingCampaign = {
