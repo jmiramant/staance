@@ -16,6 +16,7 @@ $(document).ready(function() {
     formTwo(id, form);
   });
 
+<<<<<<< HEAD
   $('#head').on("ajax:success", '#form_three form', function(e, data) {
     if (data[0] == "errors") {
       data.shift();
@@ -29,6 +30,21 @@ $(document).ready(function() {
   $('#head').on("ajax:error", '#form_three form', function(e, data) {
     errorHandling(e, data);
   });
+=======
+  // $('#head').on("ajax:success", '#form_three form', function(e, data) {
+  //   if (data[0] == "errors") {
+  //     data.shift();
+  //     errorHandling_form3(e, data)
+  //   }
+  //   else{
+  //     finalizeCreate();
+  //   }
+  // });
+
+  // $('#head').on("ajax:error", '#form_three form', function(e, data) {
+  //   errorHandling(e, data);
+  // });
+>>>>>>> WIP
 
   $('#editable').focus(function() {
     $(this).attr('contenteditable', 'true');
@@ -36,6 +52,11 @@ $(document).ready(function() {
 
   $("div#editable").keyup(function() {
     sizeBox();
+  });
+
+  $(".selected_opposing_campaign").on("ajax:complete", function(){
+    console.log('hellooooooooooooooooooooooooo');
+    $('.selected_opposing_campaign').css("color", "black");
   });
 
   setTimeout(function() { $('#welcome_msg').slideUp(); }, 5000);

@@ -1,10 +1,15 @@
 .form_head
 = semantic_form_for @campaign, :url => campaigns_finalize_campaign_path, remote: true do |f|
+  
   .form_half
     = f.input :cause_url 
   .form_half.right
     = f.input :funding_deadline, as: :date_picker
   .form_half
     = f.input :funding_goal
+  .opposition
+    - @related_campaigns.each do |camp|
+      = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: camp}
+      = link_to 'Select', campaigns_opposing_path(camp_id: @campaign.id, opp_id: camp.id), class: "selected_opposing_campaign", remote: true, method: 'post'
   .form_full
     = f.action :submit, label: "Create!"

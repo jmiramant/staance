@@ -57,25 +57,6 @@ var SupportLink = {
   }
 };
 
-var UpdateOpposingCampaign = {
-	init: function() {
-		$('#topic_input').on('change', function() {
-			topic = $('#topic_input :selected').text();
-			createDropDown(topic);
-		});
-	}
-};
-
-function createDropDown(topic) {
-  if (topic === "") {
-		$('#opposing_campaigns').html("");
-  }
-  else {
-    $.post('/filter_topic/'+topic, function(data) {
-			$('#opposing_campaigns').html(data);
-    });
-  }
-}
 
 function countdown() {
 	now = new Date();
@@ -103,7 +84,6 @@ function disableAdminButtons() {
 $(document).ready(function() {
   UpdateStatus.init();
 	SupportLink.init();
-	UpdateOpposingCampaign.init();
 	countdown();
   disableAdminButtons();
 	setInterval(function() { countdown(); }, 1000);
