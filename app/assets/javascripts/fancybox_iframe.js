@@ -5,4 +5,10 @@ $(document).ready(function() {
       media: true
     }
   });
+  $('.lessfancybox').fancybox({
+   closeBtn: true,
+    helpers: {
+      media: false
+    }
+  });
 });
