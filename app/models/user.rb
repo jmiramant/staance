@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
   end
 
   def supporter?(camp_id)
-    CampaignUser.where('user_id = ? and campaign_id = ? and user_type = ?', camp_id, self.id, SUPPORTER)
+    user = CampaignUser.where('user_id = ? and campaign_id = ? and user_type = ?', self.id, camp_id, SUPPORTER)
+    !user.blank?
   end
 
   def authenticated_networks

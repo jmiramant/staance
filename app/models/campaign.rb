@@ -97,9 +97,11 @@ class Campaign < ActiveRecord::Base
 
   class << self
 
-    def active_campaigns
-      self.where(status: PENDING)
+    [PENDING, ACTIVE, FUNDED, SUSPENDED, UNSUCCESSFUL].each do |stat|
+      define_method "#{stat.downcase}_campaigns" do
+        self.where(status: stat)
     end
+  end
 
   end
 

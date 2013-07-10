@@ -76,9 +76,9 @@ class CampaignsController < ApplicationController
     campaign_id = $1.to_i
     supporter = current_user.supporter?(campaign_id)
     if supporter
-      render json: false
-    else
       render json: true
+    else
+      render json: false
     end
   end
 
