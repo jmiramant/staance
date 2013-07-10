@@ -2,9 +2,10 @@
   =render 'campaigns/header'
 .story
   .part_one
-    - if @campaign.unsuccessful?
+    - if @campaign.suspended?
       = render 'unsuccessful_campaign', campaign: @campaign
-    - elsif @campaign.funded? && @campaign.before_deadline?
+    - elsif @campaign.funded? && @campaign.after_deadline?
+      %h1 Successful!
       = render 'successful_campaign', campaign: @campaign
     - elsif @campaign.before_deadline?
       .status_tabs

@@ -38,6 +38,10 @@ class Campaign < ActiveRecord::Base
     end
   end
 
+  def after_deadline?
+    self.funding_deadline < Date.today
+  end
+
   def before_deadline?
     self.funding_deadline > Date.today
   end
