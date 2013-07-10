@@ -9,15 +9,20 @@ describe Campaign do
   before do
     @user = FactoryGirl.create(:user)
     @topic = Topic.create(title: "Topic Title")
+    @campaign = FactoryGirl.create(:campaign)
   end
 
   it "creates a basic campaign instance" do
     # from SHADI - campaign = create(:campaign)
-    campaign = FactoryGirl.create(:campaign)
-    campaign.topic = @topic
-    CampaignUser.create(campaign_id: campaign.id, user_id: @user.id, user_type: CREATOR)
-    campaign.save
-    expect(Campaign.first.users).to eq campaign.users
+    @campaign.topic = @topic
+    CampaignUser.create(campaign_id: @campaign.id, user_id: @user.id, user_type: CREATOR)
+    @campaign.save
+    expect(Campaign.first.users).to eq @campaign.users
   end
+
+  it "creates and triggers a Sidekiq event" do
+    ScheduledWorker.perform_at(Time.now + 10.seconds, @campaign.id)
+  end
+
 end
  
