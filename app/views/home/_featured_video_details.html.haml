@@ -1,0 +1,10 @@
+#campaign-name-stats
+  = link_to campaign.title, campaign, id: 'campaign-name'
+  #campaign-stats
+    - time_array = campaign.separated_time_ago
+    %span #{to_currency(campaign.donation_total)}
+    raised &nbsp;&nbsp;|&nbsp;
+    %span #{time_array[0]}
+    - unless time_array[1] == ""
+      #{time_array[1]} left
+

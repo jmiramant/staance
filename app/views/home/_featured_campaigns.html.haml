@@ -1,14 +1,22 @@
-.featured-campaigns
-  .featured-video-box
-    %a.arrow.left{href: "#"}
-      %i.icon-chevron-sign-left.icon-4x
-    .featured-videos
+#featured-campaigns
+  #featured-video-box
+    #arrow.left
+      %i.icon-chevron-left.icon-4x   
+    #featured-video-image-box
       - @featured.each_with_index do |campaign, index|
-        = render 'home/featured_video', {campaign: campaign, klass: index}
-    %a.arrow.right{href: "#"}
-      %i.icon-chevron-sign-right.icon-4x
-    .slider-icons
+        #featured-video-image{class: index}
+          = link_to image_tag(campaign.image_url), campaign.video_url, class: 'fancybox'
+          #radial-gradient
+    #arrow.right
+      %i.icon-chevron-right.icon-4x
+  #featured-details-box
+    #slider-icons
       %i.icon-circle.0
       %i.icon-circle.1
       %i.icon-circle.2
+    #featured-details-inner-box
+      - @featured.each_with_index do |campaign, index|
+        #featured-video-details{class: index}
+          = render 'home/featured_video_details', {campaign: campaign}
+    
     

@@ -1,84 +1,98 @@
-.featured-campaigns
+#featured-campaigns
+  background-color: $background
+
+#featured-video-box
   @include outer-container
-  margin-top: 50px
+  position: relative
+  text-align: center
+  padding: 20px
 
-  .featured-video-box
-    position: relative
-    text-align: center
+#arrow
+  position: absolute
+  top: 46%
+  color: $background-light-grey
+  transition: 0.3s
 
-    .arrow, .featured-video
-      display: inline-block
+  &:hover
+    cursor: pointer
+    color: $pink
 
-    .arrow
-      position: absolute
-      top: 160px
-      color: $staance-dark-gray
+.left
+  left: 20px
 
-      &:hover
-        color: $staance-blue
+.right
+  right: 20px
 
-      &.left
-        left: 75px
+#featured-video-image-box
+  width: 65%
+  margin: 0 auto
 
-      &.right
-        right: 75px
+#featured-video-image
+  position: relative
+  display: none
 
-    .featured-video
-      position: relative
-      width: 65%
-      margin: 0 auto
-      display: none
+  &:nth-child(1)
+    display: block
 
-      &:nth-child(1)
-        display: block
+.fancybox img
+  width: 100%
+  height: 500px
+  border-radius: 20px
 
-      img
-        border-radius: 10px
-        width: 100%
-        height: 400px
 
-      .features-details
-        position: absolute
-        background-color: black
-        border-radius: 0 0 10px 10px
-        opacity: 0.8
-        width: 100%
-        height: 90px
-        padding: 5px 15px
-        bottom: 0
-        color: white
+#radial-gradient
+  @include radial-gradient(transparent, $background)
+  position: absolute
+  top: 0
+  width: 100%
+  height: 500px
 
-        .campaign-name-stats
-          float: left
-          text-align: left
+#featured-details-box
+  padding: 20px
+  background-color: $green
 
-          .campaign-name
-            font-size: 28px
+#slider-icons
+  text-align: center
 
-          .campaign-stats
-            margin-top: 15px
-            font-style: italic
-            font-weight: 300
+  i
+    margin: 0 10px
+    color: $background-light-grey
+    transition: 0.3s
 
-            span
-              font-size: 20px
-              font-weight: 700
-              color: $staance-yellow
+    &.selected
+      color: $pink
 
-        .button
-          background-color: $staance-blue
-          float: right
-          opacity: 1 !important
-          margin: 20px 10px 0 0 
+    &:hover
+      cursor: pointer
+      color: $pink
 
-    .slider-icons
-      margin-top: 20px
+#featured-details-inner-box
+  @include outer-container
+  margin-top: 10px
 
-      i
-        margin: 0 10px
+#featured-video-details
+  display: none
 
-        &:nth-child(1)
-          color: $staance-yellow
+  &:nth-child(1)
+    display: block
 
-        &:hover
-          cursor: pointer
+#campaign-name-stats
+  color: $background-white
+
+#campaign-name
+  color: $background-white
+  font-size: 40px
+  font-weight: 700
+  transition: 0.3s
+
+  &:hover
+    color: $pink
+
+#campaign-stats
+  padding-top: 15px
+  font-size: 17px
+
+  span
+    font-size: 25px
+    font-weight: 700
+    color: $pink
