@@ -25,6 +25,8 @@ describe Campaign do
     expect {
       ScheduledWorker.perform_async(@campaign.id)
       }.to change(ScheduledWorker.jobs, :size).by(1)
+
+      expect {ScheduledWorker.drain}.to change(ScheduledWorker.jobs, :size).by(-1)
   end
 
 end

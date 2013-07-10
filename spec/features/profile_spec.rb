@@ -5,11 +5,6 @@ describe "Profile" do
 
   include FeatureHelpers
 
-before do
-    visit 'http://twitter.com'
-    page.reset!  #Selenium can only affect cookies in the current domain
-  end
-
   before do
     @user = create(:user)
     login(@user)
@@ -24,14 +19,13 @@ before do
   end
 
   it "can connect account to Twitter", js: true do
+    visit 'http://twitter.com'
+    page.reset!  #Selenium can only affect cookies in the current domain
     visit edit_user_registration_path
     click_on "Connect Your Twitter Account"
-
     fill_in "username_or_email", with: ENV['TWITTERUSER']
     fill_in "password", with: ENV['TWITTERPASS']
     click_on "allow"
-    expect(page).to have_content(@user.email)
-    browser = Capybara.current_session.driver.browser
   end
 
 end
