@@ -14,12 +14,11 @@ class Campaign < ActiveRecord::Base
 
   acts_as_taggable
 
-  # From Shadi -- this is awesome!  Do this in as many places as possible!
-  # [PENDING, ACTIVE, FUNDED, SUSPENDED, UNSUCCESSFUL].each do |stat|
-  #   define_method "#{stat.downcase}?" do
-  #     self.status == stat
-  #   end
-  # end
+  [PENDING, ACTIVE, FUNDED, SUSPENDED, UNSUCCESSFUL].each do |stat|
+    define_method "#{stat.downcase}?" do
+      self.status == stat
+    end
+  end
 
   def separated_time_ago
     seconds = self.funding_deadline - Time.zone.now
@@ -38,19 +37,40 @@ class Campaign < ActiveRecord::Base
     end
   end
 
+  def before_deadline?
+    self.funding_deadline > Date.today
+  end
+
+  def display_deadline
+    self.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
+  end
+
+  def display_countdown
+    self.funding_deadline.strftime("%B%e, %Y %H:%M:%S")
+  end
+
   def campaign_matchers
     Matcher.joins(:campaign_user => :campaign).where("campaigns.id =?", self.id)
   end
 
   def supporters
-    # Shadi kinda nitpicky -- use CampaignUser.campaign_supporters(self) and move
-    # this logic to the CampaignUsers model
-    CampaignUser.where('campaign_id = ? and user_type = ?', self.id, "Supporter")
+    CampaignUser.campaign_supporters(self.id)
   end
+
+  def
 
   def update_funding_status
     self.status = FUNDED if self.donation_total >= self.funding_goal
     self.save
   end
+
+  class << self
+    def active_campaigns
+      self.where(status: PENDING)
+    end
+
+  end
+
+
 
 end

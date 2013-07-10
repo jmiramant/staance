@@ -2,24 +2,13 @@
   =render 'campaigns/header'
 .story
   .part_one
-    - if @campaign.status == UNSUCCESSFUL
+    - if @campaign.unsuccessful?
       = render 'unsuccessful_campaign', campaign: @campaign
-    - elsif @campaign.status == FUNDED && @campaign.funding_deadline < Date.today
+    - elsif @campaign.funded? && @campaign.before_deadline?
       = render 'successful_campaign', campaign: @campaign
-    - elsif @campaign.funding_deadline > Date.today
+    - elsif @campaign.before_deadline?
       .status_tabs
-        %ul{class: "tabs_fundraiser"}
-          %li{class: "campaign_status", id: "active"}= link_to 'Your Status', '#'
-          -if @opposing_campaign
-            %li{class: "opposition_status"}= link_to 'Opposition Status', '#'
-          %li{class: "comments"}= link_to 'Comments', '#'
-        #fundraise.unhidden
-          = render 'campaigns/fundraise', campaign: @campaign
-        -if @opposing_campaign
-          #opp_status.hidden
-            = render 'campaigns/fundraise', campaign: @opposing_campaign
-        #disqus_thread.hidden
-          = render 'shared/disqus'
+        = render 'campaigns/campaign_tab_logic'
     =render 'campaigns/video'
   .part_two
     =render 'campaigns/pitch'

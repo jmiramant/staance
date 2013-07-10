@@ -15,4 +15,8 @@ module CampaignHelper
       video: UrlToMediaTag.convert(campaign.video_url, width: 540, height: 320)
     }
   end
+
+  def set_build_session
+    session[:campaign_build] = @campaign.id
+  end
 end

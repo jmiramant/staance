@@ -9,7 +9,7 @@
       = to_currency(campaign.funding_goal)
   .deadline
     %i.icon-time
-    = campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
+    = campaign.display_deadline
     .countdown_value
   .donate
     .contribute
@@ -18,47 +18,4 @@
         = hidden_field_tag(:campaign_id, campaign.id)
         = submit_tag("Donate!", class: 'button')
     .countdown
-      = campaign.funding_deadline.strftime("%B%e, %Y %H:%M:%S")
-.status
-  -# create @campaign.failed? method in Campaign model
-  - if @campaign.status == UNSUCCESSFUL
-    = render 'unsuccessful_campaign', campaign: @campaign
-    -# create @campaign.successful? method in Campaign model
-  - elsif @campaign.status == FUNDED && @campaign.funding_deadline < Date.today
-    = render 'successful_campaign', campaign: @campaign
-    -# create @campaign.active? method in Campaign model
-  - elsif @campaign.funding_deadline > Date.today
-    .fundraise
-      .total
-        = to_currency(@campaign.donation_total)
-      #bar
-        - if @campaign.donation_total < @campaign.funding_goal
-          #progress_bg.small
-            -# create @campaign.percent_funded method in Campaign model
-            #progress{:style => "width: #{(@campaign.donation_total/@campaign.funding_goal)*100}%;"}
-          .donation_total
-            Raised of
-            = to_currency(@campaign.funding_goal)
-        - else
-          #progress_bg
-            #progress
-            #progress_text
-              = @campaign.donation_total
-              of
-              = to_currency(@campaign.funding_goal) 
-      .deadline
-        %i.icon-time
-        -# create Helper method for this
-        = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
-        .countdown_value
-      .donate
-        .contribute
-          = form_tag(donate_path, method: "post", remote: true, class: "donate_payment") do
-            = text_field_tag(:donation, nil, placeholder: 'Amount')
-            = hidden_field_tag(:campaign_id, @campaign.id)
-            = submit_tag("Donate!", class: 'button')
-        .countdown
-          -# create another Helper method for this
-          = @campaign.funding_deadline.strftime("%B%e, %Y %H:%M:%S")
-
-= link_to 'Match Donors', new_campaign_matcher_path(@campaign)
+      = campaign.display_countdown

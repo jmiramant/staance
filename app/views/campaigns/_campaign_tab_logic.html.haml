@@ -1,0 +1,12 @@
+%ul{class: "tabs_fundraiser"}
+  %li{class: "campaign_status", id: "active"}= link_to 'Your Status', '#'
+  -if @opposing_campaign
+    %li{class: "opposition_status"}= link_to 'Opposition Status', '#'
+  %li{class: "comments"}= link_to 'Comments', '#'
+#fundraise.unhidden
+  = render 'campaigns/fundraise', campaign: @campaign
+-if @opposing_campaign
+  #opp_status.hidden
+    = render '/campaigns/opposition_campaign', campaign: @opposing_campaign
+#disqus_thread.hidden
+  = render 'shared/disqus'

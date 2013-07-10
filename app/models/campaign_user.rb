@@ -7,4 +7,8 @@ class CampaignUser < ActiveRecord::Base
   belongs_to :campaign
   has_many :matchers
 
+  def self.campaign_supporters(camp_id)
+    self.where('campaign_id = ? and user_type = ?', camp_id, "Supporter")
+  end
+
 end

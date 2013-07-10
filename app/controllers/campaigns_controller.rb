@@ -6,8 +6,6 @@ class CampaignsController < ApplicationController
   before_filter :check_same_user, :only => [:edit, :update, :destroy]
 
   def index
-    # create Campaign.active_campaigns method in Campaign model
-    @campaigns = Campaign.where(status: ACTIVE)
     @topics = Topic.all
   end
 
@@ -16,12 +14,9 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    @campaign = Campaign.create(params[:campaign])
-    # Shadi's logic -- use this instead?
-    # @campaign = Campaign.new(params[:campaign])
+    @campaign = Campaign.new(params[:campaign])
     # @campaign.campaign_users.build :user => current_user, :user_type => CREATOR
-    # if @campaign.save?
-    if @campaign.valid?
+    if @campaign.save
       session[:campaign_build] = @campaign.id
       # remove next line if using Shadi's logic
       CampaignUser.create(campaign_id: @campaign.id, user_id: current_user.id, :user_type => CREATOR)
