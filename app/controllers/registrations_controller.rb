@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_filter :auth_user, except: [:new, :create]
+  before_filter :auth_user, except: [:new, :create, :multiauth]
   before_filter :twitter_auth, only: :new
   
   def build_resource(*args)
@@ -34,6 +34,10 @@ class RegistrationsController < Devise::RegistrationsController
       redirect_to multiauth_path
     end
     session.delete(:omniauth) unless @user.new_record?
+  end
+
+  def multiauth
+    redirect_to current_user if user_signed_in?
   end
 
   protected

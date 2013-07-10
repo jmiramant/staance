@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   include HomeHelper
-  before_filter :auth_user, except: :multiauth
+  before_filter :auth_user
 
   def index
     @users = User.all
@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # create user.supported_campaigns method in User model, i.e. @campaigns = @user.supported_campaigns
+    # remove all this logic below and move to method (Shadi already did this for us --> check that it works)
     supports = CampaignUser.where(user_type: SUPPORTER, user_id: @user.id).pluck("campaign_id")
     @campaigns = []
     if supports
@@ -15,9 +17,5 @@ class UsersController < ApplicationController
         @campaigns << Campaign.find(campaign_id)
       end
     end
-  end
-
-  def multiauth
-    redirect_to current_user if user_signed_in?
   end
 end

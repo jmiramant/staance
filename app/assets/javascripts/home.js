@@ -9,6 +9,8 @@ var Carousel = {
       });
   },
 
+  // DRY this out somehow
+
   changeVideo: function(num) {
     $('.featured-video.' + this.current).hide();
     $('.icon-circle.' + this.current).css('color', '#545454');

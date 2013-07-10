@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
   end
 
   def password_required?
-    # (authentications.empty? || !password.blank?) && super ==> keeping in fear of not knowing what it's doing...
     authentications.empty? && super
   end
 
@@ -28,6 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def authenticated_networks
+    # use INJECT!
     authenticated_networks = []
     self.authentications.each do |auth|
       authenticated_networks << auth[:provider]
@@ -35,7 +35,14 @@ class User < ActiveRecord::Base
     authenticated_networks
   end
 
+  # this is unnecessary, can just call user.admin? --> find all instances in app and remove
   def is_admin?
     self.admin == true
   end
+
+  # Shadi moved logic from users_controller --> check that it works
+  # def supported_campaigns
+    # supports = self.campaign_users.where(:user_type => SUPPORTER).pluck("campaign_id")
+    # supports.inject([]) {|campaigns, campaign_id|  campaigns << Campaign.find(campaign_id)} if supports.present?
+  # end
 end

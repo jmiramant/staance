@@ -1,13 +1,18 @@
 .source
   - trending.each do |campaign|
+    // pass in campaign creator using a campaign.creator method
+    // = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', { campaign: campaign, creator: campaign.creator }
     = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
 .trending
   - trending.each do |campaign|
+    // = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', { campaign: campaign, creator: campaign.creator }
     = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
 .most-funded
   - most_funded.each do |campaign|
+    // = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', { campaign: campaign, creator: campaign.creator }
     = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
 .successes
   - most_successful.each do |campaign|
+    // = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', { campaign: campaign, creator: campaign.creator }
     = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
   

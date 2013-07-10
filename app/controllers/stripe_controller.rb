@@ -15,7 +15,6 @@ class StripeController < ApplicationController
   def process_card
     token = params[:stripeToken]
     customer = Stripe::Customer.create(card: token, description: current_user.email)
-    p customer
     user = User.find(current_user.id)
     user.stripe_id = customer.id
     user.save 
