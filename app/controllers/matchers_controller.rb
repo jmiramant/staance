@@ -1,5 +1,15 @@
 class MatchersController < ApplicationController
-  
+  include TaggingHelper
+  include HomeHelper
+
+  def index
+    @user = User.new
+    @trending = trending_filter
+    @most_funded = most_funded_filter
+    @most_successful = most_successful_filter
+    @featured = Campaign.where(id: [6, 8, 4])
+  end
+
   def new
     @campaign = Campaign.find_by_id(params[:campaign_id])
     @matcher = Matcher.new

@@ -1,0 +1,13 @@
+.source
+  - trending.each do |campaign|
+    = render 'matchers/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
+.trending
+  - trending.each do |campaign|
+    = render 'matchers/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
+.most-funded
+  - most_funded.each do |campaign|
+    = render 'matchers/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
+.successes
+  - most_successful.each do |campaign|
+    = render 'matchers/campaign_snapshot', {klass: 'campaign-snapshot', campaign: campaign}
+  

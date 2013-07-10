@@ -7,7 +7,7 @@ PoliticalKickstarter::Application.routes.draw do
   post 'campaigns/support' => "campaigns#support"
   put 'campaigns/unsupport' => "campaigns#unsupport"
   get 'campaigns/check_support' => "campaigns#check_support"
-
+  get '/matchers/' => "matchers#index"
   devise_for :users, controllers: {:omniauth_callbacks => 'authentications', 
                                    :registrations => 'registrations',
                                    :sessions => 'sessions',

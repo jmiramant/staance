@@ -1,0 +1,8 @@
+.staance-container
+#topic_title_box
+  #topic_title
+  #topic_description
+
+= render 'home/select_bar'
+%ul{class: 'campaign-grid'}
+  = render 'matchers/campaign_grid', { trending: @trending, most_funded: @most_funded, most_successful: @most_successful }

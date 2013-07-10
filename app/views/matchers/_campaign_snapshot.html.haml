@@ -1,0 +1,25 @@
+%li{class: klass, 'data-id' => campaign.id}
+  = link_to image_tag(campaign.image_url), campaign.video_url, class: 'fancybox'
+  .campaign-details
+    .text
+      = link_to campaign.title, campaign_path(campaign)
+      .creator
+        by
+        - camp_user = CampaignUser.where(campaign_id: campaign.id).where(user_type: 'Creator')
+        - user = User.find(camp_user[0].user_id)
+        = link_to user.name, user_path(user)
+    .stats-1
+      .raised #{to_currency(campaign.donation_total)}
+      - percent = ((campaign.donation_total / campaign.funding_goal) * 100).to_i
+      .percent #{percent}%
+    .bar
+      %span{style: "width: #{percent}%"}
+    .stats-2
+      - time_array = campaign.separated_time_ago
+      .time-left
+        %span #{time_array[0]}
+        - unless time_array[1] == ""
+          #{time_array[1]} left
+      .supporters
+        %span #{campaign.supporters.length}
+        supporters
