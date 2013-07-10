@@ -3,6 +3,7 @@
 DONOR = "Donor"
 SUPPORTER = "Supporter"
 CREATOR = "Creator"
+MATCHER = "Matcher"
 
 
 #campaign status types

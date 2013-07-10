@@ -31,6 +31,10 @@ class Campaign < ActiveRecord::Base
     end
   end
 
+  def campaign_matchers
+    Matcher.joins(:campaign_user => :campaign).where("campaigns.id =?", self.id)
+  end
+
   def supporters
     CampaignUser.where('campaign_id = ? and user_type = ?', self.id, "Supporter")
   end

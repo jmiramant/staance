@@ -13,7 +13,9 @@ PoliticalKickstarter::Application.routes.draw do
                                    :sessions => 'sessions',
                                    :passwords => 'passwords'}
   resources :users, only: [:show]
-  resources :campaigns
+  resources :campaigns do
+    resources :matchers
+  end
   resources :topics, only: [:index]
 
   # resources :campaign_users, only: :create
