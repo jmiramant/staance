@@ -75,7 +75,6 @@ function moveLeft() {
     var new_position = current_position + 100
     $('.opp_container').css("left", new_position+"px").animate('easing');
   }
-
 }
 
 function errorHandling(e, data) {

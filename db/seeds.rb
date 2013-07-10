@@ -82,8 +82,8 @@ campaign3.pitch = "But a brighter future is possible. Over the next three years,
 campaign3.image_url = "http://www.greenpeace.org/usa/ReSizes/OriginalWatermarked/Global/usa/planet3/photos-gwe/GP01SVG_layout.jpg"
 campaign3.topic = Topic.find(4)
 campaign3.donation_total = 900000
-p campaign3.status = "Funded"
-p campaign3.save
+campaign3.status = "Funded"
+campaign3.save
 CampaignUser.create(campaign_id: campaign3.id, user_id: shiv.id, user_type: CREATOR)
 CampaignUser.create(campaign_id: campaign3.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)
 CampaignUser.create(campaign_id: campaign3.id, user_id: dan.id, user_type: DONOR, donation_amount: 2000)
@@ -245,4 +245,110 @@ CampaignUser.create(campaign_id: campaign9.id, user_id: janelle.id, user_type: D
 CampaignUser.create(campaign_id: campaign9.id, user_id: kristin.id, user_type: DONOR, donation_amount: 75000)
 CampaignUser.create(campaign_id: campaign9.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
 CampaignUser.create(campaign_id: campaign9.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
+
+
+campaign10 = Campaign.new(title: "Stopping Global Warming2", short_blurb: "Climate change didn't happen on its own.")
+campaign10.location = "New York"
+campaign10.cause_url = "http://www.greenpeace.org/usa/en/campaigns/global-warming-and-energy/"
+campaign10.video_url = "http://www.youtube.com/watch?v=64G5FfG2Xpg"
+campaign10.funding_deadline = 1.week.ago
+campaign10.funding_goal = 750000
+campaign10.pitch = "But a brighter future is possible. Over the next three years, Greenpeace will: 1. Join local communities to shut down dangerous, dirty coal plants all across the United States, and support them in a transition to a renewable future. Read More. 2. Advocate for strong laws to curb global warming and put America on a path to clean energy. 3. Expose climate deniers, like the Koch Brothers, and hold them publicly accountable for providing millions of dollars to lobby against climate and clean energy policies. 4. Kick-start an Energy Revolution by advocating for clean-energy solutions like solar and wind power."
+campaign10.image_url = "http://livingmoonastrology.files.wordpress.com/2010/01/global-warming-purple.jpg"
+campaign10.topic = Topic.find(4)
+campaign10.donation_total = 900000
+campaign10.status = "Funded"
+campaign10.save
+CampaignUser.create(campaign_id: campaign10.id, user_id: shiv.id, user_type: CREATOR)
+CampaignUser.create(campaign_id: campaign10.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign10.id, user_id: dan.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign10.id, user_id: chris.id, user_type: DONOR, donation_amount: 20)
+CampaignUser.create(campaign_id: campaign10.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign10.id, user_id: eadon.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign10.id, user_id: dan.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign10.id, user_id: chris.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign10.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign10.id, user_id: janelle.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign10.id, user_id: kristin.id, user_type: DONOR, donation_amount: 75000)
+CampaignUser.create(campaign_id: campaign10.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign10.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
+
+campaign11 = Campaign.new(title: "Stopping Global Warming3", short_blurb: "Climate change didn't happen on its own.")
+campaign11.location = "New York"
+campaign11.cause_url = "http://www.greenpeace.org/usa/en/campaigns/global-warming-and-energy/"
+campaign11.video_url = "http://www.youtube.com/watch?v=64G5FfG2Xpg"
+campaign11.funding_deadline = 1.week.ago
+campaign11.funding_goal = 750000
+campaign11.pitch = "But a brighter future is possible. Over the next three years, Greenpeace will: 1. Join local communities to shut down dangerous, dirty coal plants all across the United States, and support them in a transition to a renewable future. Read More. 2. Advocate for strong laws to curb global warming and put America on a path to clean energy. 3. Expose climate deniers, like the Koch Brothers, and hold them publicly accountable for providing millions of dollars to lobby against climate and clean energy policies. 4. Kick-start an Energy Revolution by advocating for clean-energy solutions like solar and wind power."
+campaign11.image_url = "http://images.fanpop.com/images/image_uploads/Al-Gore-An-Inconvienent-Truth-global-warming-prevention-343101_1280_1024.jpg"
+campaign11.topic = Topic.find(4)
+campaign11.donation_total = 900000
+campaign11.status = "Funded"
+campaign11.save
+CampaignUser.create(campaign_id: campaign11.id, user_id: shiv.id, user_type: CREATOR)
+CampaignUser.create(campaign_id: campaign11.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign11.id, user_id: dan.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign11.id, user_id: chris.id, user_type: DONOR, donation_amount: 20)
+CampaignUser.create(campaign_id: campaign11.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign11.id, user_id: eadon.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign11.id, user_id: dan.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign11.id, user_id: chris.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign11.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign11.id, user_id: janelle.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign11.id, user_id: kristin.id, user_type: DONOR, donation_amount: 75000)
+CampaignUser.create(campaign_id: campaign11.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign11.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
+
+campaign12 = Campaign.new(title: "Stopping Global Warming4", short_blurb: "Climate change didn't happen on its own.")
+campaign12.location = "New York"
+campaign12.cause_url = "http://www.greenpeace.org/usa/en/campaigns/global-warming-and-energy/"
+campaign12.video_url = "http://www.youtube.com/watch?v=64G5FfG2Xpg"
+campaign12.funding_deadline = 1.week.ago
+campaign12.funding_goal = 750000
+campaign12.pitch = "But a brighter future is possible. Over the next three years, Greenpeace will: 1. Join local communities to shut down dangerous, dirty coal plants all across the United States, and support them in a transition to a renewable future. Read More. 2. Advocate for strong laws to curb global warming and put America on a path to clean energy. 3. Expose climate deniers, like the Koch Brothers, and hold them publicly accountable for providing millions of dollars to lobby against climate and clean energy policies. 4. Kick-start an Energy Revolution by advocating for clean-energy solutions like solar and wind power."
+campaign12.image_url = "http://indervilla.com/home/Global-Warming-Justice-HD.jpg"
+campaign12.topic = Topic.find(4)
+campaign12.donation_total = 900000
+campaign12.status = "Funded"
+campaign12.save
+CampaignUser.create(campaign_id: campaign12.id, user_id: shiv.id, user_type: CREATOR)
+CampaignUser.create(campaign_id: campaign12.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign12.id, user_id: dan.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign12.id, user_id: chris.id, user_type: DONOR, donation_amount: 20)
+CampaignUser.create(campaign_id: campaign12.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign12.id, user_id: eadon.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign12.id, user_id: dan.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign12.id, user_id: chris.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign12.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign12.id, user_id: janelle.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign12.id, user_id: kristin.id, user_type: DONOR, donation_amount: 75000)
+CampaignUser.create(campaign_id: campaign12.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign12.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
+
+campaign13 = Campaign.new(title: "Stopping Global Warming5", short_blurb: "Climate change didn't happen on its own.")
+campaign13.location = "New York"
+campaign13.cause_url = "http://www.greenpeace.org/usa/en/campaigns/global-warming-and-energy/"
+campaign13.video_url = "http://www.youtube.com/watch?v=64G5FfG2Xpg"
+campaign13.funding_deadline = 1.week.ago
+campaign13.funding_goal = 750000
+campaign13.pitch = "But a brighter future is possible. Over the next three years, Greenpeace will: 1. Join local communities to shut down dangerous, dirty coal plants all across the United States, and support them in a transition to a renewable future. Read More. 2. Advocate for strong laws to curb global warming and put America on a path to clean energy. 3. Expose climate deniers, like the Koch Brothers, and hold them publicly accountable for providing millions of dollars to lobby against climate and clean energy policies. 4. Kick-start an Energy Revolution by advocating for clean-energy solutions like solar and wind power."
+campaign13.image_url = "http://us.123rf.com/400wm/400/400/dnivrab/dnivrab1001/dnivrab100100165/6231599-flames-over-earch-concept-of-global-warming.jpg"
+campaign13.topic = Topic.find(4)
+campaign13.donation_total = 900000
+campaign13.status = "Funded"
+campaign13.save
+CampaignUser.create(campaign_id: campaign13.id, user_id: shiv.id, user_type: CREATOR)
+CampaignUser.create(campaign_id: campaign13.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign13.id, user_id: dan.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign13.id, user_id: chris.id, user_type: DONOR, donation_amount: 20)
+CampaignUser.create(campaign_id: campaign13.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign13.id, user_id: eadon.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign13.id, user_id: dan.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign13.id, user_id: chris.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign13.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign13.id, user_id: janelle.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign13.id, user_id: kristin.id, user_type: DONOR, donation_amount: 75000)
+CampaignUser.create(campaign_id: campaign13.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign13.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
+
 
