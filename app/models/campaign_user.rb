@@ -4,7 +4,7 @@ class CampaignUser < ActiveRecord::Base
   validates_presence_of :campaign_id, :user_id
   validates_uniqueness_of :user_type, scope: [:campaign_id, :user_id]
   belongs_to :user
-  belongs_to :campaign, :dependent => :destroy
+  belongs_to :campaign
   has_many :matchers
 
 end
