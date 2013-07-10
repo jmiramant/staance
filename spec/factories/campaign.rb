@@ -6,7 +6,7 @@ FactoryGirl.define do
     image_url Faker::Internet.url
     video_url Faker::Internet.url
     cause_url Faker::Internet.url
-    funding_deadline  Time.now
+    funding_deadline  Time.now + 1.week
     funding_goal  10000
     location "San Francisco"
     pitch Faker::Lorem.paragraph(12)

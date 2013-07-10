@@ -118,5 +118,6 @@ function formThree() {
 
 function finalizeCreate(id) {
   var camp_id = String(parseInt($('#form_three form').attr('id').replace(/[^\d,]+/g, '')));
+  console.log(camp_id);
   window.location.replace('/campaigns/'+ camp_id);
 }

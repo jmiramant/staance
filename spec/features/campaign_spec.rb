@@ -20,10 +20,17 @@ describe "Campaign Feature Tests" do
     expect(page).to have_content("Campaign Title")
   end
 
-  it "can click support" do
+  it "can Support" do
     visit campaign_path(@campaign)
     click_on "Support"
     expect page.has_link?("Supported")
+  end
+
+  it "can Unsupport", js: true do
+    visit campaign_path(@campaign)
+    click_on "Support"
+    click_on "Supported"
+    expect page.has_link?("Support")
   end
 
   it "can activate campaign" do
@@ -37,12 +44,6 @@ describe "Campaign Feature Tests" do
     click_on "Activate"
     click_on "Pause"
     expect(page).to have_content("Pending")
-  end
-
-  it "can edit campaign" do
-    visit campaign_path(@campaign)
-    click_on "Edit"
-    expect(page).to have_content("Congratulations!")
   end
 
 end
