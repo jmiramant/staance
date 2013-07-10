@@ -2,5 +2,5 @@
   .title 
     Campaign funded!
   .donation_total
-    // create donation_total(campaign) helper method for this
+    -# create donation_total(campaign) helper method for this
     = 'On ' + campaign.funding_deadline.strftime("%B%e, %Y").to_s + ' this project successfully raised ' + (campaign.donation_total/campaign.funding_goal).to_i.to_s + '% of its funding goal of ' + to_currency(campaign.funding_goal).to_s

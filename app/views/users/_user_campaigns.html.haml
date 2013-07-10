@@ -2,13 +2,13 @@
   .title 
     Created
   .details
-    // see show.html.haml => move to User model and just reference campaigns
+    -# see show.html.haml => move to User model and just reference campaigns
     - created_campaigns = CampaignUser.where(user_id: current_user.id, user_type: CREATOR).limit(6)
     - created_campaigns.map! {|camp| camp = Campaign.where(id: camp.campaign_id) }.flatten!
     - created_campaigns.each do |camp|
       .camp
         .camp_thumbnail
-          // use image tag here
+          -# use image tag here
           <img src=#{camp.image_url}>
         .camp_details
           = link_to camp.title, camp
