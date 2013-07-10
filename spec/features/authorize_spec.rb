@@ -4,9 +4,14 @@ describe Authentication do
 
   include FeatureHelpers
 
-  it "connects to Twitter auth", js: true do
+  it "connects via Twitter auth", js: true do
     visit "/users/auth/twitter"
-    expect(page).to have_content("Read Tweets")
+    fill_in "username_or_email", with: ENV['TWITTERUSER']
+    fill_in "password", with: ENV['TWITTERPASS']
+    click_on "allow"
+    fill_in "user_email", with: "mark@wilson.com"
+    click_on "Sign up"
+    expect(page).to have_content("mark@wilson.com")
   end
 
   # it "connects to Facebook auth", js: true do
