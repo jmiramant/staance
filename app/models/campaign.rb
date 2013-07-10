@@ -40,7 +40,7 @@ class Campaign < ActiveRecord::Base
   end
 
   def update_funding_status
-    self.status = FUNDED if campaign.donation_total >= campaign.funding_goal
+    self.status = FUNDED if self.donation_total >= self.funding_goal
     self.save
   end
 
