@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :auth_user
+  include ResourceHelper
+  before_filter :auth_user, except: :multiauth
 
   def index
     @users = User.all
@@ -16,5 +17,9 @@ class UsersController < ApplicationController
         @campaigns << Campaign.find(campaign_id)
       end
     end
+  end
+
+  def multiauth
+    redirect_to current_user if user_signed_in?
   end
 end

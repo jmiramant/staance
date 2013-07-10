@@ -24,7 +24,7 @@ PoliticalKickstarter::Application.routes.draw do
   post '/process_card' => "stripe#process_card"
   get '/' => "home#index"
   post '/filter_topic/:topic' => "campaigns#filter_topic"
-  get '/multiauth' => "registrations#multiauth"
+  get '/multiauth' => "users#multiauth"
   post '/home/filter' => "home#filter"
 
   # get 'tags/:tag', to: 'campaigns#index', as: :tag  ==>  uncomment to enable search by tags

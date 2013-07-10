@@ -1,6 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  include ResourceHelper
-  before_filter :auth_user, except: [:new, :create, :multiauth]
+  before_filter :auth_user, except: [:new, :create]
   before_filter :twitter_auth, only: :new
   
   def build_resource(*args)
@@ -37,10 +36,6 @@ class RegistrationsController < Devise::RegistrationsController
     session.delete(:omniauth) unless @user.new_record?
   end
 
-  def multiauth
-    redirect_to current_user if user_signed_in?
-  end
-
   protected
 
     def twitter_auth
@@ -50,4 +45,4 @@ class RegistrationsController < Devise::RegistrationsController
     def after_update_path_for(user)
       user_path(user)
     end
-end 
+end
