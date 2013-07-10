@@ -16,6 +16,7 @@ describe "Stripe Tests" do
 
   it "can make a donation on a test credit card", js: true do
     visit campaign_path(@campaign)
+    sleep(2)
     fill_in "donation", with: 1000
     click_on "Donate!"
     # click_on "Donate!"
