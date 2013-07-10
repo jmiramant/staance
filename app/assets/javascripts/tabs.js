@@ -51,4 +51,5 @@ $(document).ready(function() {
   $('.campaign_status').on("click", updateTab.activateYourStatus);
   $('.opposition_status').on("click", updateTab.activateOpposition);
   $('.comments').on("click", updateTab.activateComments);
+  $('#discuss_thread').addClass('ghost').delay(500).removeClass('ghost');
 });
