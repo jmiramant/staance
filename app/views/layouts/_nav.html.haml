@@ -4,16 +4,20 @@
   #home_sign_up
     = render './registrations/sign_up'
   .nav-links
-    = link_to 'STAANCE', root_path, class: 'logo'
+    = link_to root_path, class: 'logo' do
+      ST<span id="logo_a">AA</span>NCE
     = link_to 'CREATE CAMPAIGN', new_campaign_path, class: 'create-campaign'
     - if user_signed_in?
       = link_to 'LOGOUT', destroy_user_session_path, method: :delete
       = link_to 'PROFILE', user_path(current_user)
     - else
       #sign_up
-        %i.icon-off
-        = link_to "SIGN UP", new_user_registration_path, id: "sign_up_link",remote:true
+        = link_to new_user_registration_path, id: "sign_up_link",remote:true do
+          %i.icon-off
+          %br
+          SIGN UP
       #sign_up
-        
-      %i.icon-user
-      = link_to "LOGIN", new_user_session_path, id: "sign_in_link", remote: true
+        = link_to new_user_session_path, id: "sign_in_link", remote: true do
+          %i.icon-user
+          %br
+          LOGIN 

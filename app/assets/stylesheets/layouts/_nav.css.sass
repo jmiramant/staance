@@ -1,8 +1,12 @@
 nav
+  background-color: #fff
   width: 100%
   height: 80px
-  background-color: #fff
+  top: 0
   color: $font-on-light
+  position: fixed
+  border-bottom: 1px solid #acacac
+  z-index: 1000
   #home_log_in
     color: $font-on-light
   .nav-links
@@ -11,18 +15,41 @@ nav
       float: right
       font-size: 17px
       height: 53px
-      padding: 16px 20px 0px 20px
+      padding: 13px 14px 0px 11px
       color: $font-on-light
+      @include transition (all 0.2s ease-in-out)
       &:hover
         text-decoration: none
+        color: #FF3765
+    #sign_up, #login
+      width: 108px
+      float: right
+      text-align: center
+      display: inline
+      .icon-user, .icon-off
+        font-size: 27px
+    #login
+      width: 91px
     .logo
       float: left
       font-size: 30px
       font-weight: 700
-      margin-top: 10px
+      margin-top: 18px
       padding: 0
       height: auto
     .create-campaign
       float: left
-      margin-left: 30px
-      color: $font-on-light
+      background-color: $green
+      margin: 17px 0 0 30px
+      padding-top: 11px
+      height: 43px
+      border-radius: 5px
+      color: white
+      width: 182px
+      &:hover
+        background-color: $orange
+        color: #fff
+      &:active
+        font-shadow: 1px 1px
+#logo_a
+  color: $pink
