@@ -17,4 +17,17 @@ describe "Profile" do
     click_on "Update"
     expect(page).to have_content "I like kittens"
   end
+
+  # it "can connect account to Twitter", js: true do
+  #   visit edit_user_registration_path
+  #   click_on "Connect Your Twitter Account"
+  #   fill_in "username_or_email", with: ENV['TWITTERUSER']
+  #   fill_in "password", with: ENV['TWITTERPASS']
+  #   click_on "allow"
+  #   expect(page).to have_content(@user.email)
+  #   browser = Capybara.current_session.driver.browser
+  #   browser.manage.delete_all_cookies
+  #   Capybara.reset_sessions! 
+  # end
+
 end

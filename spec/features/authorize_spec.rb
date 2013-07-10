@@ -12,6 +12,9 @@ describe Authentication do
     fill_in "user_email", with: "mark@wilson.com"
     click_on "Sign up"
     expect(page).to have_content("mark@wilson.com")
+    browser = Capybara.current_session.driver.browser
+    browser.manage.delete_all_cookies
+    Capybara.reset_sessions! 
   end
 
   # it "connects to Facebook auth", js: true do
