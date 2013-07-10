@@ -1,12 +1,13 @@
 /*
  *= require jquery.ui.datepicker
+ *= require font-awesome
  *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_self
 */
 @import 'bourbon';
 @import 'neat';
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700italic);
+@import 'font-awesome';
 @import 'global';
 @import 'campaign';
 @import 'campaign_create';

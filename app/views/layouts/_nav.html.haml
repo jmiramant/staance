@@ -10,10 +10,7 @@
       = link_to 'LOGOUT', destroy_user_session_path, method: :delete
       = link_to 'PROFILE', user_path(current_user)
     - else
+      %i.icon-off
       = link_to "SIGN UP", new_user_registration_path, id: "sign_up_link",remote:true
+      %i.icon-user
       = link_to "LOGIN", new_user_session_path, id: "sign_in_link", remote: true
-
-
-
-
-
