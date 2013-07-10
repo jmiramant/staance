@@ -20,7 +20,7 @@ class StripeController < ApplicationController
     user.save 
     redirect_to Campaign.find(session[:campaign_id])
 
-    rescue Stripe::CardError => e
+    rescue => e
       flash[:alert] = e.message
       redirect_to :back
   end

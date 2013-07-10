@@ -5,10 +5,10 @@ class ScheduledWorker
 
   def perform(campaign_id)
     campaign = Campaign.find(campaign_id)
-    if campaign.status == 'Funded'
+    if campaign.status == FUNDED
       send_donations(campaign)
     else
-      campaign.status = "Unsuccessful"
+      campaign.status = UNSUCCESSFUL
       campaign.save
     end    
   end
@@ -27,7 +27,7 @@ class ScheduledWorker
 
   def collect_donations(campaign)
     donations = []
-    campaign_users = campaign.campaign_users.where(user_type: "Donator")
+    campaign_users = campaign.campaign_users.where(user_type: DONOR)
     campaign_users.each do |cuser|
       cuser
       donations << [User.find(cuser.user_id), cuser.donation_amount]

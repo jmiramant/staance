@@ -21,12 +21,17 @@ describe Campaign do
     expect(Campaign.first.users).to eq @campaign.users
   end
 
-  it "creates and triggers a Sidekiq event" do
+  it "creates and executes a Sidekiq event" do
+    # CampaignUser.create(campaign_id: @campaign.id, user_id: @user.id, user_type: DONOR, donation_amount: 100)
+    @campaign.status = FUNDED
+    @campaign.save
+    p @campaign
+    ScheduledWorker.jobs.clear
     expect {
       ScheduledWorker.perform_async(@campaign.id)
       }.to change(ScheduledWorker.jobs, :size).by(1)
-
-      expect {ScheduledWorker.drain}.to change(ScheduledWorker.jobs, :size).by(-1)
+    p ScheduledWorker.jobs
+    expect {ScheduledWorker.drain}.to change(ScheduledWorker.jobs, :size).by(-1)
   end
 
 end
