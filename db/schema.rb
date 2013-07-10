@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130707164421) do
+ActiveRecord::Schema.define(:version => 20130709180201) do
 
   create_table "authentications", :force => true do |t|
     t.integer "user_id"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(:version => 20130707164421) do
     t.float    "donation_total",       :default => 0.0
     t.string   "status",               :default => "Pending"
     t.integer  "opposing_campaign_id"
+  end
+
+  create_table "matchers", :force => true do |t|
+    t.string   "name"
+    t.float    "match_amount",     :default => 0.0
+    t.string   "logo_url"
+    t.text     "description"
+    t.integer  "campaign_user_id"
+    t.integer  "count"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
