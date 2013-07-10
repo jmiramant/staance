@@ -1,5 +1,6 @@
 #featured-campaigns
   background-color: $background
+  margin-top: 80px
 
 #featured-video-box
   @include outer-container
@@ -10,7 +11,7 @@
 #arrow
   position: absolute
   top: 46%
-  color: $background-light-grey
+  color: $font-on-light
   transition: 0.3s
 
   &:hover
@@ -56,15 +57,15 @@
 
   i
     margin: 0 10px
-    color: $background-light-grey
+    color: $font-on-light
     transition: 0.3s
 
     &.selected
-      color: $pink
+      color: $orange
 
     &:hover
       cursor: pointer
-      color: $pink
+      color: $orange
 
 #featured-details-inner-box
   @include outer-container
@@ -77,19 +78,20 @@
     display: block
 
 #campaign-name-stats
-  color: $background-white
+  color: $font-on-light
+  font-weight: 700
 
 #campaign-name
   color: $background-white
   font-size: 40px
-  font-weight: 700
+
   transition: 0.3s
 
   &:hover
-    color: $pink
+    text-decoration: underline
 
 #campaign-stats
-  padding-top: 15px
+  padding-top: 10px
   font-size: 17px
 
   span
