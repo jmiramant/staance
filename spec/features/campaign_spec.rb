@@ -29,6 +29,7 @@ describe "Campaign Feature Tests" do
   it "can Unsupport", js: true do
     visit campaign_path(@campaign)
     click_on "Support"
+    sleep(1)
     click_on "Supported"
     expect page.has_link?("Support")
   end

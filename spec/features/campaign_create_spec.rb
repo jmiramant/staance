@@ -37,7 +37,6 @@ describe "Create/Edit Campaign Form Tests" do
     visit campaign_path(@campaign)
     click_on "Edit"
     click_on "Step 2"
-    sleep(2)
     find("#cont_button").click
     fill_in 'campaign_funding_deadline', with: "12/12/2013"
     click_on "Create!"
