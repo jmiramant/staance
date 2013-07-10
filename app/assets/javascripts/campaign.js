@@ -24,6 +24,7 @@ var SupportLink = {
     this.setOnPageLoad();
 	},
 
+  // can we DRY out the supportAdd, supportRemove and success callback of setOnPageLoad?
 	supportAdd: function(e, data) {
 		var $newButton = $($('.support_button').clone().html().replace('support', 'unsupport').replace('post', 'put'));
     $newButton.text('Supported').removeClass('unsupported').addClass('supported');
@@ -57,7 +58,7 @@ var SupportLink = {
   }
 };
 
-
+// move into an object literal so this is not exposed to users
 function countdown() {
 	now = new Date();
 	deadline = $('.countdown').html();
@@ -74,6 +75,7 @@ function countdown() {
   $('.countdown_value').html(dd+" Days, "+hh+" Hours, "+mm+" Minutes, "+ss+" Seconds");
 }
 
+// move into an object literal so this is not exposed to users
 function disableAdminButtons() {
   var status = $.trim($('.copy .status').text());
   if (status != 'Active' && status != 'Pending') {

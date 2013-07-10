@@ -1,8 +1,11 @@
 .status
+  // create @campaign.failed? method in Campaign model
   - if @campaign.status == UNSUCCESSFUL
     = render 'unsuccessful_campaign', campaign: @campaign
+  // create @campaign.successful? method in Campaign model
   - elsif @campaign.status == FUNDED && @campaign.funding_deadline < Date.today
     = render 'successful_campaign', campaign: @campaign
+  // create @campaign.active? method in Campaign model
   - elsif @campaign.funding_deadline > Date.today
     .fundraise
       .total
@@ -10,6 +13,7 @@
       #bar
         - if @campaign.donation_total < @campaign.funding_goal
           #progress_bg.small
+            // create @campaign.percent_funded method in Campaign model
             #progress{:style => "width: #{(@campaign.donation_total/@campaign.funding_goal)*100}%;"}
           .donation_total
             Raised of
@@ -23,6 +27,7 @@
               = to_currency(@campaign.funding_goal) 
       .deadline
         %i.icon-time
+        // create Helper method for this
         = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
         .countdown_value
       .donate
@@ -32,6 +37,7 @@
             = hidden_field_tag(:campaign_id, @campaign.id)
             = submit_tag("Donate!", class: 'button')
         .countdown
+          // create another Helper method for this
           = @campaign.funding_deadline.strftime("%B%e, %Y %H:%M:%S")
 
 = link_to 'Match Donors', new_campaign_matcher_path(@campaign)

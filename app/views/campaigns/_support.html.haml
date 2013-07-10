@@ -1,7 +1,3 @@
 - if user_signed_in?
-  - unless @campaign_show[:user_supported]
-    .supported_banner
-      Supported
-  -else
-    .support_button  
-      = link_to "Support", campaigns_support_path(id: @campaign.id), method: 'post', id: "support_link", :class => 'unsupported', remote: true
+  .support_button  
+    = link_to "Support", campaigns_support_path(id: @campaign.id), method: 'post', id: "support_link", :class => 'unsupported', remote: true

@@ -4,6 +4,8 @@ describe "Admin Access" do
 
   include FeatureHelpers
 
+  # from SHADI -- let(:user) { create(:user) }
+
   it "non-admin cannot reach admin page" do
     user = create(:user)
     login(user)

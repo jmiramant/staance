@@ -14,6 +14,13 @@ class Campaign < ActiveRecord::Base
 
   acts_as_taggable
 
+  # From Shadi -- this is awesome!  Do this in as many places as possible!
+  # [PENDING, ACTIVE, FUNDED, SUSPENDED, UNSUCCESSFUL].each do |stat|
+  #   define_method "#{stat.downcase}?" do
+  #     self.status == stat
+  #   end
+  # end
+
   def separated_time_ago
     seconds = self.funding_deadline - Time.zone.now
     if seconds > 0
@@ -36,6 +43,8 @@ class Campaign < ActiveRecord::Base
   end
 
   def supporters
+    # Shadi kinda nitpicky -- use CampaignUser.campaign_supporters(self) and move
+    # this logic to the CampaignUsers model
     CampaignUser.where('campaign_id = ? and user_type = ?', self.id, "Supporter")
   end
 
