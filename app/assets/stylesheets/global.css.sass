@@ -47,10 +47,25 @@ body
 		top: 0
 		width: 1036px
 
+	.form-section-header
+		font-size: 17px
+		font-weight: 700
+		margin: 10px 0
+
 	input
 		height: 45px
 		padding-left: 10px
 		font-size: 15px
+		margin-bottom: 10px
+		
+		&:focus
+			outline: none
+
+	textarea
+		padding: 10px
+		font-size: 15px
+		margin-bottom: 10px
+
 		&:focus
 			outline: none
 
@@ -91,11 +106,17 @@ body
 		padding: 14px 16px 10px 16px
 
 	.button
+		background-color: $green
 		height: auto
 		padding: 10px 20px
 		border: none
 		border-radius: 4px
 		color: white
+		transition: 0.3s
+
+		&:hover
+			background-color: $orange
+			cursor: pointer
 
 	.link_button
 		padding: 10px 20px
