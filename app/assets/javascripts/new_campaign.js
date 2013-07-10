@@ -4,7 +4,6 @@ $(document).ready(function() {
     $('.form_half input[type=hidden]').val($(this).data('id'));
     $('.opp-camp').removeClass('border-highlight');
     $(this).parent('.opp-camp').addClass('border-highlight');
-    $
   });
 
   $('#form_one form').on("ajax:success", function(e, data) {
@@ -27,7 +26,7 @@ $(document).ready(function() {
   $('#head').on("ajax:success", '#form_three form', function(e, data) {
     if (data[0] == "errors") {
       data.shift();
-      errorHandling_form3(e, data)
+      errorHandling_form3(e, data);
     }
     else{
       finalizeCreate();
@@ -49,22 +48,22 @@ $(document).ready(function() {
   $("#head").on('click', '.opp_arrow.left', function(e){
     e.preventDefault();
     moveLeft();
-  })
+  });
 
   $("#head").on('click', '.opp_arrow.right', function(e){
     e.preventDefault();
     moveRight();
-  })
+  });
 
   setTimeout(function() { $('#welcome_msg').slideUp(); }, 5000);
 });
 
 function moveRight() {
   var num_divs = $('.opp-camp').length - 4;
-  var max_right = -(num_divs * 255 + 45)
+  var max_right = -(num_divs * 255 + 45);
   var current_position = parseInt($('.opp_container').css('left'));
   if (current_position > max_right) {
-    var new_position = current_position - 100
+    var new_position = current_position - 100;
     $('.opp_container').css("left", new_position+"px").animate('easing');
   }
 }
@@ -72,7 +71,7 @@ function moveRight() {
 function moveLeft() {
   var current_position = parseInt($('.opp_container').css('left'));
   if ( current_position < 0 ) {
-    var new_position = current_position + 100
+    var new_position = current_position + 100;
     $('.opp_container').css("left", new_position+"px").animate('easing');
   }
 }

@@ -1,11 +1,13 @@
 .campaign_header
   .image
+    // use image tag
     <img src=#{@campaign.image_url}>
   .copy
     .title
       = @campaign.title
     .campaign_creator
       by
+      // use campaign.creator method in Campaign model and pass in with partial
       - camp_user = CampaignUser.where(campaign_id: @campaign.id).where(user_type: 'Creator')
       - user = User.find(camp_user[0].user_id)
       = link_to user.name, user_path(user)
@@ -13,7 +15,9 @@
       = @campaign.location
     .status
       = @campaign.status
+    // can we use check_same_user helper method here?
     - if user == current_user
+      // run this logic in the controller and pass it in!
       - button_text = (@campaign.status == 'Active') ? 'Pause' : 'Activate'
       #admin-console
         #admin-title Admin Console
@@ -27,8 +31,11 @@
       = render 'shared/campaign/social'
       = render 'campaigns/support'
     .supporter_count
+      // run this logic in the controller and pass in @donors
+      // = "Supporters(#{@donors})" if @donors
       = "Supporters(#{@campaign_show[:supporters].count.to_s})" if @campaign_show[:supporters]
     .donor_count
+      // exact same logic as above
       = "Donors(#{@campaign_show[:donors].count.to_s})" if @campaign_show[:donors]
       
       
