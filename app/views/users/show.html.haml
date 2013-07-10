@@ -2,16 +2,16 @@
   #user_info
     = render 'user_information'
   #user_campaigns
-    // create a user.created_campaigns method and pass this through partial, i.e.
-    // = render 'user_campaigns', campaigns: @user.created_campaigns
+    -# create a user.created_campaigns method and pass this through partial, i.e.
+    -# = render 'user_campaigns', campaigns: @user.created_campaigns
     = render 'user_campaigns'    
   #user_pending
-    // create a user.pending_campaigns method and pass this through partial, i.e.
-    // = render 'user_pending_campaigns', campaigns: @user.pending_campaigns
+    -# create a user.pending_campaigns method and pass this through partial, i.e.
+    -# = render 'user_pending_campaigns', campaigns: @user.pending_campaigns
     = render 'user_pending_campaigns'
   #user_supported
-    // same as above
+    -# same as above
     = render 'user_supported_campaigns'
   #user_donated
-    // same as above
+    -# same as above
     = render 'user_donated_campaigns'
