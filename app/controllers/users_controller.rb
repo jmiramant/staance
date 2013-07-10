@@ -8,13 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    supports = CampaignUser.where(user_type: SUPPORTER, user_id: @user.id).pluck("campaign_id")
-    @campaigns = []
-    if supports
-      supports.each do |campaign_id|
-        @campaigns << Campaign.find(campaign_id)
-      end
-    end
+    @campaigns = @user.supported_campaigns
   end
 
   def multiauth

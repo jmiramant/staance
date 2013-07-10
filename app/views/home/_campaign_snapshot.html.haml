@@ -5,6 +5,7 @@
       = link_to campaign.title, campaign_path(campaign)
       .creator
         by
+        // move this to the model
         - camp_user = CampaignUser.where(campaign_id: campaign.id).where(user_type: 'Creator')
         - user = User.find(camp_user[0].user_id)
         = link_to user.name, user_path(user)

@@ -2,9 +2,6 @@ require 'spec_helper'
 
 
 describe "Campaign Feature Tests" do
-
-  include FeatureHelpers
-
   before do
     user = create(:user)
     login(user)

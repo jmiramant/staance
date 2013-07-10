@@ -6,7 +6,7 @@ class CampaignsController < ApplicationController
   before_filter :check_same_user, :only => [:edit, :update, :destroy]
 
   def index
-    @campaigns = Campaign.where(status: ACTIVE)
+    @campaigns = Campaign.where(status: ACTIVE) # move this logic to an all_active on model
     @topics = Topic.all
   end
 
@@ -15,10 +15,10 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    @campaign = Campaign.create(params[:campaign])
-    if @campaign.valid?
+    @campaign = Campaign.new(params[:campaign])
+    @campaign.campaign_users.build :user => current_user, :user_type => CREATOR
+    if @campaign.save?
       session[:campaign_build] = @campaign.id
-      CampaignUser.create(campaign_id: @campaign.id, user_id: current_user.id, :user_type => CREATOR)
       render json: {campaign_id: @campaign.id }.to_json
     else
       render json: {error: @campaign.errors.full_messages}.to_json, :status => :unprocessable_entity
@@ -45,7 +45,7 @@ class CampaignsController < ApplicationController
 
   def destroy
     @campaign.update_attribute(:status, SUSPENDED)
-    redirect_to current_user, alert: "Campaign Deleted" 
+    redirect_to current_user, alert: "Campaign Deleted"
   end
 
   def filter_topic
@@ -57,7 +57,7 @@ class CampaignsController < ApplicationController
   def editable_form
     if params[:form].length < 520
       errors = "Pitch must be a minimum length of 520 characters"
-      render json: errors.to_json 
+      render json: errors.to_json
     else
       @campaign = Campaign.find_by_id(session[:campaign_build])
       @campaign.update_attribute('pitch', params[:form])
@@ -70,7 +70,7 @@ class CampaignsController < ApplicationController
       end
     end
   end
-  
+
   def finalize_campaign
     errors = CreateFormValidation.form_three_validations(params[:campaign])
     if errors.count == 1

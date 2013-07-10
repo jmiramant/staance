@@ -1,11 +1,12 @@
 .campaign_header
   .image
-    <img src=#{@campaign.image_url}>
+    = image_tag @campaign.image_url
   .copy
     .title
       = @campaign.title
     .campaign_creator
       by
+      // too much logic in this view.
       - camp_user = CampaignUser.where(campaign_id: @campaign.id).where(user_type: 'Creator')
       - user = User.find(camp_user[0].user_id)
       = link_to user.name, user_path(user)
@@ -30,5 +31,5 @@
       = "Supporters(" + @campaign_show[:supporters].count.to_s + ")" if @supporters
     .donor_count
       = "Donors(" + @campaign_show[:donors].count.to_s+")" if @donors
-      
-      
+
+

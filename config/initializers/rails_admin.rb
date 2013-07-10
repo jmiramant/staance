@@ -13,9 +13,9 @@ RailsAdmin.config do |config|
 
   # RailsAdmin may need a way to know who the current user is]
   config.current_user_method { current_user } # auto-generated
-  
+
   config.authorize_with do |controller|
-    redirect_to '/' unless current_user.is_admin?
+    redirect_to '/' unless current_user.admin?
   end
 
   # If you want to track changes on your models:
@@ -64,16 +64,16 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
-  #     configure :user, :belongs_to_association 
+  #     configure :user, :belongs_to_association
 
   #   # Found columns:
 
-  #     configure :id, :integer 
-  #     configure :user_id, :integer         # Hidden 
-  #     configure :provider, :string 
-  #     configure :uid, :string 
-  #     configure :token, :string 
-  #     configure :token_secret, :string 
+  #     configure :id, :integer
+  #     configure :user_id, :integer         # Hidden
+  #     configure :provider, :string
+  #     configure :uid, :string
+  #     configure :token, :string
+  #     configure :token_secret, :string
 
   #   # Cross-section configuration:
 
@@ -109,30 +109,30 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
-  #     configure :topic, :belongs_to_association 
-  #     configure :campaign_users, :has_many_association 
-  #     configure :users, :has_many_association 
-  #     configure :taggings, :has_many_association         # Hidden 
-  #     configure :base_tags, :has_many_association         # Hidden 
-  #     configure :tag_taggings, :has_many_association         # Hidden 
-  #     configure :tags, :has_many_association         # Hidden 
+  #     configure :topic, :belongs_to_association
+  #     configure :campaign_users, :has_many_association
+  #     configure :users, :has_many_association
+  #     configure :taggings, :has_many_association         # Hidden
+  #     configure :base_tags, :has_many_association         # Hidden
+  #     configure :tag_taggings, :has_many_association         # Hidden
+  #     configure :tags, :has_many_association         # Hidden
 
   #   # Found columns:
 
-  #     configure :id, :integer 
-  #     configure :topic_id, :integer         # Hidden 
-  #     configure :title, :string 
-  #     configure :image_url, :string 
-  #     configure :short_blurb, :string 
-  #     configure :location, :string 
-  #     configure :video_url, :string 
-  #     configure :cause_url, :string 
-  #     configure :funding_deadline, :datetime 
-  #     configure :funding_goal, :integer 
-  #     configure :pitch, :text 
-  #     configure :donation_total, :float 
-  #     configure :status, :string 
-  #     configure :opposing_campaign_id, :integer 
+  #     configure :id, :integer
+  #     configure :topic_id, :integer         # Hidden
+  #     configure :title, :string
+  #     configure :image_url, :string
+  #     configure :short_blurb, :string
+  #     configure :location, :string
+  #     configure :video_url, :string
+  #     configure :cause_url, :string
+  #     configure :funding_deadline, :datetime
+  #     configure :funding_goal, :integer
+  #     configure :pitch, :text
+  #     configure :donation_total, :float
+  #     configure :status, :string
+  #     configure :opposing_campaign_id, :integer
 
   #   # Cross-section configuration:
 
@@ -168,18 +168,18 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
-  #     configure :user, :belongs_to_association 
-  #     configure :campaign, :belongs_to_association 
+  #     configure :user, :belongs_to_association
+  #     configure :campaign, :belongs_to_association
 
   #   # Found columns:
 
-  #     configure :id, :integer 
-  #     configure :user_id, :integer         # Hidden 
-  #     configure :campaign_id, :integer         # Hidden 
-  #     configure :user_type, :string 
-  #     configure :donation_amount, :float 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
+  #     configure :id, :integer
+  #     configure :user_id, :integer         # Hidden
+  #     configure :campaign_id, :integer         # Hidden
+  #     configure :user_type, :string
+  #     configure :donation_amount, :float
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
 
   #   # Cross-section configuration:
 
@@ -215,13 +215,13 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
-  #     configure :campaigns, :has_many_association 
+  #     configure :campaigns, :has_many_association
 
   #   # Found columns:
 
-  #     configure :id, :integer 
-  #     configure :title, :string 
-  #     configure :description, :text 
+  #     configure :id, :integer
+  #     configure :title, :string
+  #     configure :description, :text
 
   #   # Cross-section configuration:
 
@@ -257,28 +257,28 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
-  #     configure :campaign_users, :has_many_association 
-  #     configure :authentications, :has_many_association 
-  #     configure :campaigns, :has_many_association 
+  #     configure :campaign_users, :has_many_association
+  #     configure :authentications, :has_many_association
+  #     configure :campaigns, :has_many_association
 
   #   # Found columns:
 
-  #     configure :id, :integer 
-  #     configure :name, :string 
-  #     configure :email, :string 
-  #     configure :password, :password         # Hidden 
-  #     configure :password_confirmation, :password         # Hidden 
-  #     configure :reset_password_token, :string         # Hidden 
-  #     configure :reset_password_sent_at, :datetime 
-  #     configure :remember_created_at, :datetime 
-  #     configure :sign_in_count, :integer 
-  #     configure :current_sign_in_at, :datetime 
-  #     configure :last_sign_in_at, :datetime 
-  #     configure :current_sign_in_ip, :string 
-  #     configure :last_sign_in_ip, :string 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :stripe_id, :string 
+  #     configure :id, :integer
+  #     configure :name, :string
+  #     configure :email, :string
+  #     configure :password, :password         # Hidden
+  #     configure :password_confirmation, :password         # Hidden
+  #     configure :reset_password_token, :string         # Hidden
+  #     configure :reset_password_sent_at, :datetime
+  #     configure :remember_created_at, :datetime
+  #     configure :sign_in_count, :integer
+  #     configure :current_sign_in_at, :datetime
+  #     configure :last_sign_in_at, :datetime
+  #     configure :current_sign_in_ip, :string
+  #     configure :last_sign_in_ip, :string
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
+  #     configure :stripe_id, :string
 
   #   # Cross-section configuration:
 

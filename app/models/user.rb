@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   end
 
   def password_required?
-    # (authentications.empty? || !password.blank?) && super ==> keeping in fear of not knowing what it's doing...
+    # (authentications.empty? || password.blank?) && super ==> keeping in fear of not knowing what it's doing...
     authentications.empty? && super
   end
 
@@ -35,7 +35,8 @@ class User < ActiveRecord::Base
     authenticated_networks
   end
 
-  def is_admin?
-    self.admin == true
+  def supported_campaigns
+    supports = self.campaign_users.where(:user_type => SUPPORTER).pluck("campaign_id")
+    supports.inject([]) {|campaigns, campaign_id|  campaigns << Campaign.find(campaign_id)} if supports.present?
   end
 end

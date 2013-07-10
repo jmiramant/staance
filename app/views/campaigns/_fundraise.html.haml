@@ -1,5 +1,5 @@
 .status
-  - if @campaign.status == UNSUCCESSFUL
+  - if @campaign.unsuccessful?
     = render 'unsuccessful_campaign', campaign: @campaign
   - elsif @campaign.status == FUNDED && @campaign.funding_deadline < Date.today
     = render 'successful_campaign', campaign: @campaign
@@ -20,7 +20,7 @@
             #progress_text
               = @campaign.donation_total
               of
-              = to_currency(@campaign.funding_goal) 
+              = to_currency(@campaign.funding_goal)
       .deadline
         %i.icon-time
         = @campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")

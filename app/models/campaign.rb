@@ -2,7 +2,7 @@ class Campaign < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
 
-  attr_accessible :topic_id, :image_url, :video_url, :funding_deadline, :stance 
+  attr_accessible :topic_id, :image_url, :video_url, :funding_deadline, :stance
   attr_accessible :short_blurb, :location, :cause_url, :funding_goal, :pitch, :title
   attr_accessible :tag_list, :donation_total, :opposing_campaign_id, :status
 
@@ -14,6 +14,12 @@ class Campaign < ActiveRecord::Base
 
   acts_as_taggable
 
+  [PENDING, ACTIVE, FUNDED, SUSPENDED, UNSUCCESSFUL].each do |stat|
+    define_method "#{stat.downcase}?" do
+      self.status == stat
+    end
+  end
+
   def separated_time_ago
     seconds = self.funding_deadline - Time.zone.now
     if seconds > 0
@@ -24,7 +30,7 @@ class Campaign < ActiveRecord::Base
       else
         result = { 'minute' => (seconds / 60).to_i }
       end
-      pluralized = pluralize(result.values.first, result.keys.first) 
+      pluralized = pluralize(result.values.first, result.keys.first)
       return pluralized.split(' ')
     else
       return ["Campaign funded", ""]
@@ -32,6 +38,6 @@ class Campaign < ActiveRecord::Base
   end
 
   def supporters
-    CampaignUser.where('campaign_id = ? and user_type = ?', self.id, "Supporter")
+    CampaignUser.campaign_supporters(self)
   end
 end
