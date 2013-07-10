@@ -8,9 +8,9 @@ $(document).ready(function() {
   $('.topic_list_title').on('ajax:success', function(e, data) {
     var topic = $(this).text();
     var description = $(this).attr('id');
-    $('body').scrollTop(0);
+    $('body').scrollTop();
     $('#topic_list').hide();
-    $('.featured-campaigns').slideUp('slow');
+    $('#featured-campaigns').slideUp('slow');
     $('#topic_title').text(topic).show();
     if (description) { $('#topic_description').text(description).show(); }
     $('.campaign-grid').html(data);
