@@ -16,7 +16,7 @@ describe "Home Page" do
 
   it "can visit home_page" do
     visit root_path
-    expect(page).to have_content("Crowd funding")
+    expect(page).to have_content("TOPICS")
   end
 
   it "can select by Topic", js: true do
