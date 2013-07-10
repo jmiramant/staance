@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe "Stripe Tests" do
 
-  include FeatureHelpers
-
   before do
     user = create(:user)
     login(user)

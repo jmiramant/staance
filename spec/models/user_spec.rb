@@ -4,14 +4,12 @@ describe User do
 
   context "create" do
     it "adds user to user database" do
-      # SHADI -- user = create(:user)
-      user = FactoryGirl.create(:user)
+      user = create(:user)
       expect(User.first).to eq user
     end
 
     it "doesn't add user if passwords don't match" do
-      # SHADI -- user = user.build(:user, ...
-      user = FactoryGirl.build(:user, 
+      user = build(:user, 
         password: "password", 
         password_confirmation: "passwrod"
       )
@@ -19,9 +17,8 @@ describe User do
     end
 
     it "doesn't add user if email is not unique" do
-      # SHADI -- user = create(:user ... ) 
-      user = FactoryGirl.create(:user, email: "foo@example.com")
-      user2 = FactoryGirl.build(:user, email: "foo@example.com")
+      user = create(:user, email: "foo@example.com")
+      user2 = build(:user, email: "foo@example.com")
       expect(user2.valid?).to be_false
     end
 

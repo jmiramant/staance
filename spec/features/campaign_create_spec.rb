@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe "Create/Edit Campaign Form Tests" do
 
-  include FeatureHelpers
 
   before do
     @user = create(:user)

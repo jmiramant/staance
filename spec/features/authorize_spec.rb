@@ -2,12 +2,6 @@ require 'spec_helper'
 
 describe Authentication do
 
-  include FeatureHelpers
-
-  before do
-
-  end
-
   it "connects via Twitter auth", js: true do
     visit 'http://twitter.com'
     page.reset! #Selenium can only affect cookies in the current domain 

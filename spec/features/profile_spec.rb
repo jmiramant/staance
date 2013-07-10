@@ -1,9 +1,6 @@
 require 'spec_helper'
 
-
 describe "Profile" do
-
-  include FeatureHelpers
 
   before do
     @user = create(:user)

@@ -3,8 +3,6 @@ require 'spec_helper'
 
 describe "Authenticated User" do
 
-  include FeatureHelpers
-
   before do
     @user = create(:user)
     login(@user)

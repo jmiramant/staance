@@ -3,8 +3,6 @@ require 'spec_helper'
 
 describe "Matcher" do
 
-  include FeatureHelpers
-
   before do
     user = create(:user)
     login(user)
