@@ -11,7 +11,7 @@ describe "Create/Edit Campaign Form Tests" do
   
   it "can create campaign", js: true do
     visit new_campaign_path
-    page.driver.browser.manage.window.maximize
+    # page.driver.browser.manage.window.maximize
 
     fill_in 'campaign_title', with: 'some title'
     fill_in 'campaign_tag_list', with: 'some tag'

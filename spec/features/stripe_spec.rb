@@ -19,8 +19,8 @@ describe "Stripe Tests" do
     fill_in "donation", with: 1000
     click_on "Donate!"
     # click_on "Donate!"
-    sleep(2)
-    within_frame 9 do
+    sleep(3)
+    within_frame 7 do
       fill_in "paymentNumber", with: "4242 4242 4242 4242"
       fill_in "paymentExpiry", with: "12/2014"
       fill_in "paymentName", with: "Mark Wilson"
