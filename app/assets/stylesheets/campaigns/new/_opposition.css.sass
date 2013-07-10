@@ -1,86 +1,119 @@
-.opposition
+.opposing_selection
   @include outer-container
   @include span-columns(12)
-  margin: 30px auto
-  padding-left: 12px
-
-  .checkbox
-    float: right
-
-  .select_opposing_campaign
-    text-align: center
+  float: left
+  .opp_arrow
+    @include span-columns(1 of 12)
+    margin: 10px auto
+    height: 350px
+    line-height: 350px
+    position: relative
+    color: $staance-dark-gray
     &:hover
-      color: $staance-yellow
+      color: $staance-blue
+    &.left
+      float: left
+    &.right
+      float: right
+  .opposition
+    @include span-columns(10 of 12)
+    overflow: hidden
+    height: 350px
+    margin: 30px auto
+    padding-left: 12px
+    .arrow, .featured-video
+      display: inline-block
 
-  .campaign-snapshot
-    width: 200px
-    margin: 0 0.5% 20px 0.5%
-    padding-bottom: 15px
-    display: inline-block
-    background-color: $background-light-grey
-    border-radius: 10px
-    
-    img
-      border-radius: 10px 10px 0 0
+    .opp_container
+      position: relative
       width: 100%
-      height: 100px
+      height: 100%
+      left: 0
+      white-space: nowrap
+    .opp-camp
+      width: 225px
+      display: inline-block
+      margin: 0 auto
+      padding: 10px
+      white-space: normal
 
-    .campaign-details
-      padding: 3%
+      .select-opposing
+        display: block
+        text-align: center
+        &:hover
+          color: $staance-yellow
 
-      .text
-        margin-bottom: 20px
-        font-size: 15px
-
-        .name
-          font-size: 14px
-          font-weight: 700
-          color: $staance-blue
-
-        .creator
-          margin-top: 1%
-          font-size: 12px
-
-      .stats-1
-        font-size: 14px
-        font-weight: 700
-        padding-top: 10px
-        border-top: 1px solid $staance-dark-gray
-
-        .raised
-          float: left
-
-        .percent
-          float: right
-
-      .bar
-        clear: both
-        height: 20px
-        background-color: $background-white
-        margin-top: 25px
-        border-radius: 30px
-
-        span
-          border-radius: 30px
-          min-width: 2%
-          max-width: 100%
-          height: 20px
-          display: inline-block
-          background-color: $staance-yellow
-
-      .stats-2
-        font-size: 14px
-        font-weight: 700
-        margin-top: 5px
-
-        .time-left
-          float: left
-
-        .supporters
-          float: right
-
-.trending, .most-funded, .successes
-  display: none
+      .campaign-snapshot
+        width: 200px
+        margin: 0 auto 20px auto
+        padding-bottom: 15px
+        background-color: $background-light-grey
+        border-radius: 10px
 
 
+        img
+          border-radius: 10px 10px 0 0
+          width: 100%
+          height: 100px
+
+        .campaign-details
+          padding: 3%
+
+          .text
+            margin-bottom: 20px
+            font-size: 15px
+
+            .name
+              font-size: 14px
+              font-weight: 700
+              color: $staance-blue
+
+            .creator
+              margin-top: 1%
+              font-size: 12px
+
+          .stats-1
+            font-size: 14px
+            font-weight: 700
+            padding-top: 10px
+            border-top: 1px solid $staance-dark-gray
+
+            .raised
+              float: left
+
+            .percent
+              float: right
+
+          .bar
+            clear: both
+            height: 20px
+            background-color: $background-white
+            margin-top: 25px
+            border-radius: 30px
+
+            span
+              border-radius: 30px
+              min-width: 2%
+              max-width: 100%
+              height: 20px
+              display: inline-block
+              background-color: $staance-yellow
+
+          .stats-2
+            font-size: 14px
+            font-weight: 700
+            margin-top: 5px
+
+            .time-left
+              float: left
+
+            .supporters
+              float: right
+
+  .trending, .most-funded, .successes
+    display: none
+
+  .border-highlight
+    border: 3px solid $staance-blue
+    border-radius: 10px
 

@@ -8,9 +8,16 @@
   .form_half
     = f.input :funding_goal
     = f.hidden_field :opposing_campaign_id
-  .opposition
-    - @related_campaigns.each do |camp|
-      = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: camp}
-      = link_to 'Select', '#' , :class => 'select-opposing', :"data-id" => camp.id
+  .opposing_selection
+    %a.opp_arrow.left{href: "#"}
+      %i.icon-chevron-sign-left.icon-3x
+    .opposition
+      .opp_container
+        - @related_campaigns.each do |camp|
+          .opp-camp
+            = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: camp}
+            = link_to 'Select', '#' , :class => 'select-opposing', :"data-id" => camp.id
+    %a.opp_arrow.right{href: "#"}
+      %i.icon-chevron-sign-right.icon-3x
   .form_full
     = f.action :submit, label: "Create!"

@@ -108,7 +108,6 @@ class CampaignsController < ApplicationController
     render json: count.to_s.to_json
   end
 
-<<<<<<< HEAD
   def unsupport
     CampaignUser.where('user_id = ? and campaign_id = ? and user_type = ?', current_user.id, params[:id], SUPPORTER).first.destroy
     camp = Campaign.find_by_id(params[:id])
@@ -125,14 +124,6 @@ class CampaignsController < ApplicationController
     else
       render json: true
     end
-=======
-  def opposing
-    p "yes, i'm opposing!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    camp = Campaign.find_by_id(params[:camp_id])
-    camp.opposing_campaign_id = params[:opp_id]
-    camp.save
-    render json: 200
->>>>>>> WIP
   end
 
   protected

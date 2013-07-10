@@ -2,6 +2,9 @@ $(document).ready(function() {
   $('#head').on('click', 'a.select-opposing', function(e) {
     e.preventDefault();
     $('.form_half input[type=hidden]').val($(this).data('id'));
+    $('.opp-camp').removeClass('border-highlight');
+    $(this).parent('.opp-camp').addClass('border-highlight');
+    $
   });
 
   $('#form_one form').on("ajax:success", function(e, data) {
@@ -43,8 +46,37 @@ $(document).ready(function() {
     sizeBox();
   });
 
+  $("#head").on('click', '.opp_arrow.left', function(e){
+    e.preventDefault();
+    moveLeft();
+  })
+
+  $("#head").on('click', '.opp_arrow.right', function(e){
+    e.preventDefault();
+    moveRight();
+  })
+
   setTimeout(function() { $('#welcome_msg').slideUp(); }, 5000);
 });
+
+function moveRight() {
+  var num_divs = $('.opp-camp').length - 4;
+  var max_right = -(num_divs * 255 + 45)
+  var current_position = parseInt($('.opp_container').css('left'));
+  if (current_position > max_right) {
+    var new_position = current_position - 100
+    $('.opp_container').css("left", new_position+"px").animate('easing');
+  }
+}
+
+function moveLeft() {
+  var current_position = parseInt($('.opp_container').css('left'));
+  if ( current_position < 0 ) {
+    var new_position = current_position + 100
+    $('.opp_container').css("left", new_position+"px").animate('easing');
+  }
+
+}
 
 function errorHandling(e, data) {
   var errors = $.parseJSON(data.responseText).error;
