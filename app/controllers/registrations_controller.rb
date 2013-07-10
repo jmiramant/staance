@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  include ResourceHelper
   before_filter :auth_user, except: [:new, :create, :multiauth]
   before_filter :twitter_auth, only: :new
   

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  include HomeHelper
   before_filter :auth_user
 
   def index

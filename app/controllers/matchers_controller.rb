@@ -1,5 +1,4 @@
 class MatchersController < ApplicationController
-  
   def new
     @campaign = Campaign.find_by_id(params[:campaign_id])
     @matcher = Matcher.new
