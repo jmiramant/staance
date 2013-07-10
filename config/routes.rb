@@ -16,7 +16,7 @@ PoliticalKickstarter::Application.routes.draw do
   resources :campaigns do
     resources :matchers
   end
-  resources :topics, only: [:index]
+  # resources :topics, only: [:index]
 
   # resources :campaign_users, only: :create
   post '/donate' => "stripe#donate"
