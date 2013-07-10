@@ -1,0 +1,46 @@
+#edit-user-title Edit #{resource_name.to_s.humanize}
+
+#authenticated-networks
+  #add-facebook
+    - unless current_user.authenticated_networks.include?("facebook")
+      = link_to "Connect Your Facebook Account", user_omniauth_authorize_path(:facebook)
+  #add-twitter
+    - unless current_user.authenticated_networks.include?("twitter")
+      = link_to "Connect Your Twitter Account", user_omniauth_authorize_path(:twitter)
+
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+  = devise_error_messages!
+  #basic-info Basic Info
+    .label
+      = f.label :name
+    .input
+      = f.text_field :name, :autofocus => true
+    .label
+      = f.label :email
+    .input
+      = f.email_field :email, :autofocus => true
+  .label
+    = f.label "What's your story?"
+  .input
+    = f.text_area(:about_me, :size => "50x10")
+  .label
+    = f.label :password
+    %i (leave blank if you don't want to change it)
+  .input
+    = f.password_field :password, :autocomplete => "off"
+  .label
+    = f.label :password_confirmation
+  .input
+    = f.password_field :password_confirmation
+  - if f.object.encrypted_password?
+    .label
+      = f.label :current_password
+      %i (we need your current password to confirm your changes)
+    .input
+      = f.password_field :current_password
+  .input
+    = f.submit "Update"
+%h3 Cancel my account
+%p
+  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}
+= link_to "Back", :back
