@@ -38,4 +38,10 @@ class Campaign < ActiveRecord::Base
   def supporters
     CampaignUser.where('campaign_id = ? and user_type = ?', self.id, "Supporter")
   end
+
+  def update_funding_status
+    self.status = FUNDED if campaign.donation_total >= campaign.funding_goal
+    self.save
+  end
+
 end
