@@ -1,6 +1,9 @@
 #featured-campaigns
   background-color: $background
 
+  &.disappear
+    visibility: hidden
+
 #featured-video-box
   @include outer-container
   position: relative
@@ -16,6 +19,9 @@
   &:hover
     cursor: pointer
     color: $pink
+
+  i.disappear
+    visibility: hidden
 
 .left
   left: 20px
@@ -96,4 +102,4 @@
   span
     font-size: 25px
     font-weight: 700
-    color: $pink
+    color: $background

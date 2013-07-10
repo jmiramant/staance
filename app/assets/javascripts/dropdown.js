@@ -10,8 +10,10 @@ $(document).ready(function() {
     var description = $(this).attr('id');
     $('body').scrollTop();
     $('#topic_list').hide();
-    $('#featured-campaigns').slideUp('slow');
-    $('#topic_title').text(topic).show();
+    $('#arrow i').addClass('disappear');
+    $('#featured-campaigns').addClass('disappear').slideUp('slow');
+    $('#topic_title_box').show();
+    $('#topic_title').text(topic).fadeIn('slow');
     if (description) { $('#topic_description').text(description).show(); }
     $('.campaign-grid').html(data);
   });
