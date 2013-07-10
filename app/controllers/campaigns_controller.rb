@@ -50,6 +50,38 @@ class CampaignsController < ApplicationController
     redirect_to current_user, alert: "Campaign Deleted" 
   end
 
+  def toggle_status
+    campaign = Campaign.find(params[:id])
+    new_status = campaign.toggle_campaign_status
+    render json: new_status.to_json
+  end
+
+  def support
+    camp = Campaign.find_by_id(params[:id])
+    camp.add_supporter(current_user)
+    count = camp.supporters.count
+    render json: count.to_s.to_json
+  end
+
+  def unsupport
+    camp = Campaign.find_by_id(params[:id])
+    camp.remove_supporter(current_user)
+    count = camp.supporters.count
+    render json: count.to_s.to_json
+  end
+
+  def check_support
+    # is there a better way to get the campaign_id from the page and pass it to this controller?
+    params[:path].match(/(\d)/)
+    campaign_id = $1.to_i
+    supporter = current_user.supporter?(campaign_id)
+    if supporter
+      render json: false
+    else
+      render json: true
+    end
+  end
+
   def filter_topic
     topic = Topic.find_by_title(params[:topic])
     campaigns = Campaign.where(topic_id: topic.id)
@@ -63,7 +95,6 @@ class CampaignsController < ApplicationController
     else
       @campaign = Campaign.find_by_id(session[:campaign_build])
       @campaign.update_attribute('pitch', params[:form])
-      
       @related_campaigns = @campaign.related_campaigns
       respond_to do |format|
         if @campaign.save
@@ -92,44 +123,6 @@ class CampaignsController < ApplicationController
       end
     else
       render json: errors.to_json
-    end
-  end
-
-  # change name of route/method to reflect ability to change state between ACTIVE and PENDING
-  def activate
-    campaign = Campaign.find(params[:id])
-    # create campaign.toggle_status method in Campaign model
-    new_status = (campaign.status == PENDING) ? ACTIVE : PENDING
-    campaign.update_attribute(:status, new_status)
-    render json: new_status.to_json
-  end
-
-  def support
-    camp = Campaign.find_by_id(params[:id])
-    camp.add_supporter(current_user)
-    count = camp.supporters.count
-    render json: count.to_s.to_json
-  end
-
-  def unsupport
-    camp = Campaign.find_by_id(params[:id])
-    camp.remove_supporter(current_user)
-    count = camp.supporters.count
-    render json: count.to_s.to_json
-  end
-
-  def check_support
-    # is there a better way to get the campaign_id from the page and pass it to this controller?
-    params[:path].match(/(\d)/)
-    campaign_id = $1.to_i
-    # create campaign.supporter?(user) method in Campaign model
-    supporter = CampaignUser.where('user_id = ? and campaign_id = ? and user_type = ?', current_user.id, campaign_id, SUPPORTER)
-    # user method as boolean, i.e. campaign.supporter?(user) should equal true or false for conditional statement below
-    # if campaign.supporter?(user) then...
-    if supporter.length == 0
-      render json: false
-    else
-      render json: true
     end
   end
 

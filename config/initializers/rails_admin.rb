@@ -15,7 +15,7 @@ RailsAdmin.config do |config|
   config.current_user_method { current_user } # auto-generated
   
   config.authorize_with do |controller|
-    redirect_to '/' unless current_user.is_admin?
+    redirect_to '/' unless current_user.admin?
   end
 
   # If you want to track changes on your models:

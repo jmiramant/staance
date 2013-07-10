@@ -1,4 +1,5 @@
 class Campaign < ActiveRecord::Base
+
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
 
@@ -57,6 +58,10 @@ class Campaign < ActiveRecord::Base
     CampaignUser.campaign_supporters(self.id)
   end
 
+  def donors
+    CampaignUser.campaign_donors(self.id)
+  end
+
   def add_supporter(user)
     CampaignUser.create(campaign_id: self.id, user_id: user.id, :user_type => SUPPORTER)
   end
@@ -77,6 +82,12 @@ class Campaign < ActiveRecord::Base
   def update_funding_status
     self.status = FUNDED if self.donation_total >= self.funding_goal
     self.save
+  end
+
+  def toggle_campaign_status
+    new_status = (self.status == PENDING) ? ACTIVE : PENDING
+    self.update_attribute(:status, new_status)
+    new_status
   end
 
   def creator

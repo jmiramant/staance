@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def supporter?(camp_id)
+    CampaignUser.where('user_id = ? and campaign_id = ? and user_type = ?', camp_id, self.id, SUPPORTER)
+  end
+
   def authenticated_networks
     # use INJECT!
     authenticated_networks = []
@@ -33,11 +37,6 @@ class User < ActiveRecord::Base
       authenticated_networks << auth[:provider]
     end
     authenticated_networks
-  end
-
-  # this is unnecessary, can just call user.admin? --> find all instances in app and remove
-  def is_admin?
-    self.admin == true
   end
 
   # Shadi moved logic from users_controller --> check that it works

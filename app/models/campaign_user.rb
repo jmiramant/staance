@@ -11,4 +11,7 @@ class CampaignUser < ActiveRecord::Base
     self.where('campaign_id = ? and user_type = ?', camp_id, "Supporter")
   end
 
+  def self.campaign_donors(camp_id)
+    self.where('campaign_id = ? and user_type = ?', camp_id, "Donor")
+  end
 end
