@@ -26,7 +26,6 @@ class CampaignsController < ApplicationController
   end
 
   def show
-    puts "_______________Campaign:Show Params: #{params}____________________"
     session.delete(:campaign_id) if session[:campaign_id]
     @campaign = Campaign.find_by_id(params[:id])
     @campaign_show = CampaignHelper.render_objects_for_view(current_user, @campaign)

@@ -33,5 +33,3 @@
             = submit_tag("Donate!", class: 'button')
         .countdown
           = @campaign.funding_deadline.strftime("%B%e, %Y %H:%M:%S")
-
-= link_to 'Match Donors', new_campaign_matcher_path(@campaign)

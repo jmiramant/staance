@@ -1,0 +1,13 @@
+= semantic_form_for matcher do |f|
+  .form_full
+    = f.input :name, label: "On Behalf Of...", placeholder: "Corpotation or Name"
+  .form_half
+    = f.input :logo_url, label: "Logo Url or Image"
+  .form_half
+    = f.input :description,  label: "Why are you supporting this cause?"
+  .form_half
+    = f.input :match_amount, label: "What level would you like match?"
+  .form_half
+    = f.input :count, label: "How many donors would you like to match at this level?"
+  .form_full
+    = f.action :submit

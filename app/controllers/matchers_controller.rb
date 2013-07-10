@@ -8,11 +8,14 @@ class MatchersController < ApplicationController
     @most_funded = most_funded_filter
     @most_successful = most_successful_filter
     @featured = Campaign.where(id: [6, 8, 4])
+    render :layout => "dumblayout"
   end
 
   def new
-    @campaign = Campaign.find_by_id(params[:campaign_id])
     @matcher = Matcher.new
+    respond_to do |format|
+      format.html { render partial: 'matchers/new', locals: {matcher: @matcher}  }
+    end
   end
 
   def create

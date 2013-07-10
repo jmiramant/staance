@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Staance</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <%= render 'shared/fbsdk' %>
+  <%= render 'layouts/nav' %>
+  <%= render 'shared/errors', errors: @errors %>
+  <div class="container">
+    <%= yield %>
+  </div> 
+  <%= render 'layouts/footer' %>
+  <%= render 'layouts/disqus_comment_count' %>
+</body>
+</html>
