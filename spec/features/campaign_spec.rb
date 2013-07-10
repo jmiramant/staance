@@ -46,10 +46,4 @@ describe "Campaign Feature Tests" do
     expect(page).to have_content("Pending")
   end
 
-  it "can edit campaign" do
-    visit campaign_path(@campaign)
-    click_on "Edit"
-    expect(page).to have_content("Congratulations!")
-  end
-
 end
