@@ -1,3 +1,5 @@
+.story
+  background-color: #fff
 .status_tabs
   @include span-columns(5)
   float: right
@@ -21,10 +23,10 @@
       font-size: 14px
       width: 130px
       text-align: center
-      background-color: #0092c3
-      border-top: 2px solid lightblue
-      border-right: 2px solid lightblue
-      border-left: 2px solid lightblue
+      background-color: $hover-green
+      border-top: 2px solid $green
+      border-right: 2px solid $green
+      border-left: 2px solid $green
       border-radius: 4px 4px 0 0
       a
         color: #fff
@@ -34,15 +36,14 @@
     .total
       font-size: 45px
       color: #fff
-      text-shadow: 1px 1px #545454
       text-align: center
-      padding-top: 21px
+      padding-top: 30px
       font-weight: 700
     .donation_total
       color: #fff
       font-weight: 300
       margin: 12px
-      margin: -18px 0 0 72px
+      margin: 0 0 0 42px
       font-size: 21px
     .deadline
       color: white
@@ -65,9 +66,9 @@
     #progress_bg 
       margin: 18px auto 28px auto
       width: 80%
-      background: #dbdbdb
+      background: #fff
       #progress
-        background-color: $staance-yellow
+        background-color: $background
         min-width: 2%
         max-width: 100%
         box-shadow: 0 0 3px #545454
@@ -79,6 +80,7 @@
         width: 285px
         margin: 0 auto
         #donation
+          background-color: #fff
           height: 38px
           color: #545454
           padding-left: 26px
@@ -90,6 +92,10 @@
           width: 150px
           margin-left: 19px
           cursor: pointer
+          background-color: $staance-yellow
+          @include transition (all 0.2s ease-in-out )
+          &:hover
+            background-color:  $hover-pink
       .countdown
         display: none
 
@@ -98,7 +104,7 @@
   margin: 0 auto
   padding: 20px
   margin-top: 60px
-  background-color: $background-light-grey
+  background-color: #dbdbdb
   border-radius: 5px
 
 

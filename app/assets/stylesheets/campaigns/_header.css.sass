@@ -13,11 +13,13 @@
       font-size: 28px
     .blurb
       float: none
-      margin: 10px auto 20px auto
+      margin: 15px auto 20px auto
       text-align: center
-      background-color: $background-light-grey
+      background-color: #fff
+      box-shadow: $shadow
+      border-radius: 10px
       min-height: 80px
-      padding: 25px
+      padding: 20px
   .user_interaction_summary
     @include span-columns(3 of 12)
     color: $staance-dark-gray
@@ -43,8 +45,9 @@
       border-radius: 2px
       margin-left: 5px
       color: #fff
+      @include transition (all 0.2s ease-in-out )
       &:hover
-        background-color: #128699
+        background-color: $hover-green
       &.supported
         color: #fff
         background-color: $staance-yellow
