@@ -4,6 +4,11 @@ describe Authentication do
 
   include FeatureHelpers
 
+  before do
+    visit 'http://twitter.com'
+    page.reset! #Selenium can only affect cookies in the current domain
+  end
+
   it "connects via Twitter auth", js: true do
     visit "/users/auth/twitter"
     fill_in "username_or_email", with: ENV['TWITTERUSER']
@@ -13,8 +18,6 @@ describe Authentication do
     click_on "Sign up"
     expect(page).to have_content("mark@wilson.com")
     browser = Capybara.current_session.driver.browser
-    browser.manage.delete_all_cookies
-    Capybara.reset_sessions! 
   end
 
   # it "connects to Facebook auth", js: true do

@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'sidekiq/testing'
 
 describe Campaign do
 
@@ -21,7 +22,9 @@ describe Campaign do
   end
 
   it "creates and triggers a Sidekiq event" do
-    ScheduledWorker.perform_at(Time.now + 10.seconds, @campaign.id)
+    expect {
+      ScheduledWorker.perform_async(@campaign.id)
+      }.to change(ScheduledWorker.jobs, :size).by(1)
   end
 
 end
