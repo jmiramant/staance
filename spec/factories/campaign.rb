@@ -9,7 +9,7 @@ FactoryGirl.define do
     funding_deadline  Time.now + 1.week
     funding_goal  10000
     location "San Francisco"
-    pitch Faker::Lorem.paragraph(12)
+    pitch Faker::Lorem.paragraph(20)
     short_blurb Faker::Lorem.paragraph
   end
 end

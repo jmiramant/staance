@@ -11,6 +11,8 @@ describe "Create/Edit Campaign Form Tests" do
   
   it "can create campaign", js: true do
     visit new_campaign_path
+    page.driver.browser.manage.window.maximize
+
     fill_in 'campaign_title', with: 'some title'
     fill_in 'campaign_tag_list', with: 'some tag'
     fill_in 'campaign_video_url', with: 'some video'
@@ -19,7 +21,6 @@ describe "Create/Edit Campaign Form Tests" do
     fill_in 'campaign_short_blurb', with: 'this is a short blurb'
     # select 'Community', from: 'campaign_topic_id'
     click_on "Step 2"
-    # page.driver.browser.manage.window.maximize
     find("#cont_button").click
     fill_in 'campaign_cause_url', with: "some cause url"
     fill_in 'campaign_funding_deadline', with: "12/12/2013"
