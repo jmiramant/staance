@@ -9,5 +9,5 @@
       = to_currency(campaign.funding_goal)
   .deadline
     %i.icon-time
-    = campaign.funding_deadline.strftime("Funding Deadline: %m/%d/%Y")
+    = campaign.display_deadline
     .countdown_value

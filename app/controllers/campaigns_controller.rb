@@ -63,9 +63,8 @@ class CampaignsController < ApplicationController
     else
       @campaign = Campaign.find_by_id(session[:campaign_build])
       @campaign.update_attribute('pitch', params[:form])
-      # create campaign.related_campaigns method in Campaign model that encompasses next 2 lines
-      topics = Topic.find_by_id(@campaign.topic_id)
-      @related_campaigns = Campaign.where(status: FUNDED).where(topic_id: topics.id)
+      
+      @related_campaigns = @campaign.related_campaigns
       respond_to do |format|
         if @campaign.save
           # Shadi wants us to remove dependency of using in Ruby/Rails... do it?
@@ -79,15 +78,12 @@ class CampaignsController < ApplicationController
   end
   
   def finalize_campaign
-    params[:campaign][:funding_deadline] = DateTime.strptime(params[:campaign].delete(:funding_deadline), "%m/%d/%Y")
     errors = CreateFormValidation.form_three_validations(params[:campaign])
-    # can we use 'errors.empty?' instead of this?
-    if errors.count == 1
+    if errors.blank?
       @campaign = Campaign.find_by_id(session[:campaign_build])
       @campaign.update_attributes(params[:campaign])
       if @campaign.save
-        # create campaign.schedule_worker method in Campaign model
-        ScheduledWorker.perform_at(@campaign.funding_deadline, @campaign.id)
+        @campaign.schedule_stripe_payment
         UserMailer.campaign_new_email(current_user, @campaign).deliver
         session.delete(:campaign_build)
         render nothing: true
@@ -110,19 +106,15 @@ class CampaignsController < ApplicationController
 
   def support
     camp = Campaign.find_by_id(params[:id])
-    # create campaign.add_supporter(user) method to Campaign model
-    CampaignUser.create(campaign_id: camp.id, user_id: current_user.id, :user_type => SUPPORTER)
-    # use campaign.supporters method in Campaign model
-    count = camp.campaign_users.where(user_type: SUPPORTER).count
+    camp.add_supporter(current_user)
+    count = camp.supporters.count
     render json: count.to_s.to_json
   end
 
   def unsupport
-    # create campaign.remove_supporter(user) method to Campaign model
-    CampaignUser.where(user_id: current_user.id, campaign_id: params[:id], user_type: SUPPORTER).first.destroy
     camp = Campaign.find_by_id(params[:id])
-    # user campaign.supporters method in Campaign model
-    count = camp.campaign_users.where(user_type: SUPPORTER).count
+    camp.remove_supporter(current_user)
+    count = camp.supporters.count
     render json: count.to_s.to_json
   end
 
@@ -142,15 +134,15 @@ class CampaignsController < ApplicationController
   end
 
   protected
+
     def check_same_user
       @campaign = Campaign.find(params[:id])
-      # create campaign.creator method to Campaign model to encompass next 2 lines
-      campaign_user = CampaignUser.where('campaign_id = ? and user_type = ?', @campaign.id, "Creator").first
-      creator = User.find(campaign_user.user_id)
+      creator = @campaign.creator
       unless creator == current_user
         flash[:alert] = "You can only edit campaigns that you created."
         redirect_to @campaign
       end
     end
+    
 end
 

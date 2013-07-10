@@ -30,6 +30,7 @@
     .social_show_page
       = render 'shared/campaign/social'
       = render 'campaigns/support'
+    .supporter_count
       -# run this logic in the controller and pass in @donors
       -# = "Supporters(#{@donors})" if @donors
       = "Supporters(#{@campaign_show[:supporters].count.to_s})" if @campaign_show[:supporters]

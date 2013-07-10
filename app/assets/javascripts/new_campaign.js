@@ -24,12 +24,11 @@ $(document).ready(function() {
   });
 
   $('#head').on("ajax:success", '#form_three form', function(e, data) {
-    if (data[0] == "errors") {
-      data.shift();
-      errorHandling_form3(e, data);
+    if (data == " ") {
+      finalizeCreate();
     }
     else{
-      finalizeCreate();
+      errorHandling_form3(e, data);
     }
   });
 

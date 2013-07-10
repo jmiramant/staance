@@ -57,14 +57,35 @@ class Campaign < ActiveRecord::Base
     CampaignUser.campaign_supporters(self.id)
   end
 
-  def
+  def add_supporter(user)
+    CampaignUser.create(campaign_id: self.id, user_id: user.id, :user_type => SUPPORTER)
+  end
+
+  def remove_supporter(user)
+    CampaignUser.where(user_id: user.id, campaign_id: self.id, user_type: SUPPORTER).first.destroy
+  end
+
+  def related_campaigns
+    topics = Topic.find_by_id(self.topic_id)
+    Campaign.where(status: FUNDED).where(topic_id: topics.id)
+  end
+
+  def schedule_stripe_payment
+    ScheduledWorker.perform_at(self.funding_deadline, self.id)
+  end
 
   def update_funding_status
     self.status = FUNDED if self.donation_total >= self.funding_goal
     self.save
   end
 
+  def creator
+    camp_user = CampaignUser.where('campaign_id = ? and user_type = ?', self.id, "Creator").first
+    User.find(camp_user.user_id)
+  end
+
   class << self
+
     def active_campaigns
       self.where(status: PENDING)
     end
