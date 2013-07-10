@@ -1,31 +1,30 @@
-.status
-  .campaign_completed_banner
-    @include span-columns(10 of 12)
-    margin: 30px auto
-    float: none !important
+.campaign_completed_banner
+  @include span-columns(10 of 12)
+  margin: 30px auto
+  float: none !important
+  text-align: center
+  background-color: $staance-blue
+  height: 150px
+  box-shadow: $shadow
+  border-radius: 5px
+  &:last-child
+    margin-right: auto
+  .title
+    font-size: 35px
+    color: #fff
+    text-shadow: 1px 1px #545454
     text-align: center
-    background-color: $staance-blue
-    height: 150px
-    box-shadow: $shadow
-    border-radius: 5px
-    &:last-child
-      margin-right: auto
-    .title
-      font-size: 35px
-      color: #fff
-      text-shadow: 1px 1px #545454
-      text-align: center
-      padding-top: 21px
-      font-weight: 700
-    .donation_total
-      color: #fff
-      float: none
-      font-weight: 300
-      margin: 12px
-      margin: 10px auto
-      font-size: 21px
-      text-align: center
-      width: 450px
-      #link
-        a
-          color: $staance-yellow
+    padding-top: 21px
+    font-weight: 700
+  .donation_total
+    color: #fff
+    float: none
+    font-weight: 300
+    margin: 12px
+    margin: 10px auto
+    font-size: 21px
+    text-align: center
+    width: 450px
+    #link
+      a
+        color: $staance-yellow
