@@ -2,11 +2,11 @@
 = semantic_form_for @campaign, :url => campaigns_finalize_campaign_path, remote: true do |f|
   
   .form_half
-    = f.input :cause_url 
+    = f.input :cause_url, placeholder: "Cause URL"
   .form_half.right
-    = f.input :funding_deadline, as: :date_picker
+    = f.input :funding_deadline, as: :date_picker, placeholder: "Funding deadline"
   .form_half
-    = f.input :funding_goal
+    = f.input :funding_goal, as: :monetary
     = f.hidden_field :opposing_campaign_id
 
   .track_oppopsition 

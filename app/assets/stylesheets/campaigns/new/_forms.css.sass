@@ -94,45 +94,21 @@
     -webkit-appearance: none
     border-radius: 5px
     color: #7E7E7E
-    
-    // &:focus
-    //   -webkit-box-shadow: 0 0 3px 1px #c00
-    //   -moz-box-shadow: 0 0 3px 1px #c00
-    //   box-shadow: 0 0 3px 1px #c00
-    
-    // &:after
-    //   content: "▼"
-    //   position: absolute
-    //   top: 0
-    //   right: 0
-    //   bottom: 0
-    //   font-size: 60%
-    //   line-height: 30px
-    //   padding: 0 7px
-    //   background: #bbb
-    //   color: white
-    //   pointer-events: none
-    //   -webkit-border-radius: 0 6px 6px 0
-    //   -moz-border-radius: 0 6px 6px 0
-    //   border-radius: 0 6px 6px 0
   
   @media screen and (-webkit-min-device-pixel-ratio: 0)
     
-    #campaign_topic_id select
-      padding-right: 30px
+  #campaign_topic_id select
+    padding-right: 30px
   
   .no-pointer-events #campaign_topic_id:after
     content: none
   
   #cont_button
     width: 177px
-    display: inline
-    border: none
-    border-radius: 0 4px 4px 0
-    color: white
     position: fixed
     right: 50px
     bottom: 50px
-    background-color: #fece12
-    padding: 10px 20px
-    cursor: pointer
+    background-color: $pink
+
+    &:hover
+      background-color: $orange
