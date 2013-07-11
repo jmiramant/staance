@@ -18,7 +18,7 @@ class ScheduledWorker
     donations.each do |donation|
       charge = Stripe::Charge.create(
         customer: donation[0].stripe_id,
-        amount:   donation[1]*100.to_i, #multiply by 100 to convert to cents
+        amount:   (donation[1]*100).to_i, #multiply by 100 to convert to cents
         description: campaign.title,
         currency: 'usd'
         )

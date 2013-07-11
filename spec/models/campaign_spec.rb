@@ -15,8 +15,10 @@ describe Campaign do
   end
 
   it "creates and executes a Funded Sidekiq event" do
-    # CampaignUser.create(campaign_id: @campaign.id, user_id: @user.id, user_type: DONOR, donation_amount: 100)
-    # remove comment to test Stripe interface.  Will throw an exception as token is not defined
+    CampaignUser.create(campaign_id: campaign.id, user_id: user.id, user_type: DONOR, donation_amount: 100)
+    customer = Stripe::Customer.create(description: "Rspec Test", card: {number: "4242424242424242", exp_month: "12", exp_year: "14"})
+    user.stripe_id = customer.id
+    user.save
     campaign.status = FUNDED
     campaign.save
     ScheduledWorker.jobs.clear
