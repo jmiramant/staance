@@ -1,17 +1,33 @@
-#profile
-  #user_info
-    = render 'user_information'
-  #user_campaigns
-    -# create a user.created_campaigns method and pass this through partial, i.e.
-    -# = render 'user_campaigns', campaigns: @user.created_campaigns
-    = render 'user_campaigns'    
-  #user_pending
-    -# create a user.pending_campaigns method and pass this through partial, i.e.
-    -# = render 'user_pending_campaigns', campaigns: @user.pending_campaigns
-    = render 'user_pending_campaigns'
-  #user_supported
-    -# same as above
-    = render 'user_supported_campaigns'
-  #user_donated
-    -# same as above
-    = render 'user_donated_campaigns'
+#profile-container
+  #profile-box
+    = image_tag 'http://www.greatsouthwestclassic.com/wp-content/uploads/2013/01/profile-placeholder.jpg', id: 'user-image'
+    #user-details
+      #user-name Josh Miramant
+      = mail_to 'josh@miramant.me', 'josh@miramant.me', id: 'user-email'
+      #user-about
+        I'm passionate about trees.  Like.  I.  Love.  Trees.  I fucking love them.  Their leaves.  Their bark.  Oh so rough.  Man, trees are the best.  If the world had more trees, I would go freaking crazy.  In fact, maybe... we can raise money for trees?  Ya!  Staance is the best!
+    #user-edit-link
+      - if current_user.id == @user.id
+        = link_to "Edit", edit_user_registration_path, id: 'user-edit'
+
+
+#profile-nav-bar
+  #profile-nav-links
+    = link_to "CREATED", "#", class: "profile-nav-link"
+    = link_to "PENDING", "#", class: "profile-nav-link"
+    = link_to "DONATED", "#", class: "profile-nav-link"
+    = link_to "SUPPORTED", "#", class: "profile-nav-link"
+
+#profile-nav-underline
+
+
+
+
+
+
+
+
+
+
+
+
