@@ -1,7 +1,7 @@
 .campaign_header
   height: 185px
   padding: 30px 0 0 0
-  color: #fff
+  color: $background
   @include outer-container
   .image
     display: block
@@ -69,14 +69,14 @@
     font-size: 15px
     border: none
     #support_link
-      background-color: $hover-green
+      background-color: $background
       padding: 10px 60px
       border-radius: 2px
       margin-left: 5px
       color: #fff
       @include transition (all 0.5s ease-in-out )
       &:hover
-        background-color: $background
+        background-color: $hover-background
       &.supported
         color: #fff
         background-color: $pink
@@ -85,7 +85,7 @@
         padding: 10px 52px
         @include transition (all 0.5s ease-in-out )
         &:hover
-          background-color: $background
+          background-color: $hover-background
   .supported_banner
     color: #fff
     background-color: $staance-yellow
