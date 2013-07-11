@@ -1,3 +1,8 @@
+function login_form(){
+  $('#home_log_in').addClass("hsi_short");
+  $('.sign-in-form').addClass("sif_short");
+}
+
 $(document).ready(function() { 
   $(".logo").mouseover(function(){
     $("#take").animate({ opacity: 1}, 50);
@@ -17,7 +22,11 @@ $(document).ready(function() {
     $('#take').addClass("take_down");
     $('#stance').addClass("stance_up");
     $('#camp').addClass("be_gone");
-    $('.create-campaign').addClass('smr_button');
+    $('.create-campaign').addClass('smr_button').done(function(){
+      setTimeout(function(){
+        login_form(), 1000
+      };
+    });
   } 
   else{
     $('nav').removeClass("short_nav");
@@ -26,6 +35,8 @@ $(document).ready(function() {
     $('#stance').removeClass("stance_up");
     $('.create-campaign').removeClass('smr_button');
     $('#camp').removeClass("be_gone");
+      $('#home_log_in').removeClass("hsi_short");
+    $('.sign-in-form').removeClass("sif_short");
   }
   });
 
