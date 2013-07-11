@@ -6,22 +6,24 @@
   .form_half.right
     = f.input :funding_deadline, as: :date_picker, placeholder: "Funding deadline"
   .form_half
+    #funding_goal Funding Goal
     = f.input :funding_goal
     = f.hidden_field :opposing_campaign_id
 
-  .track_oppopsition 
-    Keep track of your opposition
-    .tracking_description Select campaign from below
-  .opposing_selection
-    %a.opp_arrow.left{href: "#"}
-      %i.icon-chevron-sign-left.icon-3x
-    .opposition
-      .opp_container
-        - @related_campaigns.each do |camp|
-          .opp-camp
-            = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: camp}
-            = link_to 'Select', '#' , :class => 'select-opposing', :"data-id" => camp.id
-    %a.opp_arrow.right{href: "#"}
-      %i.icon-chevron-sign-right.icon-3x
+  - unless @related_campaigns.empty?
+    .opposing_selection
+      #track_opposition Keep track of your opposition
+      #tracking_description Select one campaign from below:
+      %a.opp_arrow.left{href: "#"}
+        %i.icon-chevron-left.icon-3x
+      .opposition
+        .opp_container
+          - @related_campaigns.each do |camp|
+            .opp-camp
+              = render 'home/campaign_snapshot', {klass: 'campaign-snapshot', campaign: camp}
+              = link_to 'Select', '#' , :class => 'select-opposing', :"data-id" => camp.id
+      %a.opp_arrow.right{href: "#"}
+        %i.icon-chevron-right.icon-3x
+
   .form_full
     = f.action :submit, label: "Create!"

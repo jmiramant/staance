@@ -2,25 +2,38 @@
   @include outer-container
   @include span-columns(12)
   float: left
+  
+  #track_opposition
+  font-size: 22px
+  font-weight: 700
+  margin-bottom: 10px
+
+  #tracking_description
+    font-size: 18px
+
   .opp_arrow
     @include span-columns(1 of 12)
     margin: 10px auto
     height: 350px
     line-height: 350px
-    position: relative
-    color: $staance-dark-gray
+    color: $font-on-light
+    
     &:hover
-      color: $staance-blue
+      color: $pink
+    
     &.left
       float: left
+    
     &.right
       float: right
+  
   .opposition
     @include span-columns(10 of 12)
     overflow: hidden
     height: 350px
     margin: 30px auto
     padding-left: 12px
+    
     .arrow, .featured-video
       display: inline-block
 
@@ -30,6 +43,7 @@
       height: 100%
       left: 0
       white-space: nowrap
+    
     .opp-camp
       width: 225px
       display: inline-block
@@ -40,6 +54,7 @@
       .select-opposing
         display: block
         text-align: center
+        
         &:hover
           color: $staance-yellow
 
@@ -49,7 +64,6 @@
         padding-bottom: 15px
         background-color: $background-light-grey
         border-radius: 10px
-
 
         img
           border-radius: 10px 10px 0 0
