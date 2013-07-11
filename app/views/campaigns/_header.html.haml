@@ -2,7 +2,7 @@
   .image
     = image_tag @campaign.image_url
   .copy
-    - if @campaign.creator == current_user
+    - if @campaign.creator == current_user && @campaign.before_deadline?
       - button_text = @campaign_show[:button_status]
       #admin-console
         #admin-title Your Admin Console
