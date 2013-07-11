@@ -12,6 +12,7 @@ $(document).ready(function() {
     $('#topic_list').hide();
     $('#arrow i').addClass('disappear');
     $('#featured-campaigns').addClass('disappear').slideUp('slow');
+    $('#featured-details-box').addClass('disappear').slideUp('slow');
     $('#topic_title_box').show();
     $('#topic_title').text(topic).fadeIn('slow');
     if (description) { $('#topic_description').text(description).show(); }
