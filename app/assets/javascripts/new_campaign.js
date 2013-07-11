@@ -54,7 +54,7 @@ $(document).ready(function() {
     moveRight();
   });
 
-  setTimeout(function() { $('#welcome_msg').slideUp(); }, 5000);
+  setTimeout(function() { $('#welcome_msg').slideUp(); }, 10000);
 });
 
 function moveRight() {
@@ -80,34 +80,34 @@ function errorHandling(e, data) {
   var px = 30 * errors.length;
   $('.form_head').animate({ height: '+='+px+'px' }, 500);
   for (e in errors) {
-    $('.form_head').append('<div style=" font-size: 21px; text-align: center; color: #545454;">'+errors[e]+'<div>');
+    $('.form_head').append('<div style=" font-size: 17px; text-align: center; color: white;">'+errors[e]+'<div>');
   }
   setTimeout(function() {
     $('.form_head').html('');
     $('.form_head').animate({ height: '-='+px+'px' }, 500);
-  }, 3000);
+  }, 10000);
 }
 
 function errorHandling_form2(error) {
   var px = 40;
   $('.form_head').animate({ height: '+='+px+'px' }, 500);
-  $('.form_head').append('<div style=" font-size: 21px; text-align: center; color: #545454;">'+error+'<div>');
+  $('.form_head').append('<div style=" font-size: 17px; text-align: center; color: white;">'+error+'<div>');
   setTimeout(function() {
     $('.form_head').html('');
     $('.form_head').animate({ height: '-='+px+'px' }, 500);
-  }, 3000);
+  }, 10000);
 }
 
 function errorHandling_form3(e, errors) {
   var px = 30 * errors.length;
   $('.form_head').animate({ height: '+='+px+'px' }, 500);
   for (e in errors) {
-    $('.form_head').append('<div style=" font-size: 21px; text-align: center; color: #545454;">'+errors[e]+'<div>');
+    $('.form_head').append('<div style=" font-size: 17px; text-align: center; color: white;">'+errors[e]+'<div>');
   }
   setTimeout(function() {
     $('.form_head').html('');
     $('.form_head').animate({ height: '-='+px+'px' }, 500);
-  }, 3000);
+  }, 10000);
 }
 
 function successPath(data) {

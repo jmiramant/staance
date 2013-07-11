@@ -1,113 +1,129 @@
-input
-  border: none
-  -webkit-appearance: none
 #form_two h2
   height: 3333px
+
 #form_one, #form_two, #form_three
   margin: 15px auto
   @include outer-container()
   animation: fadein 2s
+  
   h2
-    background-color: $background-light-grey
-    -webkit-border-radius: 11px
-    -moz-border-radius: 11px
-    border-radius: 11px
-    color: #fff
+    background-color: $lightgray
+    border-radius: 5px
+    color: $background
     font-size: 25px
-    box-shadow: 0px 0px 17px #545454
-    padding: 20px 26px
+    padding: 20px 26px 10px 26px
+
+  form
+    padding-left: 35px
+  
   label:after
     content: "\A\A"
     white-space: pre
-  .campaign_short_blurb
-    width: 500px
+  
   .form_head
     @import 'campaigns/new/welcome'
-    width: 105%
-    background-color: #fece12
-    margin: -20px 0 24px -26px
-    border-radius: 11px 11px 0 0
+    width: 105.1%
+    background-color: $background
+    margin: -20px 0 35px -26px
+    border-radius: 5px 5px 0 0
     padding-top: 27px
+    color: white
+  
   .label
+    display: none
     margin-bottom: 10px
+  
   #new_campaign
     @include outer-container()
-    text-align: center
+  
   .form_full
-    @include span-columns(12 0f 12)
+    @include span-columns(12 of 12)
     margin-bottom: 15px
+  
   .form_half 
-    @include span-columns(6 0f 12)
+    @include span-columns(6 of 12)
     margin-bottom: 30px
+
+    input
+      width: 90%
+  
   .right
     margin-right: 0
+
+    textarea
+      width: 90%
+
   .title input
-    width: 80%
+    width: 95%
     margin-bottom: 30px
+  
   .description
     width: 100%
     border-bottom: 1px solid #bbbbbb
+  
   li
-    color: #777
     margin-bottom: 14px
     list-style: none
+    
     &:last-child
       margin-bottom: 0
-  input, textarea
-    border: none
-    -webkit-border-radius: 3px
-    -moz-border-radius: 3px
-    border-radius: 3px
-    &[type="title"], &[type="video_url"], &[type="image_url"]
-      background-color: #eee
-      color: #777
-      padding: 4px 10px
-      width: 328px
-    &[type="submit"]
-      background-color: #33cc77
-      color: #fff
-      display: block
-      margin: 0 auto
-      padding: 4px 0
-      width: 100px
-      &:hover
-        background-color: #28ad63
+    
+    input, textarea
+      font-size: 17px
+
+      &[type="submit"]
+        background-color: $green
+        height: auto
+        padding: 10px 20px
+        border: none
+        border-radius: 4px
+        color: white
+        transition: 0.3s
+        
+        &:hover
+          background-color: $orange
+          cursor: pointer
+  
   #campaign_topic_id
+    height: 45px
+    padding-left: 10px
+    font-size: 17px
     border: 2px solid #bbb
-    padding: 4px 3px 3px 5px
-    margin: 0
-    font: inherit
-    outline: none
-    line-height: 1.2
+    width: 90%
     background: #f8f8f8
     -webkit-appearance: none
-    -webkit-border-radius: 6px
-    -moz-border-radius: 6px
-    border-radius: 6px
-    &:focus
-      -webkit-box-shadow: 0 0 3px 1px #c00
-      -moz-box-shadow: 0 0 3px 1px #c00
-      box-shadow: 0 0 3px 1px #c00
-    &:after
-      content: "▼"
-      position: absolute
-      top: 0
-      right: 0
-      bottom: 0
-      font-size: 60%
-      line-height: 30px
-      padding: 0 7px
-      background: #bbb
-      color: white
-      pointer-events: none
-      -webkit-border-radius: 0 6px 6px 0
-      -moz-border-radius: 0 6px 6px 0
-      border-radius: 0 6px 6px 0
+    border-radius: 5px
+    color: #7E7E7E
+    
+    // &:focus
+    //   -webkit-box-shadow: 0 0 3px 1px #c00
+    //   -moz-box-shadow: 0 0 3px 1px #c00
+    //   box-shadow: 0 0 3px 1px #c00
+    
+    // &:after
+    //   content: "▼"
+    //   position: absolute
+    //   top: 0
+    //   right: 0
+    //   bottom: 0
+    //   font-size: 60%
+    //   line-height: 30px
+    //   padding: 0 7px
+    //   background: #bbb
+    //   color: white
+    //   pointer-events: none
+    //   -webkit-border-radius: 0 6px 6px 0
+    //   -moz-border-radius: 0 6px 6px 0
+    //   border-radius: 0 6px 6px 0
+  
   @media screen and (-webkit-min-device-pixel-ratio: 0)
+    
     #campaign_topic_id select
       padding-right: 30px
+  
   .no-pointer-events #campaign_topic_id:after
     content: none
+  
   #cont_button
     width: 177px
     display: inline

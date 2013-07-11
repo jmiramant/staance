@@ -4,18 +4,18 @@
 = semantic_form_for @campaign, url: url, remote: true do |f|
   = render '/campaigns/new/errors', :target => @campaign
   .form_full.title
-    = f.input :title
-  .form_half
-    = f.input :topic
+    = f.input :title, placeholder: 'Title'
+  .form_half.topic
+    = f.input :topic, include_blank: "Choose topic"
   .form_half.right
     = f.input :tag_list, placeholder: "Tags separated by commas"
   .form_half
-    = f.input :video_url
+    = f.input :video_url, placeholder: 'Video URL'
   .form_half.right
-    = f.input :image_url
+    = f.input :image_url, placeholder: 'Image URL'
   .form_half
-    = f.input :location
+    = f.input :location, placeholder: 'Location'
   .form_half.right
-    = f.input :short_blurb, as: :text
+    = f.input :short_blurb, as: :text, placeholder: 'Short blurb'
   .form_full
     = f.action :submit, label: "Step 2"
