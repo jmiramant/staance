@@ -8,10 +8,13 @@ module CreateFormValidation
     errors << "Funding Goal must be greater than 0" unless campaign[:funding_goal].to_i > 0
 
     unless campaign[:funding_deadline].blank?
-      campaign[:funding_deadline] = DateTime.strptime(campaign.delete(:funding_deadline), "%m/%d/%Y")
-      errors << "Funding deadline must be greater than today" unless campaign[:funding_deadline] > Date.today
+      begin
+        errors << "Funding deadline must be greater than today" unless campaign[:funding_deadline].to_date > Date.today
+      rescue
+        campaign[:funding_deadline] = DateTime.strptime(campaign[:funding_deadline], "%m/%d/%Y")
+        form_three_validations(campaign)
+      end
     end
-
     errors
   end
 
