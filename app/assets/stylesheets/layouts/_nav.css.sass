@@ -4,12 +4,22 @@ nav
   height: 80px
   top: 0
   color: $font-on-light
-  position: fixed
+  position: relative
   border-bottom: 1px solid #acacac
   z-index: 1000
+  -webkit-transition: linear .3s
+  -moz-transition: linear .3s
+  -ms-transition: linear .3s
+  -o-transition: linear .3s
+  transition: linear .3s
   #home_log_in
     color: $font-on-light
   .nav-links
+    -webkit-transition: linear .3s
+    -moz-transition: linear .3s
+    -ms-transition: linear .3s
+    -o-transition: linear .3s
+    transition: linear .3s
     @include outer-container
     a
       float: right
@@ -34,7 +44,7 @@ nav
       float: left
       font-size: 30px
       font-weight: 700
-      margin-top: 18px
+      margin-top: 5px
       padding: 0
       height: auto
     .create-campaign
@@ -45,14 +55,46 @@ nav
       height: 43px
       border-radius: 5px
       color: white
+      @include transition (all 0.2s ease-in-out)
       width: 182px
       &:hover
         background-color: $orange
         color: #fff
+        #aa
+          color: $orange
       &:active
         font-shadow: 1px 1px
+
+.short_nav
+  height: 61px
+  position: fixed
+  background-color: rgba(255,255,255,0.9)
+.links_up
+  margin-top: -10px
+.stance_up
+  margin: -5px 0 0 81px
+.take_down
+  margin: 7px 0 -8px 27px
+.smr_button
+  width: 89px !important
+  height: 38px !important
+  margin-top: 19px !important
+  padding-top: 9px !important
+  margin-left: 65px !important
+#take
+  margin-left: 25px
+  font-size: 11px
+  color: #acacac
+  opacity: 0
+#stance
+  margin-left: 89px
+  font-size: 11px
+  color: #acacac
+  opacity: 0
 #logo_a
   color: $pink
-
+.be_gone
+  opacity: 0 !important
 #nav-spacer
+  display: none
   height: 80px

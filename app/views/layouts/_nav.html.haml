@@ -5,8 +5,11 @@
     = render './registrations/sign_up'
   .nav-links
     = link_to root_path, class: 'logo' do
-      ST<span id="logo_a">AA</span>NCE
-    = link_to 'CREATE CAMPAIGN', new_campaign_path, class: 'create-campaign'
+      #take take
+      ST<span id="logo_a">A<span id="an_a">A</span></span>NCE
+      #stance stance
+    = link_to new_campaign_path, class: 'create-campaign' do
+      CREATE <span id="camp">CAMPAIGN</span>
     - if user_signed_in?
       = link_to 'LOGOUT', destroy_user_session_path, method: :delete
       = link_to 'PROFILE', user_path(current_user)
