@@ -1,6 +1,6 @@
 .campaign
   =render 'campaigns/header'
-.story{style: "background-color: white"}
+.story
   .part_one
     - if @campaign.suspended?
       = render 'unsuccessful_campaign', campaign: @campaign

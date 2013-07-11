@@ -1,8 +1,11 @@
 .campaign
   @include outer-container
   @import "campaigns/header"
+  margin-bottom: 40px
+  
 .story
-  background-color: $background-light-grey
+  background-color: #fff
+  border-top: 2px solid $background
   .part_one
     @include outer-container
     @import "campaigns/video"
@@ -10,3 +13,6 @@
     @import "campaigns/nested_story"
     @import "campaigns/banner"
     @import "campaigns/pitch"
+    width: 100%
+    margin-top: 40px
+
