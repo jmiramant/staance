@@ -2,10 +2,10 @@
   #profile-box
     = image_tag 'http://www.greatsouthwestclassic.com/wp-content/uploads/2013/01/profile-placeholder.jpg', id: 'user-image'
     #user-details
-      #user-name Josh Miramant
-      = mail_to 'josh@miramant.me', 'josh@miramant.me', id: 'user-email'
+      #user-name= @user.name
+      = mail_to @user.email, @user.email, id: 'user-email'
       #user-about
-        I'm passionate about trees.  Like.  I.  Love.  Trees.  I fucking love them.  Their leaves.  Their bark.  Oh so rough.  Man, trees are the best.  If the world had more trees, I would go freaking crazy.  In fact, maybe... we can raise money for trees?  Ya!  Staance is the best!
+        I'm passionate about trees.  Like.  I.  Love.  Trees.  I freaking love them.  Their leaves.  Their bark.  Oh so rough.  Man, trees are the best.  If the world had more trees, I would go freaking crazy.  In fact, maybe... we can raise money for trees?  Ya!  Staance is the best!
     #user-edit-link
       - if current_user.id == @user.id
         = link_to "Edit", edit_user_registration_path, id: 'user-edit'
@@ -13,12 +13,45 @@
 
 #profile-nav-bar
   #profile-nav-links
-    = link_to "CREATED", "#", class: "profile-nav-link"
-    = link_to "PENDING", "#", class: "profile-nav-link"
-    = link_to "DONATED", "#", class: "profile-nav-link"
-    = link_to "SUPPORTED", "#", class: "profile-nav-link"
+    = link_to "CREATED (5)", "#", class: "profile-nav-link selected"
+    = link_to "PENDING (2)", "#", class: "profile-nav-link"
+    = link_to "DONATED (3)", "#", class: "profile-nav-link"
+    = link_to "SUPPORTED (15)", "#", class: "profile-nav-link"
 
 #profile-nav-underline
+
+#profile-campaigns-container
+  #profile-created-box
+    - 5.times do
+      #profile-campaign-snapshot
+        #profile-campaign-box
+          = image_tag 'http://media.pennlive.com/opinion/photo/pro-choice-art-7d1a5d660ba49784.jpg', id: 'profile-campaign-image'
+          #profile-campaign-details
+            = link_to "Campaign Title", "#", id: 'profile-campaign-title'
+            #profile-campaign-creator
+              by
+              = link_to "Josh Miramant", "#"
+            #profile-campaign-location San Francisco
+            #profile-campaign-status Active
+          #profile-campaign-stats
+            #profile-campaign-stats-1
+              .raised $8,000
+              .percent 80%
+            #profile-campaign-progress
+              %span{style: "width: 80%"}
+            #profile-campaign-stats-2
+              -time_array = ["30", "days"]
+              .time-left
+                %span #{time_array[0]}
+                -unless time_array[1] == ""
+                  #{time_array[1]} left
+              .supporters
+                %span 50 supporters
+        #profile-more-details-box
+          #profile-more-details
+            = link_to "More Details", "#"
+            %i.icon-caret-down.icon-2x
+            
 
 
 
