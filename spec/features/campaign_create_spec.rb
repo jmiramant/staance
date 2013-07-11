@@ -21,6 +21,7 @@ describe "Create/Edit Campaign Form Tests" do
     # select 'Community', from: 'campaign_topic_id'
     click_on "Step 2"
     find("#cont_button").click
+    sleep(2)
     fill_in 'campaign_cause_url', with: "some cause url"
     fill_in 'campaign_funding_deadline', with: "12/12/2013"
     fill_in 'campaign_funding_goal', with: "100000"
