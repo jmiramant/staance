@@ -21,6 +21,34 @@ class Campaign < ActiveRecord::Base
     end
   end
 
+  def self.most_funded(num = 9, topic = nil)
+    unless topic.nil?
+      self.where(topic_id: Topic.find_by_title(topic).id).order("donation_total DESC").limit(num)
+    else
+      self.order("donation_total DESC").limit(num)
+    end
+  end
+
+  def self.most_successful(num = 9, topic = nil)
+    unless topic.nil?
+      self.where(topic_id: Topic.find_by_title(topic).id).order("donation_total/funding_goal DESC").limit(num)
+    else
+      self.order("donation_total/funding_goal DESC").limit(num)
+    end
+  end
+
+  def self.trending(num = 9, topic = nil)
+    recently_updated = CampaignUser.where("updated_at > ?", 1.week.ago)
+    trending_campaign_users = recently_updated.group_by {|camp| camp.campaign_id }
+    camp_ids = trending_campaign_users.sort {|camp_id, camps| camps.count}.map {|camp| camp = camp[0]}
+    unless topic.nil?
+      Campaign.where(topic_id: Topic.find_by_title(topic).id).where(id: camp_ids).limit(num)
+    else
+      Campaign.where(id: camp_ids).where(status: ACTIVE).limit(num)
+    end
+    
+  end
+
   def separated_time_ago
     seconds = self.funding_deadline - Time.zone.now
     if seconds > 0
