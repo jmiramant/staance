@@ -27,7 +27,7 @@
         #profile-campaign-box
           = image_tag 'http://media.pennlive.com/opinion/photo/pro-choice-art-7d1a5d660ba49784.jpg', id: 'profile-campaign-image'
           #profile-campaign-details
-            = link_to "Campaign Title", "#", id: 'profile-campaign-title'
+            = link_to "Campaign Title", campaign_path(Campaign.find(4)), id: 'profile-campaign-title'
             #profile-campaign-creator
               by
               = link_to "Josh Miramant", "#"
