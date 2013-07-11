@@ -5,7 +5,7 @@
     - if @campaign.creator == current_user
       - button_text = @campaign_show[:button_status]
       #admin-console
-        #admin-title Admin Console
+        #admin-title Your Admin Console
         = link_to button_text, campaigns_toggle_status_path(id: @campaign.id), :method => :put, remote: true, id: "status-button", :class => 'button'
         = link_to "Edit", edit_campaign_path, id: "edit-button", :class => 'button'
     .title

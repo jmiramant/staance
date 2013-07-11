@@ -16,7 +16,6 @@
     #admin-console
       float: right
       padding: 10px
-      border: 1px solid $staance-blue
       text-align: center
       #admin-title
         margin-bottom: 10px
@@ -30,7 +29,6 @@
     .title
       width: 70%
       font-size: 28px
-      white-space: nowrap
       padding-left: 52px
     .campaign_creator
       padding-left: 52px
@@ -71,20 +69,23 @@
     font-size: 15px
     border: none
     #support_link
-      background-color: $staance-blue
+      background-color: $hover-green
       padding: 10px 60px
       border-radius: 2px
       margin-left: 5px
       color: #fff
-      @include transition (all 0.2s ease-in-out )
+      @include transition (all 0.5s ease-in-out )
       &:hover
-        background-color: $hover-green
+        background-color: $background
       &.supported
         color: #fff
-        background-color: $staance-yellow
+        background-color: $pink
         border-radius: 2px
         margin-left: 5px
         padding: 10px 52px
+        @include transition (all 0.5s ease-in-out )
+        &:hover
+          background-color: $background
   .supported_banner
     color: #fff
     background-color: $staance-yellow
@@ -136,7 +137,6 @@
     width: 100%
     background-image: url('facebook-twitter.png')
 
-// ADMIN CONSOLE
 
 
 #status-button
