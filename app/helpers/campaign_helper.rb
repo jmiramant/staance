@@ -13,7 +13,7 @@ module CampaignHelper
     }
   end
 
-  def set_build_session
-    session[:campaign_build] = @campaign.id
-  end
+  # def set_build_session
+  #   session[:campaign_build] = @campaign.id
+  # end
 end
