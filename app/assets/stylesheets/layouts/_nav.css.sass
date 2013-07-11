@@ -25,12 +25,12 @@ nav
       float: right
       font-size: 17px
       height: 53px
-      padding: 13px 14px 0px 11px
+      padding: 15px 14px 0px 11px
       color: $font-on-light
       @include transition (all 0.2s ease-in-out)
       &:hover
         text-decoration: none
-        color: #FF3765
+        color: #acacac
     #sign_up, #login
       width: 108px
       float: right
@@ -38,6 +38,9 @@ nav
       display: inline
       .icon-user, .icon-off
         font-size: 27px
+    #sign_up a:hover
+      padding-top: 14px
+      color: $pink
     #login
       width: 91px
     .logo
@@ -64,6 +67,8 @@ nav
           color: $orange
       &:active
         font-shadow: 1px 1px
+.cam_op
+  opacity: 0.8
 
 .short_nav
   height: 61px
@@ -74,7 +79,8 @@ nav
 .stance_up
   margin: -5px 0 0 81px
 .take_down
-  margin: 7px 0 -8px 27px
+  margin: 4px 0 -8px 27px
+  padding: 0 0 6px 0
 .smr_button
   width: 89px !important
   height: 38px !important
@@ -84,12 +90,12 @@ nav
 #take
   margin-left: 25px
   font-size: 11px
-  color: #acacac
+  color: $pink
   opacity: 0
 #stance
   margin-left: 89px
   font-size: 11px
-  color: #acacac
+  color: $pink
   opacity: 0
 #logo_a
   color: $pink

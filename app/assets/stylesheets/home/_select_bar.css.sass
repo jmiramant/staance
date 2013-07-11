@@ -1,29 +1,30 @@
-.select-bar
-  @include outer-container
-  position: relative
-  margin-top: 40px
-  height: 60px
-  padding-top: 15px
-  border-radius: 10px
+.select-bg
+  width: 100%
   background-color: $staance-dark-gray
+  .select-bar
+    @include outer-container
+    position: relative
+    margin-top: 2px
+    height: 60px
+    padding-top: 15px
+    border-radius: 10px
+    background-color: $staance-dark-gray
 
-  a
-    color: $background-white
-    font-size: 25px
-    padding: 15px 30px
-    margin-right: 76px
-    transition: 0.5s
+    a
+      color: $background-white
+      font-size: 25px
+      padding: 15px 30px
+      margin-right: 76px
+      transition: 0.5s
 
-    &:hover
+      &:hover
+        background-color: $staance-blue
+
+      &:nth-child(1)
+
+      &:nth-child(4)
+        margin: 0 0 0 1px
+
+    a.selected
       background-color: $staance-blue
-
-    &:nth-child(1)
-      border-radius: 10px 0 0 10px
-
-    &:nth-child(4)
-      margin: 0 0 0 1px
-      border-radius: 0 10px 10px 0
-
-  a.selected
-    background-color: $staance-blue
-  
+    

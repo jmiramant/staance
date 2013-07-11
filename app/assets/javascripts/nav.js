@@ -13,6 +13,7 @@ $(document).ready(function() {
     $("#take").animate({ opacity: 0}, 50);
     $("#stance").animate({ opacity: 0}, 50);
     $("#an_a").css('color', '#FF3765');
+    $('#sign_up').scrollTop('0');
 
   });
   $(window).scroll(function(){ 
@@ -20,23 +21,14 @@ $(document).ready(function() {
     $('nav').addClass("short_nav");
     $('.nav-links').addClass("links_up");
     $('#take').addClass("take_down");
-    $('#stance').addClass("stance_up");
-    $('#camp').addClass("be_gone");
-    $('.create-campaign').addClass('smr_button').done(function(){
-      setTimeout(function(){
-        login_form(), 1000
-      };
-    });
+    $('.create-campaign').addClass("cam_op");
   } 
   else{
     $('nav').removeClass("short_nav");
     $('.nav-links').removeClass("links_up");
     $('#take').removeClass("take_down");
     $('#stance').removeClass("stance_up");
-    $('.create-campaign').removeClass('smr_button');
-    $('#camp').removeClass("be_gone");
-      $('#home_log_in').removeClass("hsi_short");
-    $('.sign-in-form').removeClass("sif_short");
+    $('.create-campaign').removeClass('cam_op');
   }
   });
 
