@@ -5,7 +5,7 @@
       = link_to campaign.title, campaign_path(campaign)
       .creator
         by
-        - user = User.find(campaign.creator.id)
+        - user = campaign.creator
         = link_to user.name, user_path(user)
     .stats-1
       .raised #{to_currency(campaign.donation_total)}

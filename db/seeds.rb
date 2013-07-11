@@ -133,7 +133,7 @@ campaign5.video_url = "http://www.youtube.com/watch?v=HIh10_Ik5e8"
 campaign5.funding_deadline = Time.now + 45.days
 campaign5.funding_goal = 1000000
 campaign5.pitch = "LifeNews.com is an independent news agency devoted to reporting news that affects the pro-life community. " #With a team of experienced journalists and bloggers, LifeNews.com reaches more than 750,000 pro-life advocates each week via our web site, email news reports, social networking outreach and weekday radio program. LifeNews.com also acts as a service provider to furnish news content to media that share the pro-life perspective. The topics covered by LifeNews.com include abortion, assisted suicide and euthanasia, bioethics issues such as human cloning and stem cell research, campaigns and elections, and cultural legal and legislative issues as they affect the pro-life community. Formerly the Pro-Life Infonet, LifeNews.com has been harnessing the power of the Internet since 1992 to bring pro-life news to the pro-life community. We’ve developed a reputation for fairness, accuracy and timeliness in our two decades of service. We are not affiliated with any organization, religious group, political party or church denomination."
-campaign5.image_url = "http://lifenews.wpengine.netdna-cdn.com/wp-content/uploads/2013/07/heroicmedia3.png"
+campaign5.image_url = "http://www.designdialog.ca/assets/EEELsized1.jpg"
 campaign5.topic = Topic.find(12)
 campaign5.donation_total = 350000
 campaign5.status = ACTIVE
@@ -203,7 +203,7 @@ campaign8.video_url = "http://www.youtube.com/watch?v=IZNTnxhoU1k"
 campaign8.funding_deadline = 2.weeks.ago
 campaign8.funding_goal = 100000
 campaign8.pitch = "Pitch"
-campaign8.image_url = "http://primoplumbingcorp.com/images/save_water_save_life_by_grfixds.jpg"
+campaign8.image_url = "http://solesofmyboots.files.wordpress.com/2011/11/crowd1.jpg"
 campaign8.topic = Topic.find(4)
 campaign8.donation_total = 75000
 campaign8.status = "Unsuccessful"
@@ -229,7 +229,7 @@ campaign9.video_url = "http://www.youtube.com/watch?v=GJ6ciypGsGw"
 campaign9.funding_deadline = Time.now() + 7.days
 campaign9.funding_goal = 55000
 campaign9.pitch = "Pitch"
-campaign9.image_url = "http://www.syp.org.uk/blog/wp-content/uploads/2012/09/One-Fair-Wage_red-logo.jpg"
+campaign9.image_url = "http://cdn.zmescience.com/wp-content/uploads/2012/11/global-warming2.jpg"
 campaign9.topic = Topic.find(3)
 campaign9.donation_total = 125000
 campaign9.status = "Funded"
@@ -375,6 +375,7 @@ CampaignUser.create(campaign_id: campaign14.id, user_id: janelle.id, user_type: 
 CampaignUser.create(campaign_id: campaign14.id, user_id: kristin.id, user_type: DONOR, donation_amount: 75000)
 CampaignUser.create(campaign_id: campaign14.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
 CampaignUser.create(campaign_id: campaign14.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
+<<<<<<< HEAD
 
 campaign15 = Campaign.new(title: "NO. MORE. TAXES", short_blurb: "Stop Wasting Our Precious Tax Dollars")
 campaign15.location = "New York"
@@ -532,3 +533,5 @@ CampaignUser.create(campaign_id: campaign15.id, user_id: bob.id, user_type: DONO
 # CampaignUser.create(campaign_id: campaign16.id, user_id: kristin.id, user_type: DONOR, donation_amount: 75000)
 # CampaignUser.create(campaign_id: campaign16.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
 # CampaignUser.create(campaign_id: campaign16.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
+=======
+>>>>>>> updated home banner
