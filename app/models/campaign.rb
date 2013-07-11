@@ -66,6 +66,10 @@ class Campaign < ActiveRecord::Base
     CampaignUser.campaign_donors(self.id)
   end
 
+  def creator
+    CampaignUser.campaign_creator(self.id)
+  end
+
   def add_supporter(user)
     CampaignUser.create(campaign_id: self.id, user_id: user.id, :user_type => SUPPORTER)
   end
@@ -81,6 +85,10 @@ class Campaign < ActiveRecord::Base
 
   def schedule_stripe_payment
     ScheduledWorker.perform_at(self.funding_deadline, self.id)
+  end
+
+  def percent_funded
+    ((self.donation_total / self.funding_goal) * 100).to_i
   end
 
   def update_funding_status

@@ -5,17 +5,13 @@
       = link_to campaign.title, campaign_path(campaign)
       .creator
         by
-        -# create campaign.creator method
-        - camp_user = CampaignUser.where(campaign_id: campaign.id).where(user_type: 'Creator')
-        - user = User.find(camp_user[0].user_id)
+        - user = User.find(campaign.creator.id)
         = link_to user.name, user_path(user)
     .stats-1
       .raised #{to_currency(campaign.donation_total)}
-      -# create campaign.percent_funded method
-      - percent = ((campaign.donation_total / campaign.funding_goal) * 100).to_i
-      .percent #{percent}%
+      .percent #{campaign.percent_funded}%
     .bar
-      %span{style: "width: #{percent}%"}
+      %span{style: "width: #{campaign.percent_funded}%"}
     .stats-2
       - time_array = campaign.separated_time_ago
       .time-left

@@ -8,10 +8,15 @@ class CampaignUser < ActiveRecord::Base
   has_many :matchers
 
   def self.campaign_supporters(camp_id)
-    self.where('campaign_id = ? and user_type = ?', camp_id, "Supporter")
+    self.where('campaign_id = ? and user_type = ?', camp_id, SUPPORTER)
   end
 
   def self.campaign_donors(camp_id)
-    self.where('campaign_id = ? and user_type = ?', camp_id, "Donor")
+    self.where('campaign_id = ? and user_type = ?', camp_id, DONOR)
   end
+
+  def self.creator(camp_id)
+    self.where('campaign_id = ? and user_type = ?', camp_id, CREATOR)
+  end
+  
 end
