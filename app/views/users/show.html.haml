@@ -5,7 +5,7 @@
       #user-name= @user.name
       = mail_to @user.email, @user.email, id: 'user-email'
       #user-about
-        I'm passionate about trees.  Like.  I.  Love.  Trees.  I freaking love them.  Their leaves.  Their bark.  Oh so rough.  Man, trees are the best.  If the world had more trees, I would go freaking crazy.  In fact, maybe... we can raise money for trees?  Ya!  Staance is the best!
+        I'm passionate about trees.  Like.  I.  Love.  Trees.  I freaking love them.  Their leaves.  Their bark.  Oh so rough.  Man, trees are the best.  If the world had more trees, I would go freaking crazy.  In fact, maybe... we can raise money for trees?  Ya!  Staance is the best!  Also, I like kittens.
     #user-edit-link
       - if current_user.id == @user.id
         = link_to "Edit", edit_user_registration_path, id: 'user-edit'
