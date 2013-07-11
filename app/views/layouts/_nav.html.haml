@@ -11,8 +11,16 @@
     = link_to new_campaign_path, class: 'create-campaign' do
       CREATE <span id="camp">CAMPAIGN</span>
     - if user_signed_in?
-      = link_to 'LOGOUT', destroy_user_session_path, method: :delete
-      = link_to 'PROFILE', user_path(current_user)
+      #sign_up
+        = link_to destroy_user_session_path, method: :delete do
+          %i.icon-off
+          %br
+          LOGOUT
+      #sign_up
+        = link_to user_path(current_user) do
+          %i.icon-user
+          %br
+          PROFILE
     - else
       #sign_up
         = link_to new_user_registration_path, id: "sign_up_link",remote:true do
