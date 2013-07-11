@@ -7,21 +7,19 @@
     .donation_total
       Raised of
       = to_currency(campaign.funding_goal)
-  .deadline
-    %i.icon-time
-    = campaign.display_deadline
-    -if campaign.before_deadline?
-      .countdown_value
-    -else
-      .c
+    .deadline
+      %i.icon-time
+      = campaign.display_deadline
+  -if campaign.before_deadline?
+    .countdown_value
+    .donate
+      .contribute
+        = form_tag(donate_path, method: "post", remote: true, class: "donate_payment") do
+          = text_field_tag(:donation, nil, placeholder: 'Amount')
+          = hidden_field_tag(:campaign_id, campaign.id)
+          = submit_tag("Donate!", class: 'button')
+      .countdown
+        = campaign.display_countdown
+  -else
+    .passed_deadline
       Deadline Passed
-  .donate
-    .contribute
-      = form_tag(donate_path, method: "post", remote: true, class: "donate_payment") do
-        = text_field_tag(:donation, nil, placeholder: 'Amount')
-        = hidden_field_tag(:campaign_id, campaign.id)
-        = submit_tag("Donate!", class: 'button')
-    .countdown
-      = campaign.display_countdown
-
-
