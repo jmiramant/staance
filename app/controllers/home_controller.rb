@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     @trending = Campaign.trending
     @most_funded = Campaign.most_funded
     @most_successful = Campaign.most_successful
-    @featured = Campaign.where(id: [5, 8, 4])
+    @featured = Campaign.where(id: [5, 8, 14])
     @topics = Topic.all
   end
 
