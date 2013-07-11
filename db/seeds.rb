@@ -153,7 +153,7 @@ campaign6.video_url = "http://www.youtube.com/watch?v=QlMbrZ8EhLQ"
 campaign6.funding_deadline = Time.now + 45.days
 campaign6.funding_goal = 1000000
 campaign6.pitch = "A Pro Choice Student Opinion on Abortion Abortion is a controversial "# ‘hot button’ topic that is on the minds of many politicians, politicos and citizens around the world. There are just as many conflicting opinions and views as there are people debating them, but what the arguments boil down to is: Pro-Life or Pro-Choice? Whatever the circumstances may be, it is in my humble opinion that the decision on abortion should be left up to the mother. I believe that abortion is a right of the mother because taking away the right to have control over your body is unconstitutional. The freedom of choice should be reserved to solely the individual when it comes to his or her body. There are many other self-destructive activities that people engage in everyday at their own consent (e.g. alcohol, drugs, tattoos and piercings) with little or no governmental regulation. Yet these actions are often deemed socially undesirable, harmful and have incorporated risks but they are tolerated by society. On the other hand, it is also the right of the individual to exercise and eat healthy if he or she desires and denying them these practices is an injustice as well. But why should someone have a say in whether or not those actions are morally right or wrong? What is the fascination with abortion? I believe that it should be up to the individual to evaluate her conclusion on the morality of abortion and undergo or prevent only herself but to never disallow another individual of her freedom of choice to have an abortion. It is not the government’s role to place a protocol or quota on abortions. It takes away from the individual liberties the mother has for being an American citizen. Every woman seeking an abortion should have access to one. In fact, there can be many hardships and even death for mothers that are disallowed abortions."
-campaign6.image_url = "http://www.phreshly-squeezed.net/blog/wp-content/uploads/2011/08/where-stand-kenneth-cole-pro-choice.jpg"
+campaign6.image_url = "http://media.pennlive.com/opinion/photo/pro-choice-art-7d1a5d660ba49784.jpg"
 campaign6.topic = Topic.find(12)
 campaign6.donation_total = 400000
 campaign6.status = ACTIVE
@@ -351,4 +351,29 @@ CampaignUser.create(campaign_id: campaign13.id, user_id: kristin.id, user_type: 
 CampaignUser.create(campaign_id: campaign13.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
 CampaignUser.create(campaign_id: campaign13.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
 
+campaign14 = Campaign.new(title: "Allow Tesla to Sell Directly To Consumers", short_blurb: "If Apple Can Sell Through Apple Stores Why Can't Tesla Sell Through Tesla Stores?.")
+campaign14.location = "New York"
+campaign14.cause_url = "http://www.greenpeace.org/usa/en/campaigns/global-warming-and-energy/"
+campaign14.video_url = "http://www.youtube.com/watch?v=m3BFVxb2M9o"
+campaign14.funding_deadline = Time.now() + 30.days
+campaign14.funding_goal = 1000000
+campaign14.pitch = "Car dealers are upset with a car manufacturer willing to do whatever it takes to sell cars. Their problem? The cars don't go through local dealerships, which in some states is against the law.  That company, a certain electric vehicle manufacturer by the name of Tesla, isn't without allies, and has been known to put up a fight. A White House petition, voicing support for Tesla's direct-to-consumer sales, seeks an end to what it says are 'state legislators ... trying to unfairly protect automobile dealers in their states from competition.' Started by 'Ken,' a Tesla fan, the petition supports the company's sales model, which cuts dealers entirely out of the process. According to the petition, 'Tesla is providing competition, which is good for consumers.' Reached for comment by CNet, Ken, who requested to remain anonymous, said he owns some stock in Tesla, but doesn't work for the company. As of this writing, the petition had more than 35,000 signatures of the 100,000 required by July 5 to qualify for a response from the White House. Signatures or no, with regulations in 48 states banning or restricting the direct sales of automobiles, a quick fix may be hard to come by. According to CNBC, local auto dealers consistently are among the largest contributors to state legislators, and often generate a great deal of tax revenue. So the incentive for state-level change, at least on the legislative level, is low at best. Adds Forbes contributor Steve Blank, 'In these states it appears innovation be damned if it gets in the way of a rent seeker with a good lobbyist.' Of course, car dealers have a far different perspective. Bob Glaser, president of the North Carolina Automobile Dealers Association, told The Associated Press local car dealers have a vested interest in bettering their communities, while big car manufacturers do not. It's a consumer protection, explained Glaser, and why we say that is a dealer who has invested a significant amount of capital in a community is more committed to taking care of that area's customers. As the battle between Tesla and auto dealers inevitably heats up, the question may have best been distilled by an unnamed Tesla official, who asks: How do you sell the future if your business depends on the present?"
+campaign14.image_url = "http://images.conceptcarz.com/imgxra/Tesla/2013-Tesla-Model-S_Sedan-Image-014.jpg"
+campaign14.topic = Topic.find(12)
+campaign14.donation_total = 450000
+campaign14.status = "Active"
+campaign14.save
+CampaignUser.create(campaign_id: campaign14.id, user_id: shiv.id, user_type: CREATOR)
+CampaignUser.create(campaign_id: campaign14.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign14.id, user_id: dan.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign14.id, user_id: chris.id, user_type: DONOR, donation_amount: 20)
+CampaignUser.create(campaign_id: campaign14.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign14.id, user_id: eadon.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign14.id, user_id: dan.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign14.id, user_id: chris.id, user_type: SUPPORTER)
+CampaignUser.create(campaign_id: campaign14.id, user_id: andrew.id, user_type: DONOR, donation_amount: 500)
+CampaignUser.create(campaign_id: campaign14.id, user_id: janelle.id, user_type: DONOR, donation_amount: 10000)
+CampaignUser.create(campaign_id: campaign14.id, user_id: kristin.id, user_type: DONOR, donation_amount: 75000)
+CampaignUser.create(campaign_id: campaign14.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
+CampaignUser.create(campaign_id: campaign14.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
 

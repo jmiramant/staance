@@ -1,7 +1,2 @@
-// use @campaign.active? and @campaign.pending? methods in Campaign model
-- if @campaign.status == ACTIVE || @campaign.status == PENDING
-  .video_funding
-    = @campaign_show[:video]
--else
-  .video_completed_funding
-    = @campaign_show[:video]
+.video_funding
+  = @campaign_show[:video]

@@ -10,7 +10,11 @@
   .deadline
     %i.icon-time
     = campaign.display_deadline
-    .countdown_value
+    -if campaign.before_deadline?
+      .countdown_value
+    -else
+      .c
+      Deadline Passed
   .donate
     .contribute
       = form_tag(donate_path, method: "post", remote: true, class: "donate_payment") do
@@ -19,3 +23,5 @@
         = submit_tag("Donate!", class: 'button')
     .countdown
       = campaign.display_countdown
+
+

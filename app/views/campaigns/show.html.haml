@@ -1,14 +1,13 @@
 .campaign
   =render 'campaigns/header'
-.story
+.story{style: "background-color: white"}
   .part_one
     - if @campaign.suspended?
       = render 'unsuccessful_campaign', campaign: @campaign
     - elsif @campaign.funded? && @campaign.after_deadline?
       %h1 Successful!
       = render 'successful_campaign', campaign: @campaign
-    - elsif @campaign.before_deadline?
-      .status_tabs
-        = render 'campaigns/campaign_tab_logic'
+    .status_tabs
+      = render 'campaigns/campaign_tab_logic'
     =render 'campaigns/video'
     =render 'campaigns/pitch'

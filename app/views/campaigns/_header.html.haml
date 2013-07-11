@@ -2,6 +2,12 @@
   .image
     = image_tag @campaign.image_url
   .copy
+    - if @campaign.creator == current_user
+      - button_text = @campaign_show[:button_status]
+      #admin-console
+        #admin-title Admin Console
+        = link_to button_text, campaigns_toggle_status_path(id: @campaign.id), :method => :put, remote: true, id: "status-button", :class => 'button'
+        = link_to "Edit", edit_campaign_path, id: "edit-button", :class => 'button'
     .title
       = @campaign.title
     .campaign_creator
@@ -11,12 +17,6 @@
       = @campaign.location
     .status
       = @campaign.status
-    - if @campaign.creator == current_user
-      - button_text = @campaign_show[:button_status]
-      #admin-console
-        #admin-title Admin Console
-        = link_to button_text, campaigns_toggle_status_path(id: @campaign.id), :method => :put, remote: true, id: "status-button", :class => 'button'
-        = link_to "Edit", edit_campaign_path, id: "edit-button", :class => 'button'
     .blurb
       = @campaign.short_blurb
 

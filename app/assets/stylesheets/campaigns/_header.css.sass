@@ -9,8 +9,25 @@
   .copy
     @include span-columns(7 of 12)
     position: relative
+    #admin-console
+      float: right
+      padding: 10px
+      border: 1px solid $staance-blue
+      text-align: center
+      #admin-title
+        margin-bottom: 10px
+      a
+        display: inline-block
+        background-color: $staance-blue
+      .disabled
+        background-color: $staance-dark-gray
+        cursor: default
+        pointer-events: none
+
     .title
+      width: 70%
       font-size: 28px
+      white-space: normal
     .blurb
       float: none
       margin: 15px auto 20px auto
@@ -100,25 +117,8 @@
 
 // ADMIN CONSOLE
 
-#admin-console
-  position: absolute
-  top: 0
-  right: 0
-  padding: 10px
-  border: 1px solid $staance-blue
-  text-align: center
 
-  a
-    display: inline-block
-    background-color: $staance-blue
 
-  .disabled
-    background-color: $staance-dark-gray
-    cursor: default
-    pointer-events: none
-
-#admin-title
-  margin-bottom: 10px
 
 #status-button
   margin-right: 5px

@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     @trending = trending_filter
     @most_funded = most_funded_filter
     @most_successful = most_successful_filter
-    @featured = Campaign.where(id: [6, 8, 4])
+    @featured = Campaign.where(id: [5, 8, 14])
     @topics = Topic.all
   end
 
