@@ -107,11 +107,11 @@ campaign4.cause_url = "http://startempathy.org/why"
 campaign4.video_url = "http://www.youtube.com/watch?v=8RSVwTJ52uI"
 campaign4.funding_deadline = Time.now + 7.days
 campaign4.funding_goal = 30000
-campaign4.pitch = "The ability " # to understand what someone is feeling, that’s the textbook definition of empathy.  But when put into practice, empathy means a whole lot more.  It means the ability to grasp the many sides of today’s complex problems and the capacity to collaborate with others to solve them. it means being as good at listening to the ideas of others as articulating your own; it means being able to lead a team one day, and participate as a team member the next.  In today’s rapidly changing world, everything that empathy means is critical to our success at home, at school, and in the workplace.  Here you’ll find insights into why we think empathy matters, and we encourage you to share your own, too."
+campaign4.pitch = "The ability " 
 campaign4.image_url = "http://www.chatelaine.com/wp-content/uploads/2012/12/Stop-Bullying-Girls-with-words-written-all-over-bodies-Jan-12-p112.jpg"
 campaign4.topic = Topic.find(2)
 campaign4.donation_total = 5000
-campaign4.status = "Unsuccessful"
+campaign4.status = "Active"
 campaign4.save
 CampaignUser.create(campaign_id: campaign4.id, user_id: shiv.id, user_type: CREATOR)
 CampaignUser.create(campaign_id: campaign4.id, user_id: eadon.id, user_type: DONOR, donation_amount: 900)
@@ -126,13 +126,13 @@ CampaignUser.create(campaign_id: campaign4.id, user_id: janelle.id, user_type: D
 CampaignUser.create(campaign_id: campaign4.id, user_id: kristin.id, user_type: DONOR, donation_amount: 750)
 
 
-campaign5 = Campaign.new(title: "Overturn Roe v. Wade!", short_blurb: "Since life begins at conception, abortion is akin to murder as it is the act of taking human life.")
+campaign5 = Campaign.new(title: "Investing in  a Clean Energy Future", short_blurb: "Clean energy that makes business sense.")
 campaign5.location = "National"
 campaign5.cause_url = "http://www.lifenews.com/"
-campaign5.video_url = "http://www.youtube.com/watch?v=HIh10_Ik5e8"
+campaign5.video_url = "http://www.youtube.com/watch?v=5Be2YnlRIg8"
 campaign5.funding_deadline = Time.now + 45.days
 campaign5.funding_goal = 1000000
-campaign5.pitch = "LifeNews.com is an independent news agency devoted to reporting news that affects the pro-life community. " #With a team of experienced journalists and bloggers, LifeNews.com reaches more than 750,000 pro-life advocates each week via our web site, email news reports, social networking outreach and weekday radio program. LifeNews.com also acts as a service provider to furnish news content to media that share the pro-life perspective. The topics covered by LifeNews.com include abortion, assisted suicide and euthanasia, bioethics issues such as human cloning and stem cell research, campaigns and elections, and cultural legal and legislative issues as they affect the pro-life community. Formerly the Pro-Life Infonet, LifeNews.com has been harnessing the power of the Internet since 1992 to bring pro-life news to the pro-life community. We’ve developed a reputation for fairness, accuracy and timeliness in our two decades of service. We are not affiliated with any organization, religious group, political party or church denomination."
+campaign5.pitch = ""
 campaign5.image_url = "http://www.designdialog.ca/assets/EEELsized1.jpg"
 campaign5.topic = Topic.find(12)
 campaign5.donation_total = 350000
@@ -154,7 +154,7 @@ campaign6.cause_url = "www.naral.org"
 campaign6.video_url = "http://www.youtube.com/watch?v=QlMbrZ8EhLQ"
 campaign6.funding_deadline = Time.now + 45.days
 campaign6.funding_goal = 1000000
-campaign6.pitch = "A Pro Choice Student Opinion on Abortion Abortion is a controversial "# ‘hot button’ topic that is on the minds of many politicians, politicos and citizens around the world. There are just as many conflicting opinions and views as there are people debating them, but what the arguments boil down to is: Pro-Life or Pro-Choice? Whatever the circumstances may be, it is in my humble opinion that the decision on abortion should be left up to the mother. I believe that abortion is a right of the mother because taking away the right to have control over your body is unconstitutional. The freedom of choice should be reserved to solely the individual when it comes to his or her body. There are many other self-destructive activities that people engage in everyday at their own consent (e.g. alcohol, drugs, tattoos and piercings) with little or no governmental regulation. Yet these actions are often deemed socially undesirable, harmful and have incorporated risks but they are tolerated by society. On the other hand, it is also the right of the individual to exercise and eat healthy if he or she desires and denying them these practices is an injustice as well. But why should someone have a say in whether or not those actions are morally right or wrong? What is the fascination with abortion? I believe that it should be up to the individual to evaluate her conclusion on the morality of abortion and undergo or prevent only herself but to never disallow another individual of her freedom of choice to have an abortion. It is not the government’s role to place a protocol or quota on abortions. It takes away from the individual liberties the mother has for being an American citizen. Every woman seeking an abortion should have access to one. In fact, there can be many hardships and even death for mothers that are disallowed abortions."
+campaign6.pitch = "A Pro Choice Student Opinion on Abortion Abortion is a controversial "
 campaign6.image_url = "http://media.pennlive.com/opinion/photo/pro-choice-art-7d1a5d660ba49784.jpg"
 campaign6.topic = Topic.find(12)
 campaign6.donation_total = 400000
@@ -196,17 +196,17 @@ CampaignUser.create(campaign_id: campaign7.id, user_id: kristin.id, user_type: D
 CampaignUser.create(campaign_id: campaign7.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
 CampaignUser.create(campaign_id: campaign7.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
 
-campaign8 = Campaign.new(title: "Save the Water. Save The Planet", short_blurb: "Save our most precious resource")
-campaign8.location = "Arizona"
-campaign8.cause_url = "http://savethewater.org/"
-campaign8.video_url = "http://www.youtube.com/watch?v=IZNTnxhoU1k"
-campaign8.funding_deadline = 2.weeks.ago
-campaign8.funding_goal = 100000
+campaign8 = Campaign.new(title: "Fight for your right", short_blurb: "To Party RIP MCA")
+campaign8.location = "National"
+campaign8.cause_url = ""
+campaign8.video_url = "http://www.youtube.com/watch?v=eBShN8qT4lk"
+campaign8.funding_deadline = Time.now() + 12.days
+campaign8.funding_goal = 10000000
 campaign8.pitch = "Pitch"
 campaign8.image_url = "http://solesofmyboots.files.wordpress.com/2011/11/crowd1.jpg"
 campaign8.topic = Topic.find(4)
 campaign8.donation_total = 75000
-campaign8.status = "Unsuccessful"
+campaign8.status = "Active"
 campaign8.save
 CampaignUser.create(campaign_id: campaign8.id, user_id: shiv.id, user_type: CREATOR)
 CampaignUser.create(campaign_id: campaign8.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)
@@ -222,17 +222,17 @@ CampaignUser.create(campaign_id: campaign8.id, user_id: kristin.id, user_type: D
 CampaignUser.create(campaign_id: campaign8.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
 CampaignUser.create(campaign_id: campaign8.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
 
-campaign9 = Campaign.new(title: "Fair Wages!", short_blurb: "Fair Minimum Wage Act of 2013")
+campaign9 = Campaign.new(title: "Cut Hazardous Air Pollutants", short_blurb: "Air Pollutants Impact Us All")
 campaign9.location = "New York"
-campaign9.cause_url = "http://www.syp.org.uk/blog/wp-content/uploads/2012/09/One-Fair-Wage_red-logo.jpg"
-campaign9.video_url = "http://www.youtube.com/watch?v=GJ6ciypGsGw"
+campaign9.cause_url = "http://www.cleanair.com/Home/partnerships/donate.htm"
+campaign9.video_url = "http://www.youtube.com/watch?v=Aq_RzjmNyL8"
 campaign9.funding_deadline = Time.now() + 7.days
-campaign9.funding_goal = 55000
+campaign9.funding_goal = 750000
 campaign9.pitch = "Pitch"
 campaign9.image_url = "http://cdn.zmescience.com/wp-content/uploads/2012/11/global-warming2.jpg"
 campaign9.topic = Topic.find(3)
 campaign9.donation_total = 125000
-campaign9.status = "Funded"
+campaign9.status = "Active"
 campaign9.save
 CampaignUser.create(campaign_id: campaign9.id, user_id: shiv.id, user_type: CREATOR)
 CampaignUser.create(campaign_id: campaign9.id, user_id: eadon.id, user_type: DONOR, donation_amount: 10000)
