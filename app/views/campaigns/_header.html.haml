@@ -21,10 +21,11 @@
       = @campaign.short_blurb
 
   .user_interaction_summary
-    .social_show_page
-      = render 'shared/campaign/social'
-      = render 'campaigns/support'
+    = render 'shared/campaign/social'
+    = render 'campaigns/support'
     .supporter_count
       = "Supporters(#{@campaign_show[:supporter_count]})"
     .donor_count
       = "Donors(#{@campaign_show[:donor_count]})"
+
+

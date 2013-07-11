@@ -1,11 +1,9 @@
 .campaign
-  @include outer-container
   @import "campaigns/header"
-  margin-bottom: 40px
-  
+  background-color: $background
+  padding-bottom: 70px
 .story
-  background-color: #fff
-  border-top: 2px solid $background
+  background-color: #eee
   .part_one
     @include outer-container
     @import "campaigns/video"
@@ -14,5 +12,7 @@
     @import "campaigns/banner"
     @import "campaigns/pitch"
     width: 100%
-    margin-top: 40px
+    margin: -2px auto
+    background-color: #eee
+
 

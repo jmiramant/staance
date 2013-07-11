@@ -351,7 +351,7 @@ CampaignUser.create(campaign_id: campaign13.id, user_id: kristin.id, user_type: 
 CampaignUser.create(campaign_id: campaign13.id, user_id: lisa.id, user_type: DONOR, donation_amount: 2000)
 CampaignUser.create(campaign_id: campaign13.id, user_id: bob.id, user_type: DONOR, donation_amount: 500)
 
-campaign14 = Campaign.new(title: "Allow Tesla to Sell Directly To Consumers", short_blurb: "If Apple Can Sell Through Apple Stores Why Can't Tesla Sell Through Tesla Stores?.")
+campaign14 = Campaign.new(title: "Allow Tesla to Sell Directly To Consumers", short_blurb: "If Apple Can Sell Through Apple Stores Why Can't Tesla?")
 campaign14.location = "New York"
 campaign14.cause_url = "http://www.greenpeace.org/usa/en/campaigns/global-warming-and-energy/"
 campaign14.video_url = "http://www.youtube.com/watch?v=m3BFVxb2M9o"

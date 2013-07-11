@@ -1,10 +1,10 @@
 .status_tabs
   @include span-columns(5)
   float: right
-  background-color: $staance-blue
+  background-color: #fff
   height: auto
   width: 438px
-  margin-top: 60px
+  margin: 60px 0 0 0 
   padding-bottom: 30px
   box-shadow: $shadow
   border-radius: 5px
@@ -21,48 +21,44 @@
       font-size: 14px
       width: 130px
       text-align: center
-      background-color: $hover-green
-      border-top: 2px solid $green
-      border-right: 2px solid $green
-      border-left: 2px solid $green
+      background-color: #dbdbdb
+      border-top: 2px solid #dbdbdb
+      border-right: 2px solid #dbdbdb
+      border-left: 2px solid #dbdbdb
       border-radius: 4px 4px 0 0
       a
-        color: #fff
+        color: $background
         text-decoration: none
   .fundraise
     margin-top: 30px
     .total
       font-size: 45px
-      color: #fff
+      color: $background
       text-align: center
       padding-top: 30px
       font-weight: 700
     .donation_total
-      color: #fff
+      color: $background
       font-weight: 300
       margin: 12px
       margin: 0 0 0 42px
       font-size: 21px
     .deadline
-      color: white
+      color: $background
       text-align: center
       margin: 31px 49px 17px 49px
       padding: 11px 0
       font-size: 24px
-      border-top: 1px solid
-      border-bottom: 1px solid
+      border-top: 1px solid $background
+      border-bottom: 1px solid $background
       .countdown_value
         font-size: 17px
     #progress_bg, #progress
       height: 40px
-      -moz-box-shadow: 0 1px 1px rgba(0,0,0,.41)
-      -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.41)
-      box-shadow: 0 1px 1px rgba(0,0,0,.41)
-      -webkit-border-radius: 30px
-      -moz-border-radius: 30px
-      border-radius: 4px
     #progress_bg 
       margin: 18px auto 28px auto
+      border: 1px solid #acacac
+      padding-bottom: 40px
       width: 80%
       background: #fff
       #progress
@@ -73,11 +69,11 @@
         display: inline-block
     .countdown_value
       text-align: center
-      color: #fff
+      color: $background
       font-size: 18px
     .passed_deadline
       text-align: center
-      color: #fff
+      color: $background
       font-size: 24px
     .donate
       width: 100%
@@ -85,25 +81,36 @@
       .contribute
         width: 285px
         margin: 0 auto
-        #donation
-          background-color: #fff
+        .dollar_sign
+          width: 10%
           height: 38px
-          color: #545454
+          line-height: 38px
+          background-color: $green
+          text-align: center
+          display: inline-block
+          margin-right: -3px
+          border-radius: 4px 0 0 4px
+        #donation
+          background-color: $background
+          height: 38px
+          color: #fff
           padding-left: 26px
           font-size: 15px
           border: none
-          width: 113px
-          border-radius: 3px
+          width: 55%
+          border-radius: 0px
+          margin-right: -3px
         .button
-          width: 150px
-          margin-left: 19px
+          width: 33%
+          margin-left: 0
+          border-radius: 0px 4px 4px 0px
           cursor: pointer
           background-color: $staance-yellow
           @include transition (all 0.2s ease-in-out )
           &:hover
             background-color:  $hover-pink
-      .countdown
-        display: none
+.countdown
+  display: none
 
 #disqus_thread
   width: 400px
@@ -113,8 +120,7 @@
   background-color: #dbdbdb
   border-radius: 5px
 
-
 .hidden
   display: none
 #active
-  background-color: $staance-blue
+  background-color: #fff

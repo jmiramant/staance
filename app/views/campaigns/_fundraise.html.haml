@@ -15,6 +15,8 @@
     .donate
       .contribute
         = form_tag(donate_path, method: "post", remote: true, class: "donate_payment") do
+          .dollar_sign
+            .icon-usd
           = text_field_tag(:donation, nil, placeholder: 'Amount')
           = hidden_field_tag(:campaign_id, campaign.id)
           = submit_tag("Donate!", class: 'button')
