@@ -1,12 +1,16 @@
-%li{class: klass, 'data-id' => campaign.id}
-  = link_to image_tag(campaign.image_url), campaign.video_url, class: 'fancybox'
-  .campaign-details
+.campaign-snapshot#tester{:'data-id' => campaign.id}
+  #top_color
+  .campaign-details#camp_top
     .text
       = link_to campaign.title, campaign_path(campaign)
       .creator
         by
         - user = campaign.creator
         = link_to user.name, user_path(user)
+  .campaign_img
+    .shadow
+      <li>#{link_to image_tag(campaign.image_url), campaign.video_url, class: 'fancybox'}
+  .campaign-details
     .stats-1
       .raised #{to_currency(campaign.donation_total)}
       .percent #{campaign.percent_funded}%
@@ -21,3 +25,4 @@
       .supporters
         %span #{campaign.supporters.length}
         supporters
+

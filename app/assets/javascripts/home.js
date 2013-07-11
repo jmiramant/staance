@@ -33,7 +33,8 @@ $(document).ready(function() {
     $('.select-bar a').removeClass("selected");
     $(this).addClass("selected");
     var category = $(this).attr('id');
-    var $newItems = $('.' + category + ' li');
+    var $newItems = $('.' + category + ' #tester');
     $('.source').quicksand($newItems);
+    console.log($newItems);
   });
 });

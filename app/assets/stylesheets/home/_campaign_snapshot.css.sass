@@ -2,7 +2,6 @@
   @include outer-container
   margin: 30px auto
   padding-left: 12px
-
   .campaign-snapshot
     width: 345px
     margin: 0 0.5% 20px 0.5%
@@ -12,15 +11,18 @@
     border-radius: 4px
     
     img
-      border-radius: 10px 10px 0 0
-      width: 100%
+      border-radius: 0 !important
       height: 200px
+      width: 129%
+      margin: -39px
 
     .campaign-details
       padding: 3%
 
       .text
         margin-bottom: 20px
+        a
+          color: $background
 
         .name
           font-size: 14px
@@ -35,7 +37,7 @@
         font-size: 14px
         font-weight: 700
         padding-top: 10px
-        border-top: 1px solid $staance-dark-gray
+        border-top: 1px solid #acacac
 
         .raised
           float: left
@@ -56,7 +58,7 @@
           max-width: 100%
           height: 20px
           display: inline-block
-          background-color: $staance-yellow
+          background-color: $green
 
       .stats-2
         font-size: 14px
@@ -71,9 +73,26 @@
 
 .trending, .most-funded, .successes
   display: none
-
+.campaign_img li
+  list-style: none
+  width: 100%
+  overflow: hidden
+  height: 129px
+#camp_top
+  font-size: 22px
+  margin: 8px 0 -13px 0
 #video_left, #video_right
+  position: absolute
   width: 5px
   height: 5px
   background-color: #000
-
+#top_color
+  width: 100%
+  height: 10px
+  background-color: $orange
+  border-radius: 4px 4px 0px 0px
+#camp_top
+  text-align: center
+#campaign-name-stats a:hover
+  text-decoration: none
+  color: $font-on-light
