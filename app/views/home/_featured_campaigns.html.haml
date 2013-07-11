@@ -3,13 +3,14 @@
     #featured-video-image-box
       - @featured.each_with_index do |campaign, index|
         #featured-video-image{class: index}
-          = link_to image_tag(campaign.image_url), campaign.video_url, class: 'fancybox'
+          = link_to image_tag(campaign.image_url), campaign.video_url, class: 'home'
           #shadowlt
           #shadowrt
     #arrow.left
       %i.icon-chevron-left.icon-4x   
     #arrow.right
       %i.icon-chevron-right.icon-4x
+%div{style:"margin-top:2px"}   
   #featured-details-box
     #slider-icons
       %i.icon-circle.0.selected
@@ -19,5 +20,3 @@
       - @featured.each_with_index do |campaign, index|
         #featured-video-details{class: index}
           = render 'home/featured_video_details', {campaign: campaign}
-    
-    
