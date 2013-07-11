@@ -21,15 +21,27 @@
 
   i.disappear
     visibility: hidden
+#shadowlt, #shadowrt
+  width: 275px
+  top: 0px
+  height: 100%
+  position: absolute
+#shadowrt
+  @include linear-gradient(90deg, transparent 40%, #374953)
+  right: 0
+#shadowlt
+  @include linear-gradient(270deg, transparent 40%, #374953)
 
 .left
-  left: 20px
+  left: 80px
 
 .right
-  right: 20px
+  right: 80px
 
 #featured-video-image-box
-  width: 65%
+  width: 100%
+  height: 500px
+  overflow: hidden
   margin: 0 auto
 
 #featured-video-image
@@ -41,8 +53,8 @@
     display: block
 
 .fancybox img
-  width: 100%
-  height: 500px
+  width: 103%
+  margin: -197px 0 0 0
 
 
 #radial-gradient
