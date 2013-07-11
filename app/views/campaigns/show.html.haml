@@ -5,7 +5,6 @@
     - if @campaign.suspended?
       = render 'unsuccessful_campaign', campaign: @campaign
     - elsif @campaign.funded? && @campaign.after_deadline?
-      %h1 Successful!
       = render 'successful_campaign', campaign: @campaign
     .status_tabs
       = render 'campaigns/campaign_tab_logic'
