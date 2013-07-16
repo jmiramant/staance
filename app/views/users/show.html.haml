@@ -5,7 +5,7 @@
       #user-name= @profile_name
       = mail_to @user.email, @user.email, id: 'user-email'
       #user-about
-        I'm passionate about trees.  Like.  I.  Love.  Trees.  I freaking love them.  Their leaves.  Their bark.  Oh so rough.  Man, trees are the best.  If the world had more trees, I would go freaking crazy.  In fact, maybe... we can raise money for trees?  Ya!  Staance is the best!  Also, I like kittens.
+      = @user.about_me
     #user-edit-link
       - if current_user.id == @user.id
         = link_to "Edit", edit_user_registration_path, id: 'user-edit'
@@ -13,10 +13,10 @@
 
 #profile-nav-bar
   #profile-nav-links
-    = link_to "CREATED (5)", "#", class: "profile-nav-link selected"
-    = link_to "PENDING (2)", "#", class: "profile-nav-link"
-    = link_to "DONATED (3)", "#", class: "profile-nav-link"
-    = link_to "SUPPORTED (15)", "#", class: "profile-nav-link"
+    = link_to "CREATED (#{})", "#", class: "profile-nav-link selected"
+    = link_to "PENDING (#{})", "#", class: "profile-nav-link"
+    = link_to "DONATED (#{})", "#", class: "profile-nav-link"
+    = link_to "SUPPORTED (#{})", "#", class: "profile-nav-link"
 
 #profile-nav-underline
 
