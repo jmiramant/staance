@@ -40,9 +40,40 @@ class User < ActiveRecord::Base
     authenticated_networks
   end
 
-  # Shadi moved logic from users_controller --> check that it works
-  # def supported_campaigns
-    # supports = self.campaign_users.where(:user_type => SUPPORTER).pluck("campaign_id")
-    # supports.inject([]) {|campaigns, campaign_id|  campaigns << Campaign.find(campaign_id)} if supports.present?
-  # end
+  def supported_campaigns
+    supports = self.campaign_users.where(user_type: SUPPORTER).pluck("campaign_id")
+    supports.present? ? supports.inject([]) {|campaigns, campaign_id|  campaigns << Campaign.find(campaign_id)} : []
+  end
+
+  def donated_campaigns
+    donated = self.campaign_users.where(user_type: DONOR).pluck("campaign_id")
+    donated.present? ? donated.inject([]) {|campaigns, campaign_id| campaigns << Campaign.find(campaign_id)} : []
+  end
+
+  def pending_campaigns
+    created = self.created_campaigns
+    campaigns = []
+    if created.present?
+      active = created.each do |camp| 
+        campaigns << camp if camp.status == PENDING
+      end
+    end
+    campaigns
+  end
+
+  def active_campaigns
+    created = self.created_campaigns
+    campaigns = []
+    if created.present?
+      active = created.each do |camp| 
+        campaigns << camp if camp.status == ACTIVE
+      end
+    end
+    campaigns
+  end
+
+  def created_campaigns
+    created = self.campaign_users.where(user_type: CREATOR).pluck("campaign_id")
+    created.inject([]) {|campaigns, campaign_id| campaigns << Campaign.find(campaign_id)} if created.present?
+  end
 end

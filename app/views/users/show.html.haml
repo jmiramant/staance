@@ -13,44 +13,15 @@
 
 #profile-nav-bar
   #profile-nav-links
-    = link_to "CREATED (#{})", "#", class: "profile-nav-link selected"
-    = link_to "PENDING (#{})", "#", class: "profile-nav-link"
-    = link_to "DONATED (#{})", "#", class: "profile-nav-link"
-    = link_to "SUPPORTED (#{})", "#", class: "profile-nav-link"
+    = link_to "ACTIVE (#{@active_campaigns.length})", "#", class: "profile-nav-link selected", id: "active"
+    = link_to "PENDING (#{@pending_campaigns.length})", "#", class: "profile-nav-link", id: "pending"
+    = link_to "DONATED (#{@donated_campaigns.length})", "#", class: "profile-nav-link", id: "donated"
+    = link_to "SUPPORTED (#{@supported_campaigns.length})", "#", class: "profile-nav-link", id: "supported"
 
 #profile-nav-underline
 
-#profile-campaigns-container
-  #profile-created-box
-    - 5.times do
-      #profile-campaign-snapshot
-        #profile-campaign-box
-          = image_tag 'http://media.pennlive.com/opinion/photo/pro-choice-art-7d1a5d660ba49784.jpg', id: 'profile-campaign-image'
-          #profile-campaign-details
-            = link_to "Campaign Title", campaign_path(@campaign_example), id: 'profile-campaign-title'
-            #profile-campaign-creator
-              by
-              = link_to "Josh Miramant", "#"
-            #profile-campaign-location San Francisco
-            #profile-campaign-status Active
-          #profile-campaign-stats
-            #profile-campaign-stats-1
-              .raised $8,000
-              .percent 80%
-            #profile-campaign-progress
-              %span{style: "width: 80%"}
-            #profile-campaign-stats-2
-              -time_array = ["30", "days"]
-              .time-left
-                %span #{time_array[0]}
-                -unless time_array[1] == ""
-                  #{time_array[1]} left
-              .supporters
-                %span 50 supporters
-        #profile-more-details-box
-          #profile-more-details
-            = link_to "More Details", "#"
-            %i.icon-caret-down.icon-2x
+.campaign-grid
+  = render 'user_campaigns', {active: @active_campaigns, supported: @supported_campaigns, donated: @donated_campaigns, pending: @pending_campaigns }
             
 
 
