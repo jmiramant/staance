@@ -1,15 +1,15 @@
 .source
   - active.each do |campaign|
     = render 'camp_summary', {klass: 'campaign-snapshot', campaign: campaign}
-.active
+.active_camp
   - active.each do |campaign|
     = render 'camp_summary', {klass: 'campaign-snapshot', campaign: campaign}
-.pending
+.pending_camp
   - pending.each do |campaign|
     = render 'camp_summary', {klass: 'campaign-snapshot', campaign: campaign}
-.supported
+.supported_camp
   - supported.each do |campaign|
     = render 'camp_summary', {klass: 'campaign-snapshot', campaign: campaign}
-.donated
+.donated_camp
   - donated.each do |campaign|
     = render 'camp_summary', {klass: 'campaign-snapshot', campaign: campaign}

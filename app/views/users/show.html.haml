@@ -13,10 +13,10 @@
 
 #profile-nav-bar
   #profile-nav-links
-    = link_to "ACTIVE (#{@active_campaigns.length})", "#", class: "profile-nav-link selected", id: "active"
-    = link_to "PENDING (#{@pending_campaigns.length})", "#", class: "profile-nav-link", id: "pending"
-    = link_to "DONATED (#{@donated_campaigns.length})", "#", class: "profile-nav-link", id: "donated"
-    = link_to "SUPPORTED (#{@supported_campaigns.length})", "#", class: "profile-nav-link", id: "supported"
+    = link_to "ACTIVE (#{@active_campaigns.length})", "#", class: "profile-nav-link selected", id: "active_camp"
+    = link_to "PENDING (#{@pending_campaigns.length})", "#", class: "profile-nav-link", id: "pending_camp"
+    = link_to "DONATED (#{@donated_campaigns.length})", "#", class: "profile-nav-link", id: "donated_camp"
+    = link_to "SUPPORTED (#{@supported_campaigns.length})", "#", class: "profile-nav-link", id: "supported_camp"
 
 #profile-nav-underline
 
