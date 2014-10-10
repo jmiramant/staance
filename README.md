@@ -1,8 +1,6 @@
-Welcome to Grassroots
+Welcome to Staance
 
-A Dev Bootcamp final project created by [Eadon Jacobs](https://github.com/eadonj), [Shiv Kumar](https://github.com/shivpkumar), [Josh Miramant](http://about.me/miramant) and [Lloyd Taylor](https://github.com/netelder)
-
-The Idea
+Created by [Eadon Jacobs](https://github.com/eadonj), [Shiv Kumar](https://github.com/shivpkumar), [Josh Miramant](http://about.me/miramant) and [Lloyd Taylor](https://github.com/netelder)
 
 A crowdfunding platform for political initiative. Create campiagns, grow awarness, raise money, make a difference.
 
